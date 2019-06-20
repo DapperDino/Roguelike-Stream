@@ -39,5 +39,14 @@ namespace Roguelike.Rooms
 
             player.MoveCharacterController(teleportPoint.transform.position + spawnOffset);
         }
+
+        private void OnDrawGizmos()
+        {
+            if (teleportPoint != null)
+            {
+                Gizmos.color = Color.red;
+                Gizmos.DrawLine(transform.position, teleportPoint.transform.position);
+            }
+        }
     }
 }

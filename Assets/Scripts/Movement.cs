@@ -12,11 +12,9 @@ public class Movement : MonoBehaviour
 
     private void Move()
     {
-        Vector3 movementDirection = (new Vector3(
-            Input.GetAxisRaw("Horizontal"),
-            0f,
-            Input.GetAxisRaw("Vertical")))
-            .normalized;
+        Vector3 movementDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
+
+        movementDirection.Normalize();
 
         characterController.Move(movementDirection * movementSpeed * Time.deltaTime);
     }

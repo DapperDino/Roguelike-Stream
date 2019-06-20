@@ -636,6 +636,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2199249389886745140, guid: 60318ee8d74ade34a8712d880bc1ea97,
         type: 3}
+    - target: {fileID: 2199249389886745140, guid: 60318ee8d74ade34a8712d880bc1ea97,
+        type: 3}
+      propertyPath: levelSpawnSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: b2edf32f275d857478df48d024eaae27,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60318ee8d74ade34a8712d880bc1ea97, type: 3}
 --- !u!1001 &3646956633101739904
