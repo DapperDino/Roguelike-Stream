@@ -120,6 +120,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &631172105 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 631172105, guid: 35a44c4a1fd571641b439d756a31d19b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3646956633101739904}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &631172106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631172105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1762970eb792d4f4cb268d4a4a486032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,6 +726,38 @@ PrefabInstance:
     - target: {fileID: 3646956632819321619, guid: 35a44c4a1fd571641b439d756a31d19b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600601795, guid: 35a44c4a1fd571641b439d756a31d19b, type: 3}
+      propertyPath: planeDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 631172106, guid: 35a44c4a1fd571641b439d756a31d19b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 631172106, guid: 35a44c4a1fd571641b439d756a31d19b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 631172106, guid: 35a44c4a1fd571641b439d756a31d19b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 631172106, guid: 35a44c4a1fd571641b439d756a31d19b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 631172106, guid: 35a44c4a1fd571641b439d756a31d19b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 631172106, guid: 35a44c4a1fd571641b439d756a31d19b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 631172106, guid: 35a44c4a1fd571641b439d756a31d19b, type: 3}
+      propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

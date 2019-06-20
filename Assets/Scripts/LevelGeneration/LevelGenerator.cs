@@ -90,6 +90,12 @@ namespace Roguelike.LevelGeneration
             {
                 TeleportPoint teleportPoint = teleportPoints[Random.Range(0, teleportPoints.Count)];
 
+                if (teleportPoint.IsLinked)
+                {
+                    teleportPoints.Remove(teleportPoint);
+                    continue;
+                }
+
                 Room roomInstance = Instantiate(levelSpawnSettings.RandomDeadEndRoom, transform);
                 roomInstance.transform.Translate(new Vector3(roomCount * RoomOffset, 0f, 0f));
                 roomCount++;

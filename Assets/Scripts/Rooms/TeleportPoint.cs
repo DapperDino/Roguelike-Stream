@@ -7,12 +7,22 @@ namespace Roguelike.Rooms
     public class TeleportPoint : MonoBehaviour
     {
         [SerializeField] private Vector3 spawnOffset = new Vector3(0f, 0.5f, 0f);
+
         private TeleportPoint linkedPoint = null;
+        private Room myRoom = null;
 
         public bool IsLinked => linkedPoint != null;
-        public Room Room { get; private set; } = null;
-
-        private void Start() => Room = GetComponentInParent<Room>();
+        public Room Room
+        {
+            get
+            {
+                if (myRoom == null)
+                {
+                    myRoom = GetComponentInParent<Room>();
+                }
+                return myRoom;
+            }
+        }
 
         public void Link(Room room)
         {
@@ -20,7 +30,7 @@ namespace Roguelike.Rooms
             {
                 if (!teleportPoint.IsLinked)
                 {
-                    linkedPoint = teleportPoint;
+                    Link(teleportPoint);
                     teleportPoint.Link(this);
                     return;
                 }
