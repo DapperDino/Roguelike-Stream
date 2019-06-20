@@ -634,8 +634,7 @@ PrefabInstance:
         type: 3}
       propertyPath: serializationData.Prefab
       value: 
-      objectReference: {fileID: 2199249389886745140, guid: 60318ee8d74ade34a8712d880bc1ea97,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 2199249389886745140, guid: 60318ee8d74ade34a8712d880bc1ea97,
         type: 3}
       propertyPath: levelSpawnSettings

@@ -17,6 +17,8 @@ namespace Roguelike.LevelGeneration
         [SerializeField] private List<Room> deadEndRooms = new List<Room>();
         [SerializeField] private List<PriorityRoomData> priorityRooms = new List<PriorityRoomData>();
 
+        public int MinRoomCount => minRoomCount;
+        public int MaxRoomCount => maxRoomCount;
         public int RoomCount
         {
             get
@@ -33,21 +35,21 @@ namespace Roguelike.LevelGeneration
         public Room RandomSpawnRoom => spawnRooms[Random.Range(0, spawnRooms.Count)];
         public Room RandomMultiLinkRoom => multiLinkRooms[Random.Range(0, multiLinkRooms.Count)];
         public Room RandomDeadEndRoom => deadEndRooms[Random.Range(0, deadEndRooms.Count)];
-        public List<Room> RequiredRooms
+        public List<PriorityRoomData> RequiredRooms
         {
             get
             {
-                List<Room> rooms = new List<Room>();
+                List<PriorityRoomData> priorityRoomData = new List<PriorityRoomData>();
 
                 foreach (PriorityRoomData priorityRoom in priorityRooms)
                 {
                     if (priorityRoom.Roll())
                     {
-                        rooms.Add(priorityRoom.RandomRoom);
+                        priorityRoomData.Add(priorityRoom);
                     }
                 }
 
-                return rooms;
+                return priorityRoomData;
             }
         }
     }

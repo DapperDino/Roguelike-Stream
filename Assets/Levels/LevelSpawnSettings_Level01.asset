@@ -19,6 +19,11 @@ MonoBehaviour:
   multiLinkRooms:
   - {fileID: 3460351943952093271, guid: f001eb85e06f0a646b6bcba32ea6f1de, type: 3}
   - {fileID: 3460351943952093271, guid: 65bdcedadc9f2a5409970564adbe4e11, type: 3}
+  - {fileID: 3460351943952093271, guid: 3574606e53593944483d1a86acba670d, type: 3}
   deadEndRooms:
   - {fileID: 3460351943952093271, guid: cbfc56280006ca1439f8889a68821a14, type: 3}
-  priorityRooms: []
+  priorityRooms:
+  - chance: 1
+    minRoomPercentageBeforeSpawn: 0.3
+    rooms:
+    - {fileID: 3460351943952093271, guid: 28b8ab36618c3324cb0ff12fc543eda2, type: 3}

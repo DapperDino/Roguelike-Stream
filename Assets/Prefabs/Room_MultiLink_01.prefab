@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9214448871169033490}
   - component: {fileID: 3460351943952093271}
   m_Layer: 0
-  m_Name: Room_02
+  m_Name: Room_MultiLink_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad446cceb4ce8f408372695f3ea7c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomType: {fileID: 11400000, guid: 0e1bcee6d34b69a4c8f8188857365434, type: 2}
   teleportPoints:
   - {fileID: 3729611154478549307}
   - {fileID: 1997182408019841484}

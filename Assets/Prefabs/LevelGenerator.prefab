@@ -46,47 +46,12 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 9214448871169033491, guid: 28b8ab36618c3324cb0ff12fc543eda2, type: 3}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: requiredRooms
-      Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject,
-        UnityEngine.CoreModule]], mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 10
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  minRooms: 10
-  maxRooms: 20
-  spawnRooms:
-  - {fileID: 3295125380944645217, guid: abf6087f0b320e64890db76faee79fb0, type: 3}
-  rooms:
-  - {fileID: 9214448871169033491, guid: cbfc56280006ca1439f8889a68821a14, type: 3}
-  - {fileID: 9214448871169033491, guid: f001eb85e06f0a646b6bcba32ea6f1de, type: 3}
-  - {fileID: 9214448871169033491, guid: 65bdcedadc9f2a5409970564adbe4e11, type: 3}
+    SerializationNodes: []
+  levelSpawnSettings: {fileID: 0}
+  requiredRoomChance: 0.15
+  chanceOfEarlyDeadEnd: 0.65

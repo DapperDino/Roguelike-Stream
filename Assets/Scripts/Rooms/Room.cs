@@ -1,11 +1,14 @@
-﻿using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace Roguelike.Rooms
 {
     public class Room : MonoBehaviour
     {
+        [Required] [SerializeField] private RoomType roomType = null;
         [SerializeField] private TeleportPoint[] teleportPoints = new TeleportPoint[0];
 
-        public TeleportPoint[] TeleportPoints { get { return teleportPoints; } }
+        public RoomType RoomType => roomType;
+        public TeleportPoint[] TeleportPoints => teleportPoints;
     }
 }
