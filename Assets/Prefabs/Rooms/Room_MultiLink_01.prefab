@@ -67,7 +67,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &9214448871195097494
 Transform:
@@ -152,6 +152,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TeleportPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209855523494063489, guid: b9952c41d703bd844a08411442aa2c7b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8209855523494063494, guid: b9952c41d703bd844a08411442aa2c7b,
         type: 3}
@@ -239,6 +244,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TeleportPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209855523494063489, guid: b9952c41d703bd844a08411442aa2c7b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8209855523494063494, guid: b9952c41d703bd844a08411442aa2c7b,
         type: 3}

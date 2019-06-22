@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using Roguelike.LevelGeneration;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Roguelike.Rooms
@@ -10,5 +11,8 @@ namespace Roguelike.Rooms
 
         public RoomType RoomType => roomType;
         public TeleportPoint[] TeleportPoints => teleportPoints;
+        public LevelSettings LevelSettings { get; private set; } = null;
+
+        public void Initialise(LevelSettings levelSettings) => LevelSettings = levelSettings;
     }
 }

@@ -7,7 +7,7 @@ namespace Roguelike.LevelGeneration
 {
     public class LevelGenerator : SerializedMonoBehaviour
     {
-        [Required] [SerializeField] private LevelSpawnSettings levelSpawnSettings = null;
+        [Required] [SerializeField] private LevelSettings levelSettings = null;
         [SerializeField] private float requiredRoomChance = 0.15f;
         [SerializeField] private float chanceOfEarlyDeadEnd = 0.6f;
 
@@ -20,7 +20,7 @@ namespace Roguelike.LevelGeneration
         private void GenerateLevel()
         {
             int roomCount = 1;
-            int desiredRoomCount = levelSpawnSettings.RoomCount;
+            int desiredRoomCount = levelSettings.RoomCount;
             List<TeleportPoint> teleportPoints = new List<TeleportPoint>();
 
             foreach (Transform child in transform)
@@ -28,14 +28,14 @@ namespace Roguelike.LevelGeneration
                 Destroy(child.gameObject);
             }
 
-            Room spawnRoom = Instantiate(levelSpawnSettings.RandomSpawnRoom, transform);
+            Room spawnRoom = SpawnRoom(levelSettings.RandomSpawnRoom);
             teleportPoints.AddRange(spawnRoom.TeleportPoints);
 
-            List<PriorityRoomData> requiredRoomData = levelSpawnSettings.RequiredRooms;
+            List<PriorityRoomData> requiredRoomData = levelSettings.RequiredRooms;
 
             while ((teleportPoints.Count > 0 && roomCount < desiredRoomCount) || requiredRoomData.Count > 0)
             {
-                if(teleportPoints.Count == 0)
+                if (teleportPoints.Count == 0)
                 {
                     GenerateLevel();
                     return;
@@ -57,10 +57,10 @@ namespace Roguelike.LevelGeneration
                     {
                         PriorityRoomData roomData = requiredRoomData[Random.Range(0, requiredRoomData.Count)];
 
-                        if(roomData.MinRoomPercentageBeforeSpawn <= roomCount / desiredRoomCount)
+                        if (roomData.MinRoomPercentageBeforeSpawn <= roomCount / desiredRoomCount)
                         {
                             Room requiredRoom = roomData.RandomRoom;
-                            roomInstance = Instantiate(requiredRoom, transform);
+                            roomInstance = SpawnRoom(requiredRoom);
                             requiredRoomData.Remove(roomData);
                         }
                     }
@@ -70,11 +70,11 @@ namespace Roguelike.LevelGeneration
                 {
                     if (Random.Range(0f, 1f) <= chanceOfEarlyDeadEnd)
                     {
-                        roomInstance = Instantiate(levelSpawnSettings.RandomDeadEndRoom, transform);
+                        roomInstance = SpawnRoom(levelSettings.RandomDeadEndRoom);
                     }
                     else
                     {
-                        roomInstance = Instantiate(levelSpawnSettings.RandomMultiLinkRoom, transform);
+                        roomInstance = SpawnRoom(levelSettings.RandomMultiLinkRoom);
                     }
                 }
 
@@ -96,7 +96,7 @@ namespace Roguelike.LevelGeneration
                     continue;
                 }
 
-                Room roomInstance = Instantiate(levelSpawnSettings.RandomDeadEndRoom, transform);
+                Room roomInstance = SpawnRoom(levelSettings.RandomDeadEndRoom);
                 roomInstance.transform.Translate(new Vector3(roomCount * RoomOffset, 0f, 0f));
                 roomCount++;
 
@@ -105,11 +105,20 @@ namespace Roguelike.LevelGeneration
                 teleportPoints.Remove(teleportPoint);
             }
 
-            if (roomCount < levelSpawnSettings.MinRoomCount)
+            if (roomCount < levelSettings.MinRoomCount)
             {
                 GenerateLevel();
                 return;
             }
+        }
+
+        private Room SpawnRoom(Room room)
+        {
+            Room roomInstance = Instantiate(room, transform);
+
+            roomInstance.Initialise(levelSettings);
+
+            return roomInstance;
         }
     }
 }

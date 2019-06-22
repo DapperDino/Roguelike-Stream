@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3295125380750831844
 Transform:
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 3295125380944645216}
   - component: {fileID: 297725561377734763}
   m_Layer: 0
-  m_Name: Room_Spawn
+  m_Name: Room_Spawn_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f453ea714cbb8c1488102284e34fc86e, type: 3}
+  m_Name: Item_Weapon_Gun04
+  m_EditorClassIdentifier: 
+  name: Gun04
+  description: New Item Description
+  quality: {fileID: 11400000, guid: 75098a3f6f384824b98b3663a9d12f27, type: 2}
+  icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  model: {fileID: 6234431026700733471, guid: 57fe6c48d2a8df14b8b279a7d4a7d898, type: 3}
+  weaponLogic: {fileID: 1120675737782391486, guid: a633d82debcc76745937d49499e0b09a,
+    type: 3}

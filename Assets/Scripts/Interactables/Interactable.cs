@@ -4,7 +4,7 @@ namespace Roguelike.Interactables
 {
     public abstract class Interactable : MonoBehaviour
     {
-        private static Interactable currentInteractable;
+        private static Interactable currentInteractable = null;
 
         private void Update()
         {
@@ -22,6 +22,7 @@ namespace Roguelike.Interactables
             if (currentInteractable == null)
             {
                 currentInteractable = this;
+                Enter();
             }
         }
 
@@ -30,11 +31,12 @@ namespace Roguelike.Interactables
             if (currentInteractable == this)
             {
                 currentInteractable = null;
+                Exit();
             }
         }
 
-        protected abstract void EnterInteractable();
+        protected abstract void Enter();
         protected abstract void Interact();
-        protected abstract void ExitInteractable();
+        protected abstract void Exit();
     }
 }

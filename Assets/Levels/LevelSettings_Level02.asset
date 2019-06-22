@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 770f83ab662096a409e63db38963d3bc, type: 3}
-  m_Name: LevelSpawnSettings_Level01
+  m_Name: LevelSettings_Level02
   m_EditorClassIdentifier: 
   minRoomCount: 15
   maxRoomCount: 20
@@ -27,3 +27,15 @@ MonoBehaviour:
     minRoomPercentageBeforeSpawn: 0.3
     rooms:
     - {fileID: 3460351943952093271, guid: 28b8ab36618c3324cb0ff12fc543eda2, type: 3}
+  qualityHandler:
+    qualityChances:
+    - quality: {fileID: 11400000, guid: 5abb18b7063dfa84883f680800d33861, type: 2}
+      chance: 100
+    - quality: {fileID: 11400000, guid: 97a6f4e903aa45044bdc7c7bf7bf08c9, type: 2}
+      chance: 0
+    - quality: {fileID: 11400000, guid: 904590b646e826d4fa7453aa4dd979e0, type: 2}
+      chance: 0
+    - quality: {fileID: 11400000, guid: 810547607f3d0e84d842c2418ce033c7, type: 2}
+      chance: 0
+    - quality: {fileID: 11400000, guid: 75098a3f6f384824b98b3663a9d12f27, type: 2}
+      chance: 0

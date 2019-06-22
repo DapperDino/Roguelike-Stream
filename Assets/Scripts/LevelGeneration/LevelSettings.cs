@@ -1,12 +1,13 @@
-﻿using Roguelike.Rooms;
+﻿using Roguelike.Items;
+using Roguelike.Rooms;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Roguelike.LevelGeneration
 {
-    [CreateAssetMenu(fileName = "New Level Spawn Settings", menuName = "Level Generation/Level Spawn Settings")]
-    public class LevelSpawnSettings : ScriptableObject
+    [CreateAssetMenu(fileName = "New Level Settings", menuName = "Level Generation/Level Settings")]
+    public class LevelSettings : ScriptableObject
     {
         [SerializeField] [MinValue(0)] private int minRoomCount = 15;
         [SerializeField] private int maxRoomCount = 20;
@@ -16,6 +17,9 @@ namespace Roguelike.LevelGeneration
         [SerializeField] private List<Room> multiLinkRooms = new List<Room>();
         [SerializeField] private List<Room> deadEndRooms = new List<Room>();
         [SerializeField] private List<PriorityRoomData> priorityRooms = new List<PriorityRoomData>();
+
+        [Header("Qualities")]
+        [SerializeField] private QualityHandler qualityHandler = null;
 
         public int MinRoomCount => minRoomCount;
         public int MaxRoomCount => maxRoomCount;
@@ -52,5 +56,6 @@ namespace Roguelike.LevelGeneration
                 return priorityRoomData;
             }
         }
+        public QualityHandler QualityHandler => qualityHandler;
     }
 }
