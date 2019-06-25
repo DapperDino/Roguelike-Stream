@@ -33,18 +33,7 @@ namespace Roguelike.Weapons
 
         private void Update()
         {
-            HandleFiring();
             HandleWeaponSwitching();
-        }
-
-        private void HandleFiring()
-        {
-            if (CurrentWeapon == null) { return; }
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                CurrentWeapon.WeaponLogic.Fire();
-            }
         }
 
         private void HandleWeaponSwitching()

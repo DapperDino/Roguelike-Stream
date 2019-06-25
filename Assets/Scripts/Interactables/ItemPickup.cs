@@ -24,7 +24,7 @@ namespace Roguelike.Interactables
         {
             if (inventory.AddItem(item))
             {
-                Destroy(gameObject);
+                Destroy(gameObject);              
             }
         }
 

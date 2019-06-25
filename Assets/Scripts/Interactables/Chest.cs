@@ -11,7 +11,6 @@ namespace Roguelike.Interactables
         [Required] [SerializeField] private GameObject itemPickup = null;
         [SerializeField] private Vector3 itemSpawnOffset = new Vector3(0f, 1f, 1f);
 
-        private bool isOpen = false;
         private Item item = null;
 
         private void Start()
@@ -32,8 +31,6 @@ namespace Roguelike.Interactables
 
         protected override void Interact()
         {
-            if (isOpen) { return; }
-
             GameObject itemPickupInstance = Instantiate(
                 itemPickup,
                 transform.position + transform.TransformDirection(itemSpawnOffset),
@@ -41,7 +38,7 @@ namespace Roguelike.Interactables
 
             itemPickupInstance.GetComponent<ItemPickup>().Initialise(item);
 
-            isOpen = true;
+            Destroy(this);
         }
 
         protected override void Exit()

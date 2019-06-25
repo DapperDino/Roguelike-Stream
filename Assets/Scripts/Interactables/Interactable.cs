@@ -19,14 +19,25 @@ namespace Roguelike.Interactables
 
         private void OnTriggerEnter(Collider other)
         {
-            if (currentInteractable == null)
+            if (currentInteractable != null)
             {
-                currentInteractable = this;
-                Enter();
+                currentInteractable.Exit();
             }
+
+            currentInteractable = this;
+            Enter();
         }
 
         private void OnTriggerExit(Collider other)
+        {
+            if (currentInteractable == this)
+            {
+                currentInteractable = null;
+                Exit();
+            }
+        }
+
+        private void OnDisable()
         {
             if (currentInteractable == this)
             {

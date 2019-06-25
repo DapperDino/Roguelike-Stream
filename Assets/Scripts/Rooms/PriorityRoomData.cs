@@ -8,6 +8,8 @@ namespace Roguelike.Rooms
     {
         [SerializeField] [Range(0f, 1f)] private float chance = 1f;
         [SerializeField] [Range(0f, 1f)] private float minRoomPercentageBeforeSpawn = 0;
+        [SerializeField] [Min(1)] private int minQuantity = 1;
+        [SerializeField] private int maxQuantity = 1;
         [SerializeField] private List<Room> rooms = new List<Room>();
 
         public float MinRoomPercentageBeforeSpawn => minRoomPercentageBeforeSpawn;

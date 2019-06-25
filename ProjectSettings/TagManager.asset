@@ -15,9 +15,9 @@ TagManager:
   - 
   - Player
   - PlayerInteraction
-  - 
-  - 
-  - 
+  - PlayerProjectile
+  - EnemyProjectile
+  - Enemy
   - 
   - 
   - 
