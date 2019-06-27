@@ -12,11 +12,13 @@ GameObject:
   - component: {fileID: 6247178235621944466}
   - component: {fileID: 6247178235621944467}
   - component: {fileID: 6247178235621944464}
-  - component: {fileID: 6247178235621944468}
-  - component: {fileID: 7435415359862425013}
-  - component: {fileID: -2525483630091393717}
+  - component: {fileID: 6277731296908287084}
+  - component: {fileID: -7609709692119841876}
+  - component: {fileID: 8710224310395203152}
+  - component: {fileID: -5146345273251979102}
+  - component: {fileID: 7208994849314554805}
   m_Layer: 10
-  m_Name: Projectile_Weapon_Pistol
+  m_Name: Projectile_Weapon_GrenadeLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 6247178235621944465}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -88,13 +90,29 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6247178235621944465}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_Material: {fileID: 13400000, guid: 158703173bf20a446942eb59a34e1306, type: 2}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6247178235621944468
+--- !u!54 &6277731296908287084
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6247178235621944465}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &-7609709692119841876
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,11 +121,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 6247178235621944465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0d8e047230117240a314bfb026e4d65, type: 3}
+  m_Script: {fileID: 11500000, guid: 70b3b2c384632734e85cbcaee4aa8e07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
---- !u!114 &7435415359862425013
+  onCollision:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8710224310395203152}
+        m_MethodName: DetonateEarly
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Roguelike.Events.UnityEvents.UnityTransformEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 4096
+--- !u!114 &8710224310395203152
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,11 +152,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 6247178235621944465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c6dd5b185c0ede499330138f07b2c5e, type: 3}
+  m_Script: {fileID: 11500000, guid: b5071947a92afed4ab738e8d59f083b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: {x: 0, y: 0, z: 0}
---- !u!114 &-2525483630091393717
+  lifetime: 2
+  detonateOnDestory: 1
+  onDetonation:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7208994849314554805}
+        m_MethodName: Trigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -5146345273251979102}
+        m_MethodName: DealDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &-5146345273251979102
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,6 +193,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 6247178235621944465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7c56e2c1af43c44a838b623eee6d428, type: 3}
+  m_Script: {fileID: 11500000, guid: 08eef095d610aee4fbfb4d8d79e1593f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 25
+  radius: 2
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 4096
+--- !u!114 &7208994849314554805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6247178235621944465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2808ab2a461d134d857aca8611c88d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

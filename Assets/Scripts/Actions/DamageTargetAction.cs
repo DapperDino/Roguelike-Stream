@@ -1,13 +1,13 @@
 ﻿using Roguelike.Combat;
 using UnityEngine;
 
-namespace Roguelike.OnContact
+namespace Roguelike.Actions
 {
-    public class DealDamageOnContact : MonoBehaviour
+    public class DamageTargetAction : MonoBehaviour
     {
         [SerializeField] private int damageAmount = 1;
 
-        private void OnTriggerEnter(Collider other)
+        public void DealDamage(Transform other)
         {
             IDamageable damageable = other.GetComponent<IDamageable>();
 

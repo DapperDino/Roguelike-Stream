@@ -34,9 +34,9 @@ MonoBehaviour:
     - quality: {fileID: 11400000, guid: 97a6f4e903aa45044bdc7c7bf7bf08c9, type: 2}
       chance: 0
     - quality: {fileID: 11400000, guid: 904590b646e826d4fa7453aa4dd979e0, type: 2}
-      chance: 0
-    - quality: {fileID: 11400000, guid: 810547607f3d0e84d842c2418ce033c7, type: 2}
       chance: 100
+    - quality: {fileID: 11400000, guid: 810547607f3d0e84d842c2418ce033c7, type: 2}
+      chance: 0
     - quality: {fileID: 11400000, guid: 75098a3f6f384824b98b3663a9d12f27, type: 2}
       chance: 0
     - quality: {fileID: 11400000, guid: 5abb18b7063dfa84883f680800d33861, type: 2}

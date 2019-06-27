@@ -12,13 +12,15 @@ GameObject:
   - component: {fileID: 6247178235621944466}
   - component: {fileID: 6247178235621944467}
   - component: {fileID: 6247178235621944464}
-  - component: {fileID: 6277731296908287084}
+  - component: {fileID: 339583399801706124}
+  - component: {fileID: 7435415359862425013}
   - component: {fileID: 5489063212906866750}
   - component: {fileID: 8710224310395203152}
-  - component: {fileID: 5664699010351107957}
+  - component: {fileID: -5474430265797761864}
+  - component: {fileID: 457211767891210716}
   - component: {fileID: 6174388952932084369}
   m_Layer: 10
-  m_Name: Projectile_Weapon_Pistol
+  m_Name: Projectile_Weapon_GuidedMissileLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,7 +98,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &6277731296908287084
+--- !u!54 &339583399801706124
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,6 +114,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7435415359862425013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6247178235621944465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c6dd5b185c0ede499330138f07b2c5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetSpeed: 2
+  smoothing: 0.01
 --- !u!114 &5489063212906866750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,19 +143,8 @@ MonoBehaviour:
   onTrigger:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5664699010351107957}
-        m_MethodName: DealDamage
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6174388952932084369}
-        m_MethodName: Trigger
+      - m_Target: {fileID: 8710224310395203152}
+        m_MethodName: DetonateEarly
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -184,7 +189,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &5664699010351107957
+--- !u!114 &-5474430265797761864
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,10 +198,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 6247178235621944465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0d8e047230117240a314bfb026e4d65, type: 3}
+  m_Script: {fileID: 11500000, guid: b5071947a92afed4ab738e8d59f083b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
+  lifetime: 1
+  detonateOnDestory: 0
+  onDetonation:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7435415359862425013}
+        m_MethodName: SetSpeed
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 15
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &457211767891210716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6247178235621944465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eef095d610aee4fbfb4d8d79e1593f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 30
+  radius: 1.5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!114 &6174388952932084369
 MonoBehaviour:
   m_ObjectHideFlags: 0

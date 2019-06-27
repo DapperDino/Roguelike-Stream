@@ -14,6 +14,7 @@ namespace Roguelike.Combat
         public override void OnDeath()
         {
             onDeath?.Invoke();
+            Destroy(gameObject);
         }
     }
 }

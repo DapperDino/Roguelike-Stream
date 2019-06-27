@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6234431026700733536}
   - component: {fileID: 6234431026700733539}
   - component: {fileID: 6234431026700733538}
-  m_Layer: 0
-  m_Name: Model_Gun01
+  m_Layer: 8
+  m_Name: Model_Weapon_Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

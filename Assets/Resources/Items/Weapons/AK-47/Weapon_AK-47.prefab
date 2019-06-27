@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 310963705722276580}
   - component: {fileID: 8834525594095812705}
   - component: {fileID: 8705329930137812367}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Weapon_AK-47
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxAmmo: 200
+  clipSize: 20
+  reloadDuration: 1.5
   fireRate: 5
   onFire:
     m_PersistentCalls:
@@ -75,6 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b9a7c0a77af7e46b507beed2b6aca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spread: 20
   projectile: {fileID: 6247178235621944465, guid: 94ac0540b4d98694dbd763e09ebd5d7a,
     type: 3}
   projectileSpawnPoint: {fileID: 310963705722276580}
@@ -90,6 +93,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Gun01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234431026700733471, guid: 38a711e9232f55945a811f2e7f8b1fa4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6234431026700733536, guid: 38a711e9232f55945a811f2e7f8b1fa4,
         type: 3}

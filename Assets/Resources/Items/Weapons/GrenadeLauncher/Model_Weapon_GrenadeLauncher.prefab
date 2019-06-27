@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6234431026700733539}
   - component: {fileID: 6234431026700733538}
   m_Layer: 8
-  m_Name: Model_Weapon_AK-47
+  m_Name: Model_Weapon_GrenadeLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

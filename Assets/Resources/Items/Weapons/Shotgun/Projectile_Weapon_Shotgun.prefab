@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 5664699010351107957}
   - component: {fileID: 6174388952932084369}
   m_Layer: 10
-  m_Name: Projectile_Weapon_Pistol
+  m_Name: Projectile_Weapon_Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 6247178235621944465}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d8e047230117240a314bfb026e4d65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
+  damageAmount: 8
 --- !u!114 &6174388952932084369
 MonoBehaviour:
   m_ObjectHideFlags: 0

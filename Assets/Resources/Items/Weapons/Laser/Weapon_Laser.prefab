@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 310963705722276580}
   - component: {fileID: 3397727126219974443}
   - component: {fileID: 5699763142319819469}
-  m_Layer: 0
+  - component: {fileID: -3330700881949369041}
+  m_Layer: 8
   m_Name: Weapon_Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,12 +47,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxAmmo: 300
+  clipSize: 50
+  reloadDuration: 1
   fireRate: 10
   onFire:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5699763142319819469}
-        m_MethodName: Fire
+        m_MethodName: Trigger
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -63,7 +66,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  requiredWindUpTime: 2
+  requiredWindUpTime: 1.5
   onStartBeaming:
     m_PersistentCalls:
       m_Calls: []
@@ -86,8 +89,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fe2d1650cdceb34ca86c0fd2d1fa06a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 5
   range: 5
+  onHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -3330700881949369041}
+        m_MethodName: DealDamage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Roguelike.Events.UnityEvents.UnityTransformEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 4097
+--- !u!114 &-3330700881949369041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120675737782391486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0d8e047230117240a314bfb026e4d65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 5
 --- !u!1001 &5968929954169971538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -99,6 +133,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Gun01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234431026700733471, guid: 38a711e9232f55945a811f2e7f8b1fa4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6234431026700733536, guid: 38a711e9232f55945a811f2e7f8b1fa4,
         type: 3}

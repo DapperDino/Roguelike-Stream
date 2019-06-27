@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f453ea714cbb8c1488102284e34fc86e, type: 3}
-  m_Name: Item_Weapon_Laser
+  m_Name: Item_Weapon_GuidedMissileLauncher
   m_EditorClassIdentifier: 
-  name: Laser
-  description: FIRIN MAH LAZOR
-  quality: {fileID: 11400000, guid: 810547607f3d0e84d842c2418ce033c7, type: 2}
+  name: Guided Missile Launcher
+  description: Bang
+  quality: {fileID: 11400000, guid: 75098a3f6f384824b98b3663a9d12f27, type: 2}
   icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  model: {fileID: 6234431026700733471, guid: 290f53918aab5364d9d17625198822ee, type: 3}
-  weaponLogic: {fileID: 1120675737782391486, guid: e8cefdbbf34d3184f855e62bf66c31b4,
+  model: {fileID: 6234431026700733471, guid: 7ad706a71ef66f04d8120ea0bdbd7ead, type: 3}
+  weaponLogic: {fileID: 1120675737782391486, guid: ce7f481240c883c49800971716255c1f,
     type: 3}

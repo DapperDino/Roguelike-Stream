@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5077425430835826651}
   - component: {fileID: 8705329930137812367}
   m_Layer: 8
-  m_Name: Weapon_Pistol
+  m_Name: Weapon_Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,11 +78,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spread: 10
-  projectilesPerShot: 1
-  projectile: {fileID: 6247178235621944465, guid: 62a2d9d9638055d43b30549aea6684e6,
+  projectilesPerShot: 6
+  projectile: {fileID: 6247178235621944465, guid: 341487c1973a30c46854572ac8c1ff52,
     type: 3}
   projectileSpawnPoint: {fileID: 310963705722276580}
-  launchVelocity: {x: 0, y: 0, z: 5}
+  launchVelocity: {x: 0, y: 0, z: 10}
 --- !u!1001 &5968929954169971538
 PrefabInstance:
   m_ObjectHideFlags: 0
