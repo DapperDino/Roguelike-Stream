@@ -1,10 +1,10 @@
-﻿using Roguelike.Utilities;
-using System.Collections;
+﻿using Roguelike.Rooms;
+using Roguelike.Utilities;
 using UnityEngine;
 
-namespace Roguelike.Rooms
+namespace Roguelike.Interactables
 {
-    public class TeleportPoint : MonoBehaviour
+    public class TeleportPoint : Interactable
     {
         [SerializeField] private Vector3 spawnOffset = new Vector3(0f, 0.5f, 0f);
 
@@ -44,24 +44,9 @@ namespace Roguelike.Rooms
             SetRoomTypeColour();
         }
 
-        private void SetRoomTypeColour()
-        {
-            GetComponent<Renderer>().material.color = linkedPoint.Room.RoomType.RoomTypeColour;
-        }
+        private void SetRoomTypeColour() => GetComponent<Renderer>().material.color = linkedPoint.Room.RoomType.RoomTypeColour;
 
-        private void OnTriggerEnter(Collider other) => StartCoroutine(WaitForTeleport(other.transform));
-
-        private void OnTriggerExit(Collider other) => StopAllCoroutines();
-
-        private IEnumerator WaitForTeleport(Transform player)
-        {
-            while (!Input.GetKeyDown(KeyCode.F))
-            {
-                yield return null;
-            }
-
-            player.MoveCharacterController(linkedPoint.transform.position + spawnOffset);
-        }
+        protected override void Interact() => Player.MoveCharacterController(linkedPoint.transform.position + spawnOffset);
 
         private void OnDrawGizmos()
         {

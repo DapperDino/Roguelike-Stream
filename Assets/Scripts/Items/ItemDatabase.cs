@@ -22,5 +22,17 @@ namespace Roguelike.Items
 
             return itemsOfQuality[Random.Range(0, itemsOfQuality.Length)];
         }
+
+        public Item GetItemByName(string itemName)
+        {
+            for (int i = 0; i < items.Length; i++)
+            {
+                if (items[i].Name.ToLower() == itemName)
+                {
+                    return items[i];
+                }
+            }
+            return null;
+        }
     }
 }

@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using Roguelike.Inputs;
+using Sirenix.OdinInspector;
+using UnityEngine;
 
-namespace Roguelike.Player
+namespace Roguelike.Movement
 {
-    public class PlayerMovement : MonoBehaviour
+    public class MovementController : MonoBehaviour
     {
+        [Required] [SerializeField] private InputContainer inputContainer = null;
         [SerializeField] private float movementSpeed = 5f;
 
         private float velocityY = 0f;
@@ -22,7 +25,9 @@ namespace Roguelike.Player
 
             velocityY += gravity * Time.deltaTime;
 
-            Vector3 movementDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
+            Vector2 movementInput = inputContainer.MovementInput;
+
+            Vector3 movementDirection = new Vector3(movementInput.x, 0f, movementInput.y);
 
             movementDirection.Normalize();
 

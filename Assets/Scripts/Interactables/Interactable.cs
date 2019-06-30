@@ -1,24 +1,35 @@
-﻿using UnityEngine;
+﻿using Roguelike.Inputs;
+using UnityEngine;
 
 namespace Roguelike.Interactables
 {
     public abstract class Interactable : MonoBehaviour
     {
+        [SerializeField] private InputContainer[] inputContainers = new InputContainer[0];
+
         private static Interactable currentInteractable = null;
+
+        protected Transform Player { get; private set; } = null;
 
         private void Update()
         {
             if (currentInteractable == this)
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                foreach (InputContainer inputContainer in inputContainers)
                 {
-                    Interact();
+                    if (inputContainer.InteractButtonDown)
+                    {
+                        Interact();
+                        return;
+                    }
                 }
             }
         }
 
         private void OnTriggerEnter(Collider other)
         {
+            Player = other.transform;
+
             if (currentInteractable != null)
             {
                 currentInteractable.Exit();
@@ -30,6 +41,8 @@ namespace Roguelike.Interactables
 
         private void OnTriggerExit(Collider other)
         {
+            Player = null;
+
             if (currentInteractable == this)
             {
                 currentInteractable = null;
@@ -46,8 +59,8 @@ namespace Roguelike.Interactables
             }
         }
 
-        protected abstract void Enter();
+        protected virtual void Enter() { }
         protected abstract void Interact();
-        protected abstract void Exit();
+        protected virtual void Exit() { }
     }
 }

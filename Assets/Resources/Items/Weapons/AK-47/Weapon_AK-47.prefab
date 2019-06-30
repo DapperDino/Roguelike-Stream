@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc6e1385fcdcca41a813f4484401581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputContainer: {fileID: 0}
   maxAmmo: 200
   clipSize: 20
   reloadDuration: 1.5
@@ -78,6 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spread: 20
+  projectilesPerShot: 1
   projectile: {fileID: 6247178235621944465, guid: 94ac0540b4d98694dbd763e09ebd5d7a,
     type: 3}
   projectileSpawnPoint: {fileID: 310963705722276580}

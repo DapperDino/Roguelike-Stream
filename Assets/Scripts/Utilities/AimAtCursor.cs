@@ -8,7 +8,7 @@ namespace Roguelike.Utilities
 
         private void Start() => mainCamera = Camera.main;
 
-        void Update()
+        void FixedUpdate()
         {
             Vector2 screenPos = mainCamera.WorldToViewportPoint(transform.position);
             Vector2 cursorPos = mainCamera.ScreenToViewportPoint(Input.mousePosition);

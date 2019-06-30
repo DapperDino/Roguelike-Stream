@@ -1,4 +1,5 @@
-﻿using Roguelike.LevelGeneration;
+﻿using Roguelike.Interactables;
+using Roguelike.LevelGeneration;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

@@ -1,15 +1,10 @@
-﻿using UnityEngine;
-
-namespace Roguelike.Weapons
+﻿namespace Roguelike.Weapons
 {
     public class FullAutoLogic : WeaponLogic
     {
         private void Update()
         {
-            if (Input.GetMouseButton(0))
-            {
-                Fire();
-            }
+            if (inputContainer.FireButton) { Fire(); }
         }
     }
 }

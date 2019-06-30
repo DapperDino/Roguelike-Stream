@@ -1,4 +1,5 @@
-﻿using Roguelike.Items;
+﻿using Roguelike.Inputs;
+using Roguelike.Items;
 using Roguelike.Utilities;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -7,6 +8,7 @@ namespace Roguelike.Weapons
 {
     public class WeaponHandler : MonoBehaviour
     {
+        [Required] [SerializeField] private InputContainer inputContainer = null;
         [Required] [SerializeField] private Inventory inventory = null;
 
         private int currentIndex = 0;
@@ -25,6 +27,8 @@ namespace Roguelike.Weapons
                 weaponData.WeaponLogic,
                 transform).
                 GetComponent<WeaponLogic>();
+
+            weaponLogic.Initialise(inputContainer);
 
             inventory.Weapons.Add(new WeaponInstance(weaponData, weaponLogic));
 

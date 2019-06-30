@@ -104,5 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642a551efccc2db409a942cd8dc407c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputContainers:
+  - {fileID: 11400000, guid: 388ce73c1ffa6e94a89eba232defe975, type: 2}
+  inputContainer: {fileID: 0}
   spawnOffset: {x: 0, y: 0.5, z: 0}
-  teleportPoint: {fileID: 0}

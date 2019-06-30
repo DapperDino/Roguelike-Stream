@@ -44,8 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe684631d860fa840aef587ed3294bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputContainers:
+  - {fileID: 11400000, guid: 388ce73c1ffa6e94a89eba232defe975, type: 2}
   inventory: {fileID: 11400000, guid: 9ff2c00ec3e53d64094e37959e20e987, type: 2}
-  item: {fileID: 0}
 --- !u!135 &189581595
 SphereCollider:
   m_ObjectHideFlags: 0

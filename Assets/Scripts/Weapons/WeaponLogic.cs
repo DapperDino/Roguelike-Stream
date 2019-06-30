@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Roguelike.Inputs;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,8 +13,9 @@ namespace Roguelike.Weapons
         [SerializeField] private float fireRate = 1f;
         [SerializeField] private UnityEvent onFire = null;
 
-        private Coroutine reloadCoroutine = null;
+        protected InputContainer inputContainer = null;
 
+        private Coroutine reloadCoroutine = null;
         private float lastFiredTime = 0;
         private int currentAmmo = 0;
         private int remainingClipAmmo = 0;
@@ -23,6 +25,8 @@ namespace Roguelike.Weapons
             currentAmmo = maxAmmo;
             remainingClipAmmo = clipSize;
         }
+
+        public void Initialise(InputContainer inputContainer) => this.inputContainer = inputContainer;
 
         protected void Fire()
         {

@@ -7,6 +7,7 @@ namespace Roguelike.Interactables
     public class ItemPickup : Interactable
     {
         [Required] [SerializeField] private Inventory inventory = null;
+
         private Item item = null;
 
         public void Initialise(Item item)
@@ -15,22 +16,12 @@ namespace Roguelike.Interactables
             this.item = item;
         }
 
-        protected override void Enter()
-        {
-            //Enable outline.
-        }
-
         protected override void Interact()
         {
             if (inventory.AddItem(item))
             {
                 Destroy(gameObject);              
             }
-        }
-
-        protected override void Exit()
-        {
-            //Disable outline.
         }
     }
 }

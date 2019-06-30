@@ -24,11 +24,6 @@ namespace Roguelike.Interactables
             item = itemDatabase.GetItemOfQuality(quality);
         }
 
-        protected override void Enter()
-        {
-            //Enable outline.
-        }
-
         protected override void Interact()
         {
             GameObject itemPickupInstance = Instantiate(
@@ -39,11 +34,6 @@ namespace Roguelike.Interactables
             itemPickupInstance.GetComponent<ItemPickup>().Initialise(item);
 
             Destroy(this);
-        }
-
-        protected override void Exit()
-        {
-            //Disable outline.
         }
     }
 }

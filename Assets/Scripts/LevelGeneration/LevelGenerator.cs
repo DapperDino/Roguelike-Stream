@@ -1,4 +1,5 @@
-﻿using Roguelike.Rooms;
+﻿using Roguelike.Interactables;
+using Roguelike.Rooms;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,7 @@ namespace Roguelike.LevelGeneration
 
         [Button]
         [DisableInEditorMode]
-        private void GenerateLevel()
+        public void GenerateLevel()
         {
             int roomCount = 1;
             int desiredRoomCount = levelSettings.RoomCount;

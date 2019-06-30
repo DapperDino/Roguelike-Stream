@@ -58,6 +58,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a0153eabd15ed4798b873fda6f9c0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputContainers:
+  - {fileID: 11400000, guid: 388ce73c1ffa6e94a89eba232defe975, type: 2}
   itemDatabase: {fileID: 11400000, guid: ed87451c63a482443a6877cb815dfc16, type: 2}
   itemPickup: {fileID: 1165396832967647110, guid: 9a8e2081602701f49aedd1a356560a17,
     type: 3}

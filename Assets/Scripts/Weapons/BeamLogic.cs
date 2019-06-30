@@ -13,7 +13,7 @@ namespace Roguelike.Weapons
 
         private void Update()
         {
-            if (Input.GetMouseButton(0))
+            if (inputContainer.FireButton)
             {
                 if (currentWindUpTime < requiredWindUpTime)
                 {
@@ -26,6 +26,7 @@ namespace Roguelike.Weapons
                         onStartBeaming?.Invoke();
                         isBeaming = true;
                     }
+
                     Fire();
                 }
             }
@@ -36,6 +37,7 @@ namespace Roguelike.Weapons
                     onEndBeaming?.Invoke();
                     isBeaming = false;
                 }
+
                 currentWindUpTime = 0;
             }
         }
