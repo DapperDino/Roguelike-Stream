@@ -54,7 +54,7 @@ namespace Roguelike.Weapons
                 }
             }
 
-            float scrollDelta = Input.mouseScrollDelta.y;
+            float scrollDelta = inputContainer.ScrollInput;
 
             if (scrollDelta > 0)
             {

@@ -16,8 +16,6 @@ namespace Roguelike.LevelGeneration
 
         private void Start() => GenerateLevel();
 
-        [Button]
-        [DisableInEditorMode]
         public void GenerateLevel()
         {
             int roomCount = 1;

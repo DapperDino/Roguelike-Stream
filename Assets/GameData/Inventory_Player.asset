@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef54ca50218545b469142f0db9b2759a, type: 3}
   m_Name: Inventory_Player
   m_EditorClassIdentifier: 
+  onItemAdded: {fileID: 11400000, guid: 369644adbbc87df40a2793d5f7b6abb3, type: 2}
   onWeaponAdded: {fileID: 11400000, guid: 4ad195c9098995840a31bb3e8030edd2, type: 2}

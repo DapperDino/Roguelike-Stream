@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c6dd5b185c0ede499330138f07b2c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetSpeed: 2
+  targetSpeed: 5
   smoothing: 0.01
 --- !u!114 &5489063212906866750
 MonoBehaviour:
@@ -178,6 +178,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6174388952932084369}
         m_MethodName: Trigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 457211767891210716}
+        m_MethodName: DealDamage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using Roguelike.Notifications;
+using UnityEngine;
 
 namespace Roguelike.Items
 {
-    public abstract class Item : ScriptableObject
+    public abstract class Item : ScriptableObject, INotifiable
     {
         [Header("Basic Data")]
         [SerializeField] private new string name = "New Item Name";

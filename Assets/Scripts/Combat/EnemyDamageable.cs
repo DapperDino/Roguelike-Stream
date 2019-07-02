@@ -4,7 +4,7 @@ namespace Roguelike.Combat
 {
     public class EnemyDamageable : Damageable
     {
-        public event Action onDeath = delegate { };
+        public event Action<EnemyDamageable> onDeath = delegate { };
 
         public override void DealDamage(int damageAmount)
         {
@@ -13,7 +13,7 @@ namespace Roguelike.Combat
 
         public override void OnDeath()
         {
-            onDeath?.Invoke();
+            onDeath?.Invoke(this);
             Destroy(gameObject);
         }
     }

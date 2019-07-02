@@ -7,10 +7,12 @@ namespace Roguelike.Inputs
     {
         [SerializeField] private string horizontalAxisName = "Horizontal";
         [SerializeField] private string verticalAxisName = "Vertical";
+        [SerializeField] private string scrollAxisName = "Mouse ScrollWheel";
         [SerializeField] private string fireButtonName = "Fire";
         [SerializeField] private string interactButtonName = "Interact";
 
         public Vector2 MovementInput { get; private set; } = Vector2.zero;
+        public float ScrollInput { get; private set; } = 0f;
         public bool FireButtonDown { get; private set; } = false;
         public bool FireButton { get; private set; } = false;
         public bool FireButtonUp { get; private set; } = false;
@@ -22,6 +24,8 @@ namespace Roguelike.Inputs
                 Input.GetAxisRaw(horizontalAxisName),
                 Input.GetAxisRaw(verticalAxisName));
 
+            ScrollInput = Input.GetAxisRaw(scrollAxisName);
+
             FireButtonDown = Input.GetButtonDown(fireButtonName);
             FireButton = Input.GetButton(fireButtonName);
             FireButtonUp = Input.GetButtonUp(fireButtonName);
@@ -32,6 +36,7 @@ namespace Roguelike.Inputs
         public void Reset()
         {
             MovementInput = Vector2.zero;
+            ScrollInput = 0f;
             FireButtonDown = false;
             FireButton = false;
             FireButtonUp = false;

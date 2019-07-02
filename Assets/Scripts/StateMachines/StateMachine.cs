@@ -20,7 +20,7 @@ namespace Roguelike.StateMachines
 
         public void SetState(State state)
         {
-            currentState.Exit();
+            currentState?.Exit();
             currentState = state;
             currentState.Enter();
         }

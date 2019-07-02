@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Item_Weapon_GrenadeLauncher
   m_EditorClassIdentifier: 
   name: Grenade Launcher
-  description: Humble beginnings
+  description: Bounce, bounce, bang
   quality: {fileID: 11400000, guid: 810547607f3d0e84d842c2418ce033c7, type: 2}
   icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   model: {fileID: 6234431026700733471, guid: bf0f9e919e99e294fbb6e5078a69ec8b, type: 3}

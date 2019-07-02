@@ -48,7 +48,7 @@ MonoBehaviour:
   maxAmmo: 100
   clipSize: 10
   reloadDuration: 1
-  fireRate: 1
+  fireRate: 2
   onFire:
     m_PersistentCalls:
       m_Calls:
@@ -82,7 +82,7 @@ MonoBehaviour:
   projectile: {fileID: 6247178235621944465, guid: 62a2d9d9638055d43b30549aea6684e6,
     type: 3}
   projectileSpawnPoint: {fileID: 310963705722276580}
-  launchVelocity: {x: 0, y: 0, z: 5}
+  launchVelocity: {x: 0, y: 0, z: 10}
 --- !u!1001 &5968929954169971538
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -36,6 +36,7 @@ namespace Roguelike.Interactables
             }
 
             currentInteractable = this;
+
             Enter();
         }
 
@@ -46,6 +47,7 @@ namespace Roguelike.Interactables
             if (currentInteractable == this)
             {
                 currentInteractable = null;
+
                 Exit();
             }
         }
@@ -55,6 +57,7 @@ namespace Roguelike.Interactables
             if (currentInteractable == this)
             {
                 currentInteractable = null;
+
                 Exit();
             }
         }

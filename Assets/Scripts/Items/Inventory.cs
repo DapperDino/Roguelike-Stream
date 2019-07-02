@@ -9,7 +9,8 @@ namespace Roguelike.Items
     [CreateAssetMenu(fileName = "New Inventory", menuName = "Items/Inventory")]
     public class Inventory : ScriptableObject
     {
-        [Required] [SerializeField] WeaponDataEvent onWeaponAdded = null;
+        [Required] [SerializeField] private ItemEvent onItemAdded = null;
+        [Required] [SerializeField] private WeaponDataEvent onWeaponAdded = null;
 
         public List<WeaponInstance> Weapons { get; } = new List<WeaponInstance>();
         public List<Item> Items { get; } = new List<Item>();
@@ -26,6 +27,8 @@ namespace Roguelike.Items
             {
                 Items.Add(item);
             }
+
+            onItemAdded.Raise(item);
 
             return true;
         }

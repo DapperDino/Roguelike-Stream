@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8451025102387448b9f2efd491df2ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputContainer: {fileID: 0}
   maxAmmo: 25
   clipSize: 5
   reloadDuration: 2
@@ -83,7 +82,7 @@ MonoBehaviour:
   projectile: {fileID: 6247178235621944465, guid: 3fffb14abb53eaa43adec0e55a383bae,
     type: 3}
   projectileSpawnPoint: {fileID: 310963705722276580}
-  launchVelocity: {x: 0, y: 0, z: 10}
+  launchVelocity: {x: 0, y: 0, z: 12.5}
 --- !u!1001 &5968929954169971538
 PrefabInstance:
   m_ObjectHideFlags: 0
