@@ -13,13 +13,18 @@ namespace Roguelike.Rooms
 
         public event Action onRoomFirstEntered = delegate { };
 
-        public RoomType RoomType => roomType;
-        public TeleportPoint[] TeleportPoints => teleportPoints;
-        public LevelSettings LevelSettings { get; private set; } = null;
-
         private bool hasEntered = false;
 
-        public void Initialise(LevelSettings levelSettings) => LevelSettings = levelSettings;
+        public RoomType RoomType => roomType;
+        public TeleportPoint[] TeleportPoints => teleportPoints;
+        public Transform Player { get; private set; } = null;
+        public LevelSettings LevelSettings { get; private set; } = null;
+
+        public void Initialise(Transform player, LevelSettings levelSettings)
+        {
+            Player = player;
+            LevelSettings = levelSettings;
+        }
 
         public void Enter()
         {
@@ -34,7 +39,10 @@ namespace Roguelike.Rooms
         {
             for (int i = 0; i < teleportPoints.Length; i++)
             {
-                teleportPoints[i].gameObject.SetActive(toggle);
+                if (!teleportPoints[i].Disabled)
+                {
+                    teleportPoints[i].gameObject.SetActive(toggle);
+                }
             }
         }
     }

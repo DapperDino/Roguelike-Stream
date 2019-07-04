@@ -12,10 +12,23 @@ namespace Roguelike.Rooms
         [SerializeField] private int maxQuantity = 1;
         [SerializeField] private List<Room> rooms = new List<Room>();
 
-        public float MinRoomPercentageBeforeSpawn => minRoomPercentageBeforeSpawn;
+        public List<PriorityRoom> RollRooms()
+        {
+            List<PriorityRoom> requiredRooms = new List<PriorityRoom>();
 
-        public Room RandomRoom => rooms[Random.Range(0, rooms.Count)];
+            if (Random.Range(0f, 1f) > chance) { return requiredRooms; }
 
-        public bool Roll() => Random.Range(0f, 1f) <= chance;
+            int quantity = Random.Range(minQuantity, maxQuantity + 1);
+
+            for (int i = 0; i < quantity; i++)
+            {
+                requiredRooms.Add(
+                    new PriorityRoom(
+                        rooms[Random.Range(0, rooms.Count)],
+                        minRoomPercentageBeforeSpawn));
+            }
+
+            return requiredRooms;
+        }
     }
 }

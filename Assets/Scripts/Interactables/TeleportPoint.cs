@@ -12,6 +12,7 @@ namespace Roguelike.Interactables
         private Room myRoom = null;
 
         public bool IsLinked => linkedPoint != null;
+        public bool Disabled { get; set; }
         public Room Room
         {
             get
@@ -56,7 +57,7 @@ namespace Roguelike.Interactables
         {
             if (linkedPoint != null)
             {
-                Gizmos.color = Color.red;
+                Gizmos.color = Color.magenta;
                 Gizmos.DrawLine(transform.position, linkedPoint.transform.position);
             }
         }

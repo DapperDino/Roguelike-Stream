@@ -17,8 +17,8 @@ GameObject:
   - component: {fileID: 8710224310395203152}
   - component: {fileID: 5664699010351107957}
   - component: {fileID: 6174388952932084369}
-  m_Layer: 10
-  m_Name: Projectile_Weapon_Pistol
+  m_Layer: 11
+  m_Name: Projectile_Weapon_Enemy_Test_Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,7 +153,7 @@ MonoBehaviour:
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   layerMask:
     serializedVersion: 2
-    m_Bits: 4097
+    m_Bits: 257
 --- !u!114 &8710224310395203152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d8e047230117240a314bfb026e4d65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 20
+  damageAmount: 10
 --- !u!114 &6174388952932084369
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 1899752592}
   - component: {fileID: 8401940969678743420}
   m_Layer: 8
-  m_Name: Player
+  m_Name: PlayerOne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -245,4 +245,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 6
+  targetPoint: {fileID: 3646956632819321619}
   onPlayerDeath: {fileID: 11400000, guid: 18c1fd46c0d70ce4a8a940fc1608c2fd, type: 2}

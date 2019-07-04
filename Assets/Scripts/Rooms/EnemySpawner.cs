@@ -1,4 +1,5 @@
 ﻿using Roguelike.Combat;
+using Roguelike.Combat.Enemies;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -30,10 +31,15 @@ namespace Roguelike.Rooms
 
                 if (NavMesh.SamplePosition(randomPosition, out NavMeshHit hit, radius, NavMesh.AllAreas))
                 {
-                    EnemyDamageable damageable = Instantiate(enemies[i], hit.position, Quaternion.identity);
-                    damageable.onDeath += EnemyDeath;
+                    GameObject enemyInstance = Instantiate(enemies[i], hit.position, Quaternion.identity).gameObject;
 
-                    enemyInstances.Add(damageable);
+                    EnemyDamageable enemyDamageable = enemyInstance.GetComponent<EnemyDamageable>();
+                    enemyDamageable.onDeath += EnemyDeath;
+
+                    EnemyLogic enemyLogic = enemyInstance.GetComponent<EnemyLogic>();
+                    enemyLogic.Initialise(room.Player);
+
+                    enemyInstances.Add(enemyDamageable);
                 }
             }
         }
@@ -49,7 +55,7 @@ namespace Roguelike.Rooms
 
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.red;
+            Gizmos.color = Color.black;
             Gizmos.DrawWireSphere(transform.position, radius);
         }
     }

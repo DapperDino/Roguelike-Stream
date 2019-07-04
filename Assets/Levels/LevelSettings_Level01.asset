@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LevelSettings_Level01
   m_EditorClassIdentifier: 
   minRoomCount: 15
-  maxRoomCount: 20
+  maxRoomCount: 25
   spawnRooms:
   - {fileID: 297725561377734763, guid: abf6087f0b320e64890db76faee79fb0, type: 3}
   multiLinkRooms:
@@ -29,6 +29,12 @@ MonoBehaviour:
     maxQuantity: 1
     rooms:
     - {fileID: 3460351943952093271, guid: 28b8ab36618c3324cb0ff12fc543eda2, type: 3}
+  - chance: 1
+    minRoomPercentageBeforeSpawn: 0
+    minQuantity: 3
+    maxQuantity: 5
+    rooms:
+    - {fileID: 3460351943952093271, guid: 0ebea1a6e768d4440a5a4c38e3519225, type: 3}
   qualityHandler:
     qualityChances:
     - quality: {fileID: 11400000, guid: 97a6f4e903aa45044bdc7c7bf7bf08c9, type: 2}

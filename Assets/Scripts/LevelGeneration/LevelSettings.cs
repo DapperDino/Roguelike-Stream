@@ -10,7 +10,7 @@ namespace Roguelike.LevelGeneration
     public class LevelSettings : ScriptableObject
     {
         [SerializeField] [MinValue(0)] private int minRoomCount = 15;
-        [SerializeField] private int maxRoomCount = 20;
+        [SerializeField] private int maxRoomCount = 17;
 
         [Header("Rooms")]
         [SerializeField] private List<Room> spawnRooms = new List<Room>();
@@ -22,7 +22,6 @@ namespace Roguelike.LevelGeneration
         [SerializeField] private QualityHandler qualityHandler = null;
 
         public int MinRoomCount => minRoomCount;
-        public int MaxRoomCount => maxRoomCount;
         public int RoomCount
         {
             get
@@ -39,21 +38,18 @@ namespace Roguelike.LevelGeneration
         public Room RandomSpawnRoom => spawnRooms[Random.Range(0, spawnRooms.Count)];
         public Room RandomMultiLinkRoom => multiLinkRooms[Random.Range(0, multiLinkRooms.Count)];
         public Room RandomDeadEndRoom => deadEndRooms[Random.Range(0, deadEndRooms.Count)];
-        public List<PriorityRoomData> RequiredRooms
+        public List<PriorityRoom> RequiredRooms
         {
             get
             {
-                List<PriorityRoomData> priorityRoomData = new List<PriorityRoomData>();
+                List<PriorityRoom> requiredRooms = new List<PriorityRoom>();
 
-                foreach (PriorityRoomData priorityRoom in priorityRooms)
+                foreach (PriorityRoomData priorityRoomData in priorityRooms)
                 {
-                    if (priorityRoom.Roll())
-                    {
-                        priorityRoomData.Add(priorityRoom);
-                    }
+                    requiredRooms.AddRange(priorityRoomData.RollRooms());
                 }
 
-                return priorityRoomData;
+                return requiredRooms;
             }
         }
         public QualityHandler QualityHandler => qualityHandler;

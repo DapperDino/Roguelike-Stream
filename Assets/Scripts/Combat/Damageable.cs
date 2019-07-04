@@ -5,8 +5,11 @@ namespace Roguelike.Combat
     public abstract class Damageable : MonoBehaviour, IDamageable
     {
         [SerializeField] private int maxHealth = 0;
+        [SerializeField] private Transform targetPoint = null;
 
         private int currentHealth = 0;
+
+        public Transform TargetPoint => targetPoint;
 
         private void Start() => currentHealth = maxHealth;
 
