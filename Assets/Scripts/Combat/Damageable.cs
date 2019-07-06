@@ -7,11 +7,12 @@ namespace Roguelike.Combat
         [SerializeField] private int maxHealth = 0;
         [SerializeField] private Transform targetPoint = null;
 
-        private int currentHealth = 0;
+        public int MaxHealth => maxHealth;
+        public int CurrentHealth { get; private set; } = 0;
 
         public Transform TargetPoint => targetPoint;
 
-        private void Start() => currentHealth = maxHealth;
+        protected virtual void Start() => CurrentHealth = maxHealth;
 
         public abstract void OnDeath();
 
@@ -19,11 +20,11 @@ namespace Roguelike.Combat
         {
             if (damageAmount <= 0) { return; }
 
-            currentHealth -= damageAmount;
+            CurrentHealth -= damageAmount;
 
-            if (currentHealth <= 0)
+            if (CurrentHealth <= 0)
             {
-                currentHealth = 0;
+                CurrentHealth = 0;
                 OnDeath();
             }
         }
@@ -32,11 +33,11 @@ namespace Roguelike.Combat
         {
             if (healAmount <= 0) { return; }
 
-            currentHealth += healAmount;
+            CurrentHealth += healAmount;
 
-            if (currentHealth > maxHealth)
+            if (CurrentHealth > maxHealth)
             {
-                currentHealth = maxHealth;
+                CurrentHealth = maxHealth;
             }
         }
     }

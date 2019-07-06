@@ -6,9 +6,22 @@ namespace Roguelike.Combat
 {
     public class PlayerDamageable : Damageable
     {
-        [Required] [SerializeField] VoidEvent onPlayerDeath = null;
+        [Required] [SerializeField] private DamageableEvent onPlayerSpawn = null;
+        [Required] [SerializeField] private VoidEvent onPlayerDeath = null;
+        [Required] [SerializeField] private VoidEvent onPlayerTakeDamage = null;
 
-        public override void DealDamage(int damageAmount) => base.DealDamage(1);
+        protected override void Start()
+        {
+            base.Start();
+
+            onPlayerSpawn.Raise(this);
+        }
+
+        public override void DealDamage(int damageAmount)
+        {
+            base.DealDamage(1);
+            onPlayerTakeDamage.Raise();
+        }
 
         public override void OnDeath() => onPlayerDeath.Raise();
     }

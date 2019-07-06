@@ -1,4 +1,5 @@
-﻿using Roguelike.Inputs;
+﻿using Roguelike.Events.CustomEvents;
+using Roguelike.Inputs;
 using Roguelike.Items;
 using Roguelike.Utilities;
 using Sirenix.OdinInspector;
@@ -10,6 +11,8 @@ namespace Roguelike.Weapons
     {
         [Required] [SerializeField] private InputContainer inputContainer = null;
         [Required] [SerializeField] private Inventory inventory = null;
+        [Required] [SerializeField] private WeaponInstanceEvent onWeaponSelected = null;
+        [SerializeField] private WeaponData[] startingWeapons = new WeaponData[0];
 
         private int currentIndex = 0;
 
@@ -18,6 +21,14 @@ namespace Roguelike.Weapons
             get
             {
                 return inventory.Weapons.Count < currentIndex + 1 ? null : inventory.Weapons[currentIndex];
+            }
+        }
+
+        private void Start()
+        {
+            for (int i = 0; i < startingWeapons.Length; i++)
+            {
+                AddNewWeapon(startingWeapons[i]);
             }
         }
 
@@ -32,7 +43,11 @@ namespace Roguelike.Weapons
 
             inventory.Weapons.Add(new WeaponInstance(weaponData, weaponLogic));
 
-            weaponLogic.gameObject.SetActive(weaponLogic == CurrentWeapon.WeaponLogic);
+            bool isSelectedWeapon = weaponLogic == CurrentWeapon.WeaponLogic;
+
+            weaponLogic.gameObject.SetActive(isSelectedWeapon);
+
+            onWeaponSelected.Raise(CurrentWeapon);
         }
 
         private void Update()
@@ -87,6 +102,8 @@ namespace Roguelike.Weapons
             currentIndex = index;
 
             CurrentWeapon.WeaponLogic.gameObject.SetActive(true);
+
+            onWeaponSelected.Raise(CurrentWeapon);
         }
     }
 }

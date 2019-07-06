@@ -16,7 +16,7 @@ namespace Roguelike.Interactables
             this.item = item;
         }
 
-        protected override void Interact()
+        public override void Interact(Transform other)
         {
             if (inventory.AddItem(item))
             {

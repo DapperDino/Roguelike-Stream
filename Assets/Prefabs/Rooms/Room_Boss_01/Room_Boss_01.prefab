@@ -273,6 +273,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TeleportPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 3729611154047186326, guid: b9952c41d703bd844a08411442aa2c7b,
+        type: 3}
+      propertyPath: exitDirection
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8209855523494063494, guid: b9952c41d703bd844a08411442aa2c7b,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -17,12 +17,14 @@ namespace Roguelike.Weapons
 
         private Coroutine reloadCoroutine = null;
         private float lastFiredTime = 0;
-        private int currentAmmo = 0;
         private int remainingClipAmmo = 0;
 
-        private void Start()
+        public int MaxAmmo => maxAmmo;
+        public int CurrentAmmo { get; private set; } = 0;
+
+        private void Awake()
         {
-            currentAmmo = maxAmmo;
+            CurrentAmmo = maxAmmo;
             remainingClipAmmo = clipSize;
         }
 
@@ -32,7 +34,7 @@ namespace Roguelike.Weapons
         {
             float currentTime = Time.time;
 
-            if (currentAmmo == 0) { return; }
+            if (CurrentAmmo == 0) { return; }
 
             if (remainingClipAmmo == 0)
             {
@@ -45,7 +47,7 @@ namespace Roguelike.Weapons
 
             if (currentTime - lastFiredTime < 1 / fireRate) { return; }
 
-            currentAmmo--;
+            CurrentAmmo--;
             remainingClipAmmo--;
 
             onFire?.Invoke();
@@ -57,7 +59,7 @@ namespace Roguelike.Weapons
         {
             yield return new WaitForSeconds(reloadDuration);
 
-            remainingClipAmmo = currentAmmo > clipSize ? clipSize : currentAmmo;
+            remainingClipAmmo = CurrentAmmo > clipSize ? clipSize : CurrentAmmo;
 
             reloadCoroutine = null;
         }

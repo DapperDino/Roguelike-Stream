@@ -6,13 +6,26 @@ namespace Roguelike.Interactables
 {
     public class TeleportPoint : Interactable
     {
-        [SerializeField] private Vector3 spawnOffset = new Vector3(0f, 0.5f, 0f);
+        [SerializeField] private Directions exitDirection = Directions.None;
 
         private TeleportPoint linkedPoint = null;
         private Room myRoom = null;
 
+        private bool isDisabled = false;
+
+        private readonly Vector3 spawnOffset = new Vector3(0f, 0.5f, 0f);
+
+        public Directions ExitDirection => exitDirection;
         public bool IsLinked => linkedPoint != null;
-        public bool Disabled { get; set; }
+        public bool IsDisabled
+        {
+            get { return isDisabled; }
+            set
+            {
+                Destroy(gameObject);
+                isDisabled = value;
+            }
+        }
         public Room Room
         {
             get
@@ -47,9 +60,9 @@ namespace Roguelike.Interactables
 
         private void SetRoomTypeColour() => GetComponent<Renderer>().material.color = linkedPoint.Room.RoomType.RoomTypeColour;
 
-        protected override void Interact()
+        public override void Interact(Transform other)
         {
-            Player.MoveCharacterController(linkedPoint.transform.position + spawnOffset);
+            other.MoveCharacterController(linkedPoint.transform.position + spawnOffset);
             linkedPoint.Room.Enter();
         }
 

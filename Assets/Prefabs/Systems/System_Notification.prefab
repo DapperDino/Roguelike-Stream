@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 299298593}
   - component: {fileID: 299298595}
   - component: {fileID: 299298594}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background_Notification
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 662881549}
   - component: {fileID: 662881548}
   - component: {fileID: 1732392032575477115}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas_Notification
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 800
   m_TargetDisplay: 0
 --- !u!114 &662881548
 MonoBehaviour:
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 1018829185}
   - component: {fileID: 1018829187}
   - component: {fileID: 1018829186}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image_NotifiableIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 1366214852}
   - component: {fileID: 1366214854}
   - component: {fileID: 1366214853}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text_NotifiableName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +413,7 @@ GameObject:
   - component: {fileID: 1831596237}
   - component: {fileID: 1831596239}
   - component: {fileID: 1831596238}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text_NotifiableDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -571,7 +571,7 @@ GameObject:
   - component: {fileID: 2425314272585170681}
   - component: {fileID: 2425314272585170682}
   - component: {fileID: 5007911435692925949}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: System_Notification
   m_TagString: Untagged
   m_Icon: {fileID: 0}

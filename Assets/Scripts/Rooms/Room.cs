@@ -39,7 +39,7 @@ namespace Roguelike.Rooms
         {
             for (int i = 0; i < teleportPoints.Length; i++)
             {
-                if (!teleportPoints[i].Disabled)
+                if (!teleportPoints[i].IsDisabled)
                 {
                     teleportPoints[i].gameObject.SetActive(toggle);
                 }

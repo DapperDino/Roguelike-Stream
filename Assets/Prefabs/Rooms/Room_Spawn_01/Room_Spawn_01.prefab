@@ -137,7 +137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad446cceb4ce8f408372695f3ea7c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isCleared: 1
   roomType: {fileID: 11400000, guid: d1d725a26a56f474090b98f22c6309af, type: 2}
   teleportPoints:
   - {fileID: 2195679119495886098}
@@ -181,6 +180,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TeleportPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729611154047186326, guid: b9952c41d703bd844a08411442aa2c7b,
+        type: 3}
+      propertyPath: exitDirection
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8209855523494063494, guid: b9952c41d703bd844a08411442aa2c7b,
         type: 3}

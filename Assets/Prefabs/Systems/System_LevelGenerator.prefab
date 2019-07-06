@@ -54,8 +54,9 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   levelSettings: {fileID: 11400000, guid: b2edf32f275d857478df48d024eaae27, type: 2}
-  requiredRoomChance: 0.15
-  chanceOfEarlyDeadEnd: 0.65
+  deadEndSpawnAfterPercentage: 0
+  requiredRoomChance: 0.3
+  deadEndPercentage: 0.5
 --- !u!114 &923474164
 MonoBehaviour:
   m_ObjectHideFlags: 0
