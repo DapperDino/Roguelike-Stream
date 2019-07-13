@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3460351943952093271}
   - component: {fileID: -3835717695833600860}
   - component: {fileID: 479959673222568038}
+  - component: {fileID: 2719912648219757584}
+  - component: {fileID: -1411178950238786878}
   m_Layer: 0
   m_Name: Room_MultiLink_03
   m_TagString: Untagged
@@ -51,11 +53,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomType: {fileID: 11400000, guid: 0e1bcee6d34b69a4c8f8188857365434, type: 2}
+  roomObjectives:
+  - {fileID: 2719912648219757584}
   teleportPoints:
   - {fileID: 3729611154478549307}
   - {fileID: 1997182408019841484}
   - {fileID: 7694203356404022053}
   - {fileID: 9145497224607353255}
+  onRoomStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 479959673222568038}
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &-3835717695833600860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,10 +118,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 15
-  enemies:
-  - {fileID: 3218807498856115459, guid: 8ebce559baaf67347bcd128176f2ac89, type: 3}
-  - {fileID: 3218807498856115459, guid: 8ebce559baaf67347bcd128176f2ac89, type: 3}
-  - {fileID: 3218807498856115459, guid: 8ebce559baaf67347bcd128176f2ac89, type: 3}
+  objectsToSpawn:
+  - {fileID: 3218807498856115458, guid: 8ebce559baaf67347bcd128176f2ac89, type: 3}
+  - {fileID: 3218807498856115458, guid: 8ebce559baaf67347bcd128176f2ac89, type: 3}
+  - {fileID: 3218807498856115458, guid: 8ebce559baaf67347bcd128176f2ac89, type: 3}
+--- !u!114 &2719912648219757584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9214448871169033491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d80d71a50b6291c41b0fdcca142661dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-1411178950238786878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9214448871169033491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 105a9f8ff4de82444852e36f8dfeef32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: a9156baa246418641bf43af35a9bf32f, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2719912648219757584}
+        m_MethodName: AddNewEnemy
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Roguelike.Events.UnityEvents.UnityEnemyDamageableEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &9214448871195097498
 GameObject:
   m_ObjectHideFlags: 0

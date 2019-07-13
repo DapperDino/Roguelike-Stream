@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 namespace Roguelike.Weapons
 {
-    public class BeamLogic : WeaponLogic
+    public class BeamLogic : PlayerWeaponLogic
     {
         [SerializeField] private float requiredWindUpTime = 0;
         [SerializeField] private UnityEvent onStartBeaming, onEndBeaming = null;

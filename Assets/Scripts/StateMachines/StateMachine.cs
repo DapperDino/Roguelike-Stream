@@ -1,13 +1,17 @@
-﻿using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace Roguelike.StateMachines
 {
-    [CreateAssetMenu(fileName = "New State Machine", menuName = "State Machines/State Machine")]
-    public class StateMachine : ScriptableObject
+    public class StateMachine : MonoBehaviour
     {
+        [Required] [SerializeField] private State startingState = null;
+
         private State currentState = null;
 
-        public void Tick()
+        private void Start() => SetState(startingState);
+
+        public void Update()
         {
             float deltaTime = Time.deltaTime;
 
@@ -22,7 +26,7 @@ namespace Roguelike.StateMachines
         {
             currentState?.Exit();
             currentState = state;
-            currentState.Enter();
+            currentState?.Enter();
         }
     }
 }

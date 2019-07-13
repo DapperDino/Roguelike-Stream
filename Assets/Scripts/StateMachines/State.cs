@@ -4,8 +4,7 @@ using UnityEngine;
 
 namespace Roguelike.StateMachines
 {
-    [CreateAssetMenu(fileName = "New State", menuName = "State Machines/State")]
-    public class State : ScriptableObject
+    public class State : MonoBehaviour
     {
         [SerializeField] private StateAction[] stateActions = new StateAction[0];
         [SerializeField] private StateTransition[] stateTransitions = new StateTransition[0];

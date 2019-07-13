@@ -2,7 +2,7 @@
 
 namespace Roguelike.StateMachines.StateActions
 {
-    public abstract class StateAction : ScriptableObject
+    public abstract class StateAction : MonoBehaviour
     {
         public virtual void Enter() { }
         public virtual void Trigger(float deltaTime) { }

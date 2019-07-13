@@ -1,5 +1,4 @@
-﻿using Roguelike.Combat;
-using Roguelike.Interactables;
+﻿using Roguelike.Interactables;
 using Roguelike.Rooms;
 using Roguelike.Utilities;
 using Sirenix.OdinInspector;
@@ -14,15 +13,12 @@ namespace Roguelike.LevelGeneration
         [SerializeField] private float requiredRoomChance = 0.15f;
         [SerializeField] private float deadEndPercentage = 0.5f;
 
-        private Transform player = null;
         private const int RoomOffset = 55;
 
         private void Start() => GenerateLevel();
 
         public void GenerateLevel()
         {
-            player = FindObjectOfType<PlayerDamageable>().transform;
-
             int roomCount = 1;
             int desiredRoomCount = levelSettings.RoomCount;
             List<TeleportPoint> teleportPoints = new List<TeleportPoint>();
@@ -162,7 +158,7 @@ namespace Roguelike.LevelGeneration
         {
             Room roomInstance = Instantiate(room, transform);
 
-            roomInstance.Initialise(player, levelSettings);
+            roomInstance.Initialise(levelSettings);
 
             return roomInstance;
         }

@@ -3,8 +3,7 @@ using UnityEngine;
 
 namespace Roguelike.StateMachines.StateTransitions
 {
-    [CreateAssetMenu(fileName = "New State Transition", menuName = "State Machines/State Transition")]
-    public abstract class StateTransition : ScriptableObject
+    public abstract class StateTransition : MonoBehaviour
     {
         [Required] [SerializeField] private State newState = null;
 

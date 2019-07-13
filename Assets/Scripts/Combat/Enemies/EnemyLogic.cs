@@ -11,6 +11,7 @@ namespace Roguelike.Combat.Enemies
     {
         [SerializeField] private float aggroRange = 20f;
         [SerializeField] private float attackRange = 15f;
+        [Required] [SerializeField] private GameState gameState = null;
         [Required] [SerializeField] private AimAtTarget aimAtTarget = null;
         [SerializeField] private UnityEvent onFire = null;
 
@@ -28,6 +29,8 @@ namespace Roguelike.Combat.Enemies
             EnemyMovementController = GetComponent<EnemyMovementController>();
 
             SceneLinkedSMB<EnemyLogic>.Initialise(animator, this);
+
+            SetTarget(gameState.Player.transform);
         }
 
         private void Update()
@@ -44,7 +47,7 @@ namespace Roguelike.Combat.Enemies
             animator.SetBool(hashInFiringRange, IsInRange(attackRange));
         }
 
-        public void Initialise(Transform target)
+        public void SetTarget(Transform target)
         {
             Target = target;
             aimAtTarget.SetTarget(Target);

@@ -1,53 +1,31 @@
-﻿using Roguelike.Inputs;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Roguelike.Weapons
 {
-    public abstract class WeaponLogic : MonoBehaviour
+    public class WeaponLogic : MonoBehaviour
     {
-        [SerializeField] private int maxAmmo = 100;
-        [SerializeField] private int clipSize = 10;
-        [SerializeField] private float reloadDuration = 1f;
-        [SerializeField] private float fireRate = 1f;
-        [SerializeField] private UnityEvent onFire = null;
 
-        protected InputContainer inputContainer = null;
+        [SerializeField] protected int clipSize = 10;
+        [SerializeField] protected float reloadDuration = 1f;
+        [SerializeField] protected float fireRate = 1f;
+        [SerializeField] protected UnityEvent onFire = null;
 
-        private Coroutine reloadCoroutine = null;
-        private float lastFiredTime = 0;
-        private int remainingClipAmmo = 0;
+        protected Coroutine reloadCoroutine = null;
+        protected float lastFiredTime = 0;
+        protected int remainingClipAmmo = 0;
 
-        public int MaxAmmo => maxAmmo;
-        public int CurrentAmmo { get; private set; } = 0;
+        protected virtual void Awake() => remainingClipAmmo = clipSize;
 
-        private void Awake()
-        {
-            CurrentAmmo = maxAmmo;
-            remainingClipAmmo = clipSize;
-        }
-
-        public void Initialise(InputContainer inputContainer) => this.inputContainer = inputContainer;
-
-        protected void Fire()
+        public virtual void Fire()
         {
             float currentTime = Time.time;
 
-            if (CurrentAmmo == 0) { return; }
-
-            if (remainingClipAmmo == 0)
-            {
-                if (reloadCoroutine == null)
-                {
-                    reloadCoroutine = StartCoroutine(Reload());
-                }
-                return;
-            }
+            if (HandleReload()) { return; }
 
             if (currentTime - lastFiredTime < 1 / fireRate) { return; }
 
-            CurrentAmmo--;
             remainingClipAmmo--;
 
             onFire?.Invoke();
@@ -55,11 +33,25 @@ namespace Roguelike.Weapons
             lastFiredTime = currentTime;
         }
 
-        private IEnumerator Reload()
+        protected bool HandleReload()
+        {
+            if (remainingClipAmmo == 0)
+            {
+                if (reloadCoroutine == null)
+                {
+                    reloadCoroutine = StartCoroutine(Reload());
+                }
+                return true;
+            }
+
+            return false;
+        }
+
+        protected virtual IEnumerator Reload()
         {
             yield return new WaitForSeconds(reloadDuration);
 
-            remainingClipAmmo = CurrentAmmo > clipSize ? clipSize : CurrentAmmo;
+            remainingClipAmmo = clipSize;
 
             reloadCoroutine = null;
         }

@@ -1,6 +1,6 @@
 ﻿namespace Roguelike.Weapons
 {
-    public class FullAutoLogic : WeaponLogic
+    public class FullAutoLogic : PlayerWeaponLogic
     {
         private void Update()
         {

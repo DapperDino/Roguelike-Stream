@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 6238435464127128411}
   - component: {fileID: 4036642676323599861}
   - component: {fileID: 7482583998942050037}
+  - component: {fileID: 7483596226155733989}
   m_Layer: 12
   m_Name: Enemy_Test
   m_TagString: Untagged
@@ -241,7 +242,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 1
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -259,6 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   targetPoint: {fileID: 3218807498175515448}
+  onEnemySpawned: {fileID: 11400000, guid: a9156baa246418641bf43af35a9bf32f, type: 2}
 --- !u!114 &6238435464127128411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,12 +275,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aggroRange: 15
   attackRange: 10
+  gameState: {fileID: 11400000, guid: 852262ab03378454483d24c46119f31a, type: 2}
   aimAtTarget: {fileID: 1565670748}
   onFire:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8705329929812037617}
-        m_MethodName: Launch
+      - m_Target: {fileID: 1259274581923772132}
+        m_MethodName: Fire
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -314,6 +317,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393c9d188dadf1b4ea9aa016432ce577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7483596226155733989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3218807498856115458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a109e1f9f3a61143bdb4cbd59b4db13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 18c1fd46c0d70ce4a8a940fc1608c2fd, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8751850525990606238}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Empty
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Roguelike.Events.UnityEvents.UnityVoidEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1001 &494236286
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -389,15 +421,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 494236286}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8705329929812037617 stripped
+--- !u!114 &1259274581923772132 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8705329930137812367, guid: 2500d0da07114434b932164a142cb863,
+  m_CorrespondingSourceObject: {fileID: -7964097454980479846, guid: 2500d0da07114434b932164a142cb863,
     type: 3}
   m_PrefabInstance: {fileID: 494236286}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96b9a7c0a77af7e46b507beed2b6aca1, type: 3}
+  m_Script: {fileID: 11500000, guid: af3da36cc25e8724ba029e8ab238192b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -22,7 +22,7 @@ namespace Roguelike.Weapons
 
         public void UpdateAmmoCount()
         {
-            ammoCountText.text = $"{displayedWeapon.WeaponLogic.CurrentAmmo}/{displayedWeapon.WeaponLogic.MaxAmmo}";
+            ammoCountText.text = $"{displayedWeapon.PlayerWeaponLogic.CurrentAmmo}/{displayedWeapon.PlayerWeaponLogic.MaxAmmo}";
         }
     }
 }

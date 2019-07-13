@@ -93,7 +93,7 @@ MonoBehaviour:
   projectile: {fileID: 6247178235621944465, guid: 3fffb14abb53eaa43adec0e55a383bae,
     type: 3}
   projectileSpawnPoint: {fileID: 310963705722276580}
-  launchVelocity: {x: 0, y: 0, z: 12.5}
+  launchVelocity: {x: 0, y: 3, z: 12.5}
 --- !u!1001 &5968929954169971538
 PrefabInstance:
   m_ObjectHideFlags: 0

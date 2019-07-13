@@ -7,16 +7,16 @@ namespace Roguelike.Weapons
     public class WeaponInstance
     {
         [SerializeField] private WeaponData weaponData = null;
-        [SerializeField] private WeaponLogic weaponLogic = null;
+        [SerializeField] private PlayerWeaponLogic playerWeaponLogic = null;
 
-        public WeaponInstance(WeaponData weaponData, WeaponLogic weaponLogic)
+        public WeaponInstance(WeaponData weaponData, PlayerWeaponLogic playerWeaponLogic)
         {
             this.weaponData = weaponData;
-            this.weaponLogic = weaponLogic;
+            this.playerWeaponLogic = playerWeaponLogic;
         }
 
         public WeaponData WeaponData => weaponData;
-        public WeaponLogic WeaponLogic => weaponLogic;
+        public PlayerWeaponLogic PlayerWeaponLogic => playerWeaponLogic;
     }
 }
 

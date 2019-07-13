@@ -34,18 +34,18 @@ namespace Roguelike.Weapons
 
         public void AddNewWeapon(WeaponData weaponData)
         {
-            WeaponLogic weaponLogic = Instantiate(
+            PlayerWeaponLogic playerWeaponLogic = Instantiate(
                 weaponData.WeaponLogic,
                 transform).
-                GetComponent<WeaponLogic>();
+                GetComponent<PlayerWeaponLogic>();
 
-            weaponLogic.Initialise(inputContainer);
+            playerWeaponLogic.Initialise(inputContainer);
 
-            inventory.Weapons.Add(new WeaponInstance(weaponData, weaponLogic));
+            inventory.Weapons.Add(new WeaponInstance(weaponData, playerWeaponLogic));
 
-            bool isSelectedWeapon = weaponLogic == CurrentWeapon.WeaponLogic;
+            bool isSelectedWeapon = playerWeaponLogic == CurrentWeapon.PlayerWeaponLogic;
 
-            weaponLogic.gameObject.SetActive(isSelectedWeapon);
+            playerWeaponLogic.gameObject.SetActive(isSelectedWeapon);
 
             onWeaponSelected.Raise(CurrentWeapon);
         }
@@ -97,11 +97,11 @@ namespace Roguelike.Weapons
 
         private void ChangeWeapon(int index)
         {
-            CurrentWeapon.WeaponLogic.gameObject.SetActive(false);
+            CurrentWeapon.PlayerWeaponLogic.gameObject.SetActive(false);
 
             currentIndex = index;
 
-            CurrentWeapon.WeaponLogic.gameObject.SetActive(true);
+            CurrentWeapon.PlayerWeaponLogic.gameObject.SetActive(true);
 
             onWeaponSelected.Raise(CurrentWeapon);
         }

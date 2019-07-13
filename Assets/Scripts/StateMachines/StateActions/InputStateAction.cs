@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace Roguelike.StateMachines.StateActions
 {
-    [CreateAssetMenu(fileName = "New Input State Action", menuName = "State Machines/State Actions/Input State Action")]
     public class InputStateAction : StateAction
     {
         [Required] [SerializeField] private InputContainer inputContainer = null;

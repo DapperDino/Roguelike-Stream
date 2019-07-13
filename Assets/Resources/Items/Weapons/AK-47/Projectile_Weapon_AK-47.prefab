@@ -138,8 +138,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 165465161780144113}
-        m_MethodName: Trigger
+      - m_Target: {fileID: 6690725259057885386}
+        m_MethodName: DetonateEarly
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
