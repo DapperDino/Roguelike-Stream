@@ -1,4 +1,5 @@
 ﻿using Roguelike.Items;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Roguelike.Weapons
@@ -7,7 +8,7 @@ namespace Roguelike.Weapons
     public class WeaponData : Item
     {
         [Header("Weapon Data")]
-        [SerializeField] private GameObject weaponLogic = null;
+        [Required] [SerializeField] private GameObject weaponLogic = null;
 
         public GameObject WeaponLogic => weaponLogic;
     }

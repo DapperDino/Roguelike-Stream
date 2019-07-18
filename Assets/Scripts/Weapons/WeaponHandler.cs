@@ -1,4 +1,5 @@
-﻿using Roguelike.Events.CustomEvents;
+﻿using System.Collections.Generic;
+using Roguelike.Events.CustomEvents;
 using Roguelike.Inputs;
 using Roguelike.Items;
 using Roguelike.Utilities;
@@ -10,42 +11,84 @@ namespace Roguelike.Weapons
     public class WeaponHandler : MonoBehaviour
     {
         [Required] [SerializeField] private InputContainer inputContainer = null;
-        [Required] [SerializeField] private Inventory inventory = null;
         [Required] [SerializeField] private WeaponInstanceEvent onWeaponSelected = null;
-        [SerializeField] private WeaponData[] startingWeapons = new WeaponData[0];
+
+        private List<WeaponInstance> aquiredWeapons = new List<WeaponInstance>();
+        private List<WeaponInstance> currentWeapons = new List<WeaponInstance>();
 
         private int currentIndex = 0;
 
-        private WeaponInstance CurrentWeapon
+        private WeaponInstance CurrentWeapon => currentWeapons[currentIndex];
+
+        public void CheckForWeaponAdd(Item item)
         {
-            get
+            if (item is WeaponData weapon)
             {
-                return inventory.Weapons.Count < currentIndex + 1 ? null : inventory.Weapons[currentIndex];
+                AddNewWeapon(weapon);
             }
         }
 
-        private void Start()
+        public void CheckForWeaponRemove(Item item)
         {
-            for (int i = 0; i < startingWeapons.Length; i++)
+            if (item is WeaponData weapon)
             {
-                AddNewWeapon(startingWeapons[i]);
+                for (int i = 0; i < currentWeapons.Count; i++)
+                {
+                    if (currentWeapons[i].weaponData == weapon)
+                    {
+                        currentWeapons[i].weaponLogic.gameObject.SetActive(false);
+
+                        currentWeapons.RemoveAt(i);
+
+                        if (currentWeapons.Count == i)
+                        {
+                            SetWithIndex(i - 1);
+                        }
+                        else
+                        {
+                            SetWithIndex(i);
+                        }
+
+                        return;
+                    }
+                }
             }
         }
 
-        public void AddNewWeapon(WeaponData weaponData)
+        private void AddNewWeapon(WeaponData weaponData)
         {
-            PlayerWeaponLogic playerWeaponLogic = Instantiate(
-                weaponData.WeaponLogic,
-                transform).
-                GetComponent<PlayerWeaponLogic>();
+            WeaponInstance weaponInstance = null;
 
-            playerWeaponLogic.Initialise(inputContainer);
+            for (int i = 0; i < aquiredWeapons.Count; i++)
+            {
+                if (aquiredWeapons[i].weaponData == weaponData)
+                {
+                    weaponInstance = aquiredWeapons[i];
+                    break;
+                }
+            }
 
-            inventory.Weapons.Add(new WeaponInstance(weaponData, playerWeaponLogic));
+            if (weaponInstance == null)
+            {
+                weaponInstance = new WeaponInstance
+                {
+                    weaponData = weaponData,
+                    weaponLogic = Instantiate(weaponData.WeaponLogic, transform).GetComponent<PlayerWeaponLogic>()
+                };
 
-            bool isSelectedWeapon = playerWeaponLogic == CurrentWeapon.PlayerWeaponLogic;
+                aquiredWeapons.Add(weaponInstance);
+            }
+            else
+            {
+                weaponInstance.weaponLogic.gameObject.SetActive(weaponData == CurrentWeapon.weaponData);
+                weaponInstance.weaponLogic.transform.SetAsLastSibling();
+            }
 
-            playerWeaponLogic.gameObject.SetActive(isSelectedWeapon);
+            currentWeapons.Add(weaponInstance);
+
+            bool isSelectedWeapon = weaponData == CurrentWeapon.weaponData;
+
+            weaponData.WeaponLogic.gameObject.SetActive(isSelectedWeapon);
 
             onWeaponSelected.Raise(CurrentWeapon);
         }
@@ -57,15 +100,15 @@ namespace Roguelike.Weapons
 
         private void HandleWeaponSwitching()
         {
-            if (inventory.Weapons.Count < 2) { return; }
+            if (currentWeapons.Count < 2) { return; }
 
             for (int i = 0; i < ExtensionMethods.NumKeys.Length; i++)
             {
                 if (Input.GetKeyDown(ExtensionMethods.NumKeys[i]))
                 {
-                    if (inventory.Weapons.Count < i + 1) { return; }
+                    if (currentWeapons.Count < i + 1) { return; }
 
-                    ChangeWeapon(i);
+                    SwapWithIndex(i);
                 }
             }
 
@@ -73,35 +116,40 @@ namespace Roguelike.Weapons
 
             if (scrollDelta > 0)
             {
-                if (inventory.Weapons.Count - 1 == currentIndex)
+                if (currentWeapons.Count - 1 == currentIndex)
                 {
-                    ChangeWeapon(0);
+                    SwapWithIndex(0);
                 }
                 else
                 {
-                    ChangeWeapon(currentIndex + 1);
+                    SwapWithIndex(currentIndex + 1);
                 }
             }
             else if (scrollDelta < 0)
             {
                 if (currentIndex == 0)
                 {
-                    ChangeWeapon(inventory.Weapons.Count - 1);
+                    SwapWithIndex(currentWeapons.Count - 1);
                 }
                 else
                 {
-                    ChangeWeapon(currentIndex - 1);
+                    SwapWithIndex(currentIndex - 1);
                 }
             }
         }
 
-        private void ChangeWeapon(int index)
+        private void SwapWithIndex(int index)
         {
-            CurrentWeapon.PlayerWeaponLogic.gameObject.SetActive(false);
+            CurrentWeapon.weaponLogic.gameObject.SetActive(false);
 
+            SetWithIndex(index);
+        }
+
+        private void SetWithIndex(int index)
+        {
             currentIndex = index;
 
-            CurrentWeapon.PlayerWeaponLogic.gameObject.SetActive(true);
+            CurrentWeapon.weaponLogic.gameObject.SetActive(true);
 
             onWeaponSelected.Raise(CurrentWeapon);
         }

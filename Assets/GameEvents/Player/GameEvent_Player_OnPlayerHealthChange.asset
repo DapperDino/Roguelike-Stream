@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3292b449efcaf754988f4155ea29f0e0, type: 3}
-  m_Name: InputContainer_PlayerOne
+  m_Script: {fileID: 11500000, guid: 7833e3cf8793667478fe7dc164332c08, type: 3}
+  m_Name: GameEvent_Player_OnPlayerHealthChange
   m_EditorClassIdentifier: 
-  horizontalAxisName: Horizontal
-  verticalAxisName: Vertical
-  fireButtonName: Fire

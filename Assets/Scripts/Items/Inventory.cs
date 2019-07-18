@@ -1,5 +1,4 @@
 ﻿using Roguelike.Events.CustomEvents;
-using Roguelike.Weapons;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,27 +9,29 @@ namespace Roguelike.Items
     public class Inventory : ScriptableObject
     {
         [Required] [SerializeField] private ItemEvent onItemAdded = null;
-        [Required] [SerializeField] private WeaponDataEvent onWeaponAdded = null;
+        [Required] [SerializeField] private ItemEvent onItemRemoved = null;
 
-        public List<WeaponInstance> Weapons { get; } = new List<WeaponInstance>();
-        public List<Item> Items { get; } = new List<Item>();
+        private List<Item> items = new List<Item>();
 
         public bool AddItem(Item item)
         {
-            WeaponData weaponData = item as WeaponData;
-
-            if (weaponData != null)
-            {
-                onWeaponAdded.Raise(weaponData);
-            }
-            else
-            {
-                Items.Add(item);
-            }
+            items.Add(item);
 
             onItemAdded.Raise(item);
 
             return true;
+        }
+
+        [Button]
+        public void RemoveItem(Item item)
+        {
+            if (!item.CanDrop) { return; }
+
+            if (!items.Contains(item)) { return; }
+
+            items.Remove(item);
+
+            onItemRemoved.Raise(item);
         }
     }
 }

@@ -11,24 +11,36 @@ namespace Roguelike.Player
         [Required] [SerializeField] private Transform healthIconHolderTransform = null;
 
         private List<GameObject> healthIcons = new List<GameObject>();
-        private Damageable damageable = null;
 
-        public void SetDamageable(Damageable damageable)
+        public void UpdateHealth(int health)
         {
-            this.damageable = damageable;
-            UpdateHealthUI();
+            for (int i = 0; i < healthIcons.Count; i++)
+            {
+                healthIcons[i].SetActive(health >= i + 1);
+            }
         }
 
-        public void UpdateHealthUI()
+        public void UpdateMaxHealth(int maxHealth)
         {
-            for (int i = 0; i < damageable.MaxHealth; i++)
+            for (int i = 0; i < maxHealth; i++)
             {
                 if (healthIcons.Count <= i)
                 {
                     healthIcons.Add(Instantiate(healthIconPrefab, healthIconHolderTransform));
                 }
+            }
 
-                healthIcons[i].SetActive(damageable.CurrentHealth >= i + 1);
+            for (int i = healthIcons.Count - 1; i >= 0; i--)
+            {
+                if (maxHealth <= i)
+                {
+                    Destroy(healthIcons[i].gameObject);
+                    healthIcons.RemoveAt(i);
+                }
+                else
+                {
+                    return;
+                }
             }
         }
     }

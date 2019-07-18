@@ -167,8 +167,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7998461573545677027}
   - component: {fileID: 5509728064862684396}
-  - component: {fileID: 7585100968427935382}
-  - component: {fileID: 264324609079317429}
+  - component: {fileID: 5585765772122140222}
+  - component: {fileID: 4663570733098870880}
   m_Layer: 0
   m_Name: UI_PlayerStats
   m_TagString: Untagged
@@ -206,7 +206,7 @@ MonoBehaviour:
   healthIconPrefab: {fileID: 8686906835655859120, guid: cbcbe4d6f5ccf6c4d9395d90ef2fbb12,
     type: 3}
   healthIconHolderTransform: {fileID: 7998461572638506309}
---- !u!114 &7585100968427935382
+--- !u!114 &5585765772122140222
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -215,15 +215,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7998461573545677026}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4de5e9bb1e99cce4fa66c1f93e1d45ee, type: 3}
+  m_Script: {fileID: 11500000, guid: fbb2447fb3c04ac409bc99fbf3e9823a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 8a50aa0a4eb3f804c8b7919cbc3cfbcc, type: 2}
+  gameEvent: {fileID: 11400000, guid: 17183fb6377c70c48ba9f1957d87d14f, type: 2}
   unityEventResponse:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5509728064862684396}
-        m_MethodName: SetDamageable
+        m_MethodName: UpdateHealth
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -233,9 +233,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: Roguelike.Events.UnityEvents.UnityDamageableEvent, Assembly-CSharp,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
---- !u!114 &264324609079317429
+    m_TypeName: Roguelike.Events.UnityEvents.UnityIntEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &4663570733098870880
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -244,16 +244,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 7998461573545677026}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a109e1f9f3a61143bdb4cbd59b4db13, type: 3}
+  m_Script: {fileID: 11500000, guid: fbb2447fb3c04ac409bc99fbf3e9823a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 70a0f42a104cc9c42ad665ab94604485, type: 2}
+  gameEvent: {fileID: 11400000, guid: ebbc81c91f96f7648886b8c68015b2d9, type: 2}
   unityEventResponse:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5509728064862684396}
-        m_MethodName: UpdateHealthUI
-        m_Mode: 1
+        m_MethodName: UpdateMaxHealth
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -262,5 +262,5 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: Roguelike.Events.UnityEvents.UnityVoidEvent, Assembly-CSharp, Version=0.0.0.0,
+    m_TypeName: Roguelike.Events.UnityEvents.UnityIntEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null

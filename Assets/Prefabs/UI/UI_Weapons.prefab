@@ -324,7 +324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1907889172233567539}
   - component: {fileID: 683889177}
-  - component: {fileID: 1806816166853501967}
+  - component: {fileID: 3953742541680026238}
   - component: {fileID: 683889176}
   m_Layer: 5
   m_Name: UI_Weapons
@@ -362,7 +362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponNameText: {fileID: 2136393010}
   ammoCountText: {fileID: 228239620046518726}
---- !u!114 &1806816166853501967
+--- !u!114 &3953742541680026238
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -374,7 +374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e0f66e2ffe6584f836db2943655abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 02bb11c6285b0fd46a0ebf7d3baec256, type: 2}
+  gameEvent: {fileID: 11400000, guid: c98413b07b808ac4899d51debf371e57, type: 2}
   unityEventResponse:
     m_PersistentCalls:
       m_Calls:

@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8451025102387448b9f2efd491df2ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAmmo: 100
   clipSize: 10
   reloadDuration: 1
   fireRate: 2
@@ -76,6 +75,8 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  maxAmmo: 100
+  inputContainer: {fileID: 11400000, guid: 388ce73c1ffa6e94a89eba232defe975, type: 2}
 --- !u!114 &8705329930137812367
 MonoBehaviour:
   m_ObjectHideFlags: 0

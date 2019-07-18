@@ -6,7 +6,6 @@ namespace Roguelike.Weapons
 {
     public class WeaponLogic : MonoBehaviour
     {
-
         [SerializeField] protected int clipSize = 10;
         [SerializeField] protected float reloadDuration = 1f;
         [SerializeField] protected float fireRate = 1f;
@@ -17,6 +16,15 @@ namespace Roguelike.Weapons
         protected int remainingClipAmmo = 0;
 
         protected virtual void Awake() => remainingClipAmmo = clipSize;
+
+        private void OnDisable()
+        {
+            if (reloadCoroutine != null)
+            {
+                StopCoroutine(reloadCoroutine);
+                reloadCoroutine = null;
+            }
+        }
 
         public virtual void Fire()
         {

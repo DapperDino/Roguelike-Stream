@@ -1,4 +1,5 @@
 ﻿using Roguelike.Inputs;
+using Sirenix.OdinInspector;
 using System.Collections;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ namespace Roguelike.Weapons
     {
         [SerializeField] private int maxAmmo = 100;
 
-        protected InputContainer inputContainer = null;
+        [Required] [SerializeField] protected InputContainer inputContainer = null;
 
         public int MaxAmmo => maxAmmo;
         public int CurrentAmmo { get; private set; } = 0;
@@ -18,8 +19,6 @@ namespace Roguelike.Weapons
             base.Awake();
             CurrentAmmo = maxAmmo;
         }
-
-        public void Initialise(InputContainer inputContainer) => this.inputContainer = inputContainer;
 
         public override void Fire()
         {

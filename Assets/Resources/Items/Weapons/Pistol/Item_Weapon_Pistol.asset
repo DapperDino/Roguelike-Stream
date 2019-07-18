@@ -12,10 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f453ea714cbb8c1488102284e34fc86e, type: 3}
   m_Name: Item_Weapon_Pistol
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   name: Pistol
   description: Humble beginnings
+  canDrop: 0
   quality: {fileID: 11400000, guid: 97a6f4e903aa45044bdc7c7bf7bf08c9, type: 2}
   icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   model: {fileID: 6234431026700733471, guid: 38a711e9232f55945a811f2e7f8b1fa4, type: 3}
+  passiveLogic: {fileID: 0}
   weaponLogic: {fileID: 1120675737782391486, guid: d95e3e91982e1e44282fc6b16f364586,
     type: 3}

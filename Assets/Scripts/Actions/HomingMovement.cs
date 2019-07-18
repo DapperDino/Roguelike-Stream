@@ -34,7 +34,10 @@ namespace Roguelike.Actions
 
             Vector2 direction = (cursorPos - screenPos).normalized;
 
-            rb.velocity = Vector3.Lerp(rb.velocity, new Vector3(direction.x, 0f, direction.y) * currentSpeed, smoothing);
+            rb.velocity = Vector3.Lerp(
+                rb.velocity,
+                new Vector3(direction.x, 0f, direction.y) * currentSpeed,
+                smoothing);
         }
 
     }

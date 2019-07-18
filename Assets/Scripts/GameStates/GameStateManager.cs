@@ -1,10 +1,8 @@
 ﻿using Roguelike.Combat;
 using Sirenix.OdinInspector;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Roguelike
+namespace Roguelike.GameStates
 {
     public class GameStateManager : MonoBehaviour
     {

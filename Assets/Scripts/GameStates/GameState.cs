@@ -1,7 +1,7 @@
 ﻿using Roguelike.Combat;
 using UnityEngine;
 
-namespace Roguelike
+namespace Roguelike.GameStates
 {
     [CreateAssetMenu(fileName = "New Game State", menuName = "Game State")]
     public class GameState : ScriptableObject

@@ -12,10 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f453ea714cbb8c1488102284e34fc86e, type: 3}
   m_Name: Item_Weapon_GrenadeLauncher
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   name: Grenade Launcher
   description: Bounce, bounce, bang
   quality: {fileID: 11400000, guid: 810547607f3d0e84d842c2418ce033c7, type: 2}
   icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   model: {fileID: 6234431026700733471, guid: bf0f9e919e99e294fbb6e5078a69ec8b, type: 3}
+  passiveLogic: {fileID: 0}
   weaponLogic: {fileID: 1120675737782391486, guid: 3ac567775c6ea8949a4d701b84bb5080,
     type: 3}

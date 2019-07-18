@@ -9,20 +9,20 @@ namespace Roguelike.Weapons
         [Required] [SerializeField] private TextMeshProUGUI weaponNameText = null;
         [Required] [SerializeField] private TextMeshProUGUI ammoCountText = null;
 
-        private WeaponInstance displayedWeapon = null;
+        private WeaponInstance weaponInstance = null;
 
         public void UpdateDisplayedWeapon(WeaponInstance weaponInstance)
         {
-            displayedWeapon = weaponInstance;
+            this.weaponInstance = weaponInstance;
 
-            weaponNameText.text = weaponInstance.WeaponData.Name;
+            weaponNameText.text = weaponInstance.weaponData.Name;
 
             UpdateAmmoCount();
         }
 
         public void UpdateAmmoCount()
         {
-            ammoCountText.text = $"{displayedWeapon.PlayerWeaponLogic.CurrentAmmo}/{displayedWeapon.PlayerWeaponLogic.MaxAmmo}";
+            ammoCountText.text = $"{weaponInstance.weaponLogic.CurrentAmmo}/{weaponInstance.weaponLogic.MaxAmmo}";
         }
     }
 }

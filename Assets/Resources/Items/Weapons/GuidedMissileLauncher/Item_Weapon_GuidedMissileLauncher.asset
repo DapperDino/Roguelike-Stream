@@ -12,10 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f453ea714cbb8c1488102284e34fc86e, type: 3}
   m_Name: Item_Weapon_GuidedMissileLauncher
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   name: Guided Missile Launcher
   description: Bang
   quality: {fileID: 11400000, guid: 75098a3f6f384824b98b3663a9d12f27, type: 2}
   icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   model: {fileID: 6234431026700733471, guid: 7ad706a71ef66f04d8120ea0bdbd7ead, type: 3}
+  passiveLogic: {fileID: 0}
   weaponLogic: {fileID: 1120675737782391486, guid: ce7f481240c883c49800971716255c1f,
     type: 3}

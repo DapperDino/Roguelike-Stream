@@ -12,10 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f453ea714cbb8c1488102284e34fc86e, type: 3}
   m_Name: Item_Weapon_Shotgun
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   name: Shotgun
   description: Humble beginnings
   quality: {fileID: 11400000, guid: 904590b646e826d4fa7453aa4dd979e0, type: 2}
   icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   model: {fileID: 6234431026700733471, guid: daf69d07af17a6f46892ce999b2545e1, type: 3}
+  passiveLogic: {fileID: 0}
   weaponLogic: {fileID: 1120675737782391486, guid: 50690d075f679ce4f8c7b04cbde023fb,
     type: 3}
