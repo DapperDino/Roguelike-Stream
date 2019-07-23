@@ -4,5 +4,5 @@ using Roguelike.Events.UnityEvents;
 
 namespace Roguelike.Events.Listeners
 {
-    public class DamageableListener : BaseGameEventListener<Damageable, DamageableEvent, UnityDamageableEvent> { }
+    public class DamageableListener : BaseGameEventListener<HealthSystem, DamageableEvent, UnityDamageableEvent> { }
 }

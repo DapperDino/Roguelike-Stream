@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6120753387016203856}
   - component: {fileID: 8056464766825786021}
   m_Layer: 0
-  m_Name: PassiveLogic_HealthUp
+  m_Name: PassiveLogic_SizeUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,5 +93,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88507c8c894a553468c36aab4671ca0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statType: 1
+  statType: 4
   modifier: 1

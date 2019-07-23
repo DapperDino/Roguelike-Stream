@@ -1,14 +1,13 @@
-﻿using Roguelike.Combat;
-using Sirenix.OdinInspector;
+﻿using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Roguelike.Player
+namespace Roguelike.Combat
 {
-    public class PlayerStatsUI : MonoBehaviour
+    public class HealthStatsUI : MonoBehaviour
     {
         [Required] [SerializeField] private GameObject healthIconPrefab = null;
-        [Required] [SerializeField] private Transform healthIconHolderTransform = null;
+        [Required] [SerializeField] private Transform healthIconsHolderTransform = null;
 
         private List<GameObject> healthIcons = new List<GameObject>();
 
@@ -26,7 +25,7 @@ namespace Roguelike.Player
             {
                 if (healthIcons.Count <= i)
                 {
-                    healthIcons.Add(Instantiate(healthIconPrefab, healthIconHolderTransform));
+                    healthIcons.Add(Instantiate(healthIconPrefab, healthIconsHolderTransform));
                 }
             }
 

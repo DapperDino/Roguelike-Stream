@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 8751850525990606238}
   - component: {fileID: 1482398839}
   - component: {fileID: 3218807498856115456}
-  - component: {fileID: 3218807498856115459}
+  - component: {fileID: 1331997526253406003}
   - component: {fileID: 6238435464127128411}
   - component: {fileID: 4036642676323599861}
   - component: {fileID: 7482583998942050037}
@@ -246,7 +246,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &3218807498856115459
+--- !u!114 &1331997526253406003
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -255,9 +255,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 3218807498856115458}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d5a0b4b7f26b5c4ea162c01a3d5c9d6, type: 3}
+  m_Script: {fileID: 11500000, guid: ae14465e04853fa48aa95b5de3973816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onHealthChange:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onMaxHealthChange:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   maxHealth: 100
   targetPoint: {fileID: 3218807498175515448}
   onEnemySpawned: {fileID: 11400000, guid: a9156baa246418641bf43af35a9bf32f, type: 2}

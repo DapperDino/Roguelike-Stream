@@ -1,15 +1,12 @@
 ﻿using Roguelike.Events.CustomEvents;
 using Sirenix.OdinInspector;
-using System;
 using UnityEngine;
 
 namespace Roguelike.Combat
 {
-    public class EnemyDamageable : Damageable
+    public class EnemyHealthSystem : HealthSystem
     {
         [Required] [SerializeField] private EnemyDamageableEvent onEnemySpawned = null;
-
-        public event Action<EnemyDamageable> onDeath = delegate { };
 
         protected override void Start()
         {
@@ -18,14 +15,10 @@ namespace Roguelike.Combat
             onEnemySpawned.Raise(this);
         }
 
-        public override void DealDamage(int damageAmount)
+        public override void Die()
         {
-            base.DealDamage(damageAmount);
-        }
+            base.Die();
 
-        public override void OnDeath()
-        {
-            onDeath?.Invoke(this);
             Destroy(gameObject);
         }
     }

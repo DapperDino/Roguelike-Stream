@@ -166,7 +166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7998461573545677027}
-  - component: {fileID: 5509728064862684396}
+  - component: {fileID: 5638534084027103971}
   - component: {fileID: 5585765772122140222}
   - component: {fileID: 4663570733098870880}
   m_Layer: 0
@@ -191,7 +191,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5509728064862684396
+--- !u!114 &5638534084027103971
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,12 +200,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7998461573545677026}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 875b9d70798c7ff47876cde81121d882, type: 3}
+  m_Script: {fileID: 11500000, guid: 22998ab5ccc8baa43b801cdc087ec975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthIconPrefab: {fileID: 8686906835655859120, guid: cbcbe4d6f5ccf6c4d9395d90ef2fbb12,
     type: 3}
-  healthIconHolderTransform: {fileID: 7998461572638506309}
+  healthIconsHolderTransform: {fileID: 7998461572638506309}
 --- !u!114 &5585765772122140222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +222,7 @@ MonoBehaviour:
   unityEventResponse:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5509728064862684396}
+      - m_Target: {fileID: 5638534084027103971}
         m_MethodName: UpdateHealth
         m_Mode: 0
         m_Arguments:
@@ -251,7 +251,7 @@ MonoBehaviour:
   unityEventResponse:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5509728064862684396}
+      - m_Target: {fileID: 5638534084027103971}
         m_MethodName: UpdateMaxHealth
         m_Mode: 0
         m_Arguments:

@@ -11,7 +11,7 @@ namespace Roguelike.Aiming
         {
             if (target != null)
             {
-                Damageable damageable = target.GetComponent<Damageable>();
+                HealthSystem damageable = target.GetComponent<HealthSystem>();
 
                 if (damageable != null)
                 {

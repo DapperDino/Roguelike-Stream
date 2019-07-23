@@ -1,4 +1,5 @@
-﻿using Roguelike.Inputs;
+﻿using Roguelike.Combat.Stats;
+using Roguelike.Inputs;
 using Sirenix.OdinInspector;
 using System.Collections;
 using UnityEngine;
@@ -11,13 +12,27 @@ namespace Roguelike.Weapons
 
         [Required] [SerializeField] protected InputContainer inputContainer = null;
 
-        public int MaxAmmo => maxAmmo;
+        private StatsContainer statsContainer = null;
+
+        public int MaxAmmo
+        {
+            get
+            {
+                float maxAmmoMultiplier = statsContainer == null ? 0 : statsContainer.GetStatValue(StatTypes.MaxAmmoMultiplier);
+                return (int)(maxAmmo * (1 + maxAmmoMultiplier));
+            }
+        }
         public int CurrentAmmo { get; private set; } = 0;
 
         protected override void Awake()
         {
             base.Awake();
             CurrentAmmo = maxAmmo;
+        }
+
+        private void Start()
+        {
+            statsContainer = GetComponentInParent<StatsContainer>();
         }
 
         public override void Fire()

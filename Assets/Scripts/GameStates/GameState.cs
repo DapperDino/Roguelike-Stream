@@ -6,7 +6,7 @@ namespace Roguelike.GameStates
     [CreateAssetMenu(fileName = "New Game State", menuName = "Game State")]
     public class GameState : ScriptableObject
     {
-        public Damageable Player { get; set; }
+        public HealthSystem Player { get; set; }
 
         private float gameStartTime = 0f;
 

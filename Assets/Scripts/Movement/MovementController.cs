@@ -1,4 +1,5 @@
-﻿using Roguelike.Inputs;
+﻿using Roguelike.Combat.Stats;
+using Roguelike.Inputs;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -10,12 +11,24 @@ namespace Roguelike.Movement
         [SerializeField] private float movementSpeed = 5f;
 
         private float velocityY = 0f;
-
         private readonly float gravity = Physics.gravity.y;
-
         private CharacterController characterController = null;
+        private StatsContainer statsContainer = null;
 
-        private void Start() => characterController = GetComponent<CharacterController>();
+        private float MovementSpeed
+        {
+            get
+            {
+                float speedMultipler = statsContainer == null ? 0 : statsContainer.GetStatValue(StatTypes.MoveSpeedMultiplier);
+                return movementSpeed * (1 + speedMultipler);
+            }
+        }
+
+        private void Start()
+        {
+            characterController = GetComponent<CharacterController>();
+            statsContainer = GetComponent<StatsContainer>();
+        }
 
         private void Update() => Move();
 
@@ -31,7 +44,7 @@ namespace Roguelike.Movement
 
             movementDirection.Normalize();
 
-            Vector3 velocity = Vector3.up * velocityY + movementDirection * movementSpeed;
+            Vector3 velocity = Vector3.up * velocityY + movementDirection * MovementSpeed;
 
             characterController.Move(velocity * Time.deltaTime);
         }

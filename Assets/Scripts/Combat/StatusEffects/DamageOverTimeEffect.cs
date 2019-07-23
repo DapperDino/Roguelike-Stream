@@ -6,13 +6,13 @@ namespace Roguelike.Combat.StatusEffects
     {
         [SerializeField] private int damagePerTick = 1;
 
-        private Damageable damageable = null;
+        private HealthSystem damageable = null;
 
         public override void Initialise(Transform entity)
         {
             base.Initialise(entity);
 
-            damageable = entity.GetComponent<Damageable>();
+            damageable = entity.GetComponent<HealthSystem>();
         }
 
         public override void Tick()

@@ -311,9 +311,10 @@ GameObject:
   - component: {fileID: 3646956632819321618}
   - component: {fileID: 3646956632819321617}
   - component: {fileID: 3646956632819321616}
+  - component: {fileID: 2695862291389266557}
   - component: {fileID: 1899752592}
-  - component: {fileID: 8401940969678743420}
   - component: {fileID: 1806794221}
+  - component: {fileID: 8705110376992192043}
   m_Layer: 8
   m_Name: PlayerOne
   m_TagString: Player
@@ -400,6 +401,69 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2695862291389266557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3646956632819321615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5194a0a6573fbd4da03cb1a2029ffc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onTakeDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 70a0f42a104cc9c42ad665ab94604485, type: 2}
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onHealthChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 17183fb6377c70c48ba9f1957d87d14f, type: 2}
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Roguelike.Events.UnityEvents.UnityIntEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onMaxHealthChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: ebbc81c91f96f7648886b8c68015b2d9, type: 2}
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Roguelike.Events.UnityEvents.UnityIntEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  maxHealth: 6
+  targetPoint: {fileID: 3646956632819321619}
+  onPlayerSpawn: {fileID: 11400000, guid: 8a50aa0a4eb3f804c8b7919cbc3cfbcc, type: 2}
 --- !u!114 &1899752592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,27 +478,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputContainer: {fileID: 11400000, guid: 388ce73c1ffa6e94a89eba232defe975, type: 2}
   movementSpeed: 5
---- !u!114 &8401940969678743420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3646956632819321615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5659da16f4c92ce4bb479c00371c7969, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 6
-  targetPoint: {fileID: 3646956632819321619}
-  onPlayerSpawn: {fileID: 11400000, guid: 8a50aa0a4eb3f804c8b7919cbc3cfbcc, type: 2}
-  onPlayerDeath: {fileID: 11400000, guid: 18c1fd46c0d70ce4a8a940fc1608c2fd, type: 2}
-  onPlayerTakeDamage: {fileID: 11400000, guid: 70a0f42a104cc9c42ad665ab94604485, type: 2}
-  onPlayerHealthChange: {fileID: 11400000, guid: 17183fb6377c70c48ba9f1957d87d14f,
-    type: 2}
-  onPlayerMaxHealthChange: {fileID: 11400000, guid: ebbc81c91f96f7648886b8c68015b2d9,
-    type: 2}
 --- !u!114 &1806794221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,6 +506,34 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: Roguelike.Events.UnityEvents.UnityVoidEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &8705110376992192043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3646956632819321615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70f4eb57c8cb0d0439c5edf2af01e2bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onStatValuesChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2695862291389266557}
+        m_MethodName: UpdateMaxHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &6681073632930233574
 GameObject:

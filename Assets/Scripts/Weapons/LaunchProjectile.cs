@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using Roguelike.Combat.Stats;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Roguelike.Weapons
@@ -11,6 +12,13 @@ namespace Roguelike.Weapons
         [Required] [SerializeField] private Transform projectileSpawnPoint = null;
         [SerializeField] private Vector3 launchVelocity = new Vector3();
 
+        private StatsContainer statsContainer = null;
+
+        private void Start()
+        {
+            statsContainer = GetComponentInParent<StatsContainer>();
+        }
+
         public void Launch()
         {
             for (int i = 0; i < projectilesPerShot; i++)
@@ -19,6 +27,10 @@ namespace Roguelike.Weapons
                     projectile,
                     projectileSpawnPoint.position,
                     projectileSpawnPoint.rotation);
+
+                projectileInstance.transform.localScale *= statsContainer == null ?
+                    1f :
+                    1 + statsContainer.GetStatValue(StatTypes.ProjectileSizeMultiplier);
 
                 if (launchVelocity != Vector3.zero)
                 {
@@ -31,7 +43,14 @@ namespace Roguelike.Weapons
         private Vector3 GetRandomLaunchVelocity()
         {
             float randomSpread = Random.Range(-spread / 2, spread / 2);
-            return transform.TransformDirection(Quaternion.Euler(0f, randomSpread, 0) * launchVelocity);
+
+            Vector3 velocity = transform.TransformDirection(Quaternion.Euler(0f, randomSpread, 0) * launchVelocity);
+
+            velocity *= statsContainer == null ?
+                1f :
+                1 + statsContainer.GetStatValue(StatTypes.ProjectileSpeedMultiplier);
+
+            return velocity;
         }
     }
 }

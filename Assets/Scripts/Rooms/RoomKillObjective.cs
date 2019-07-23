@@ -5,15 +5,15 @@ namespace Roguelike.Rooms
 {
     public class RoomKillObjective : RoomObjective
     {
-        private List<EnemyDamageable> enemies = new List<EnemyDamageable>();
+        private List<HealthSystem> enemies = new List<HealthSystem>();
 
-        public void AddNewEnemy(EnemyDamageable damageable)
+        public void AddNewEnemy(HealthSystem healthSystem)
         {
-            enemies.Add(damageable);
-            damageable.onDeath += RemoveEnemy;
+            enemies.Add(healthSystem);
+            healthSystem.OnDeath.AddListener(RemoveEnemy);
         }
 
-        public void RemoveEnemy(EnemyDamageable damageable)
+        public void RemoveEnemy(HealthSystem damageable)
         {
             enemies.Remove(damageable);
 

@@ -1,8 +1,9 @@
-namespace Roguelike.Combat
+namespace Roguelike.Combat.Stats
 {
     public enum StatTypes
     {
-        BonusMaHp,
+        None,
+        BonusMaxHp,
         MoveSpeedMultiplier,
         DamageMultiplier,
         ProjectileSizeMultiplier,

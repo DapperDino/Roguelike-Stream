@@ -8,6 +8,6 @@ namespace Roguelike.GameStates
     {
         [Required] [SerializeField] private GameState gameState = null;
 
-        public void SetPlayer(Damageable player) => gameState.Player = player;
+        public void SetPlayer(HealthSystem player) => gameState.Player = player;
     }
 }
