@@ -18,7 +18,7 @@ namespace Roguelike.Notifications
 
         private static readonly int hashNotify = Animator.StringToHash("Notify");
 
-        private void Start() => animator = GetComponent<Animator>();
+        private void Awake() => animator = GetComponent<Animator>();
 
         public void AddNewNotification(INotifiable notifiable)
         {

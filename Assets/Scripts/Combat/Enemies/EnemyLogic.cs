@@ -1,5 +1,4 @@
 ﻿using Roguelike.Aiming;
-using Roguelike.GameStates;
 using Roguelike.Utilities;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -12,12 +11,10 @@ namespace Roguelike.Combat.Enemies
     {
         [SerializeField] private float aggroRange = 20f;
         [SerializeField] private float attackRange = 15f;
-        [Required] [SerializeField] private GameState gameState = null;
         [Required] [SerializeField] private AimAtTarget aimAtTarget = null;
         [SerializeField] private UnityEvent onFire = null;
 
         private Animator animator = null;
-        private bool isAggrod = false;
         private static readonly int hashAggrod = Animator.StringToHash("Aggrod");
         private static readonly int hashInFiringRange = Animator.StringToHash("InFiringRange");
 
@@ -30,22 +27,29 @@ namespace Roguelike.Combat.Enemies
             EnemyMovementController = GetComponent<EnemyMovementController>();
 
             SceneLinkedSMB<EnemyLogic>.Initialise(animator, this);
-
-            SetTarget(gameState.Player.transform);
         }
 
         private void Update()
         {
-            if (isAggrod)
-            {
-                animator.SetBool(hashAggrod, true);
-            }
-            else
-            {
-                animator.SetBool(hashAggrod, IsInRange(aggroRange));
-            }
+            animator.SetBool(hashAggrod, FindTarget());
 
             animator.SetBool(hashInFiringRange, IsInRange(attackRange));
+        }
+
+        public bool FindTarget()
+        {
+            Collider[] colliders = Physics.OverlapSphere(transform.position, aggroRange);
+
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                if (colliders[i].CompareTag("Player"))
+                {
+                    SetTarget(colliders[i].transform);
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public void SetTarget(Transform target)

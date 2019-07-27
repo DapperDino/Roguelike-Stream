@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4595870461279136391}
   - component: {fileID: 3963102409368444840}
   - component: {fileID: 227945243863126848}
-  - component: {fileID: -4180220232776263999}
+  - component: {fileID: 530995755741267650}
   m_Layer: 0
   m_Name: Room_DeadEnd_01
   m_TagString: Untagged
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d80d71a50b6291c41b0fdcca142661dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-4180220232776263999
+--- !u!114 &530995755741267650
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,10 +135,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 9214448871169033491}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 105a9f8ff4de82444852e36f8dfeef32, type: 3}
+  m_Script: {fileID: 11500000, guid: 49dbfcaddaa0e13448e18c736772cec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: a9156baa246418641bf43af35a9bf32f, type: 2}
+  gameEvent: {fileID: 11400000, guid: 69e4b50f766544b42a36ed5932e6556d, type: 2}
   unityEventResponse:
     m_PersistentCalls:
       m_Calls:
@@ -153,7 +153,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: Roguelike.Events.UnityEvents.UnityEnemyDamageableEvent, Assembly-CSharp,
+    m_TypeName: Roguelike.Events.UnityEvents.UnityHealthSystemEvent, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &9214448871195097498
 GameObject:

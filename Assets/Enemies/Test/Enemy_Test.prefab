@@ -258,6 +258,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae14465e04853fa48aa95b5de3973816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onSpawn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 69e4b50f766544b42a36ed5932e6556d, type: 2}
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Roguelike.Events.UnityEvents.UnityHealthSystemEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 323c3d9774dbdf445a36c5566f2716bb, type: 2}
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Roguelike.Events.UnityEvents.UnityHealthSystemEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   onTakeDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -266,16 +298,15 @@ MonoBehaviour:
   onHealthChange:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+    m_TypeName: Roguelike.Events.UnityEvents.UnityIntEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onMaxHealthChange:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+    m_TypeName: Roguelike.Events.UnityEvents.UnityIntEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   maxHealth: 100
   targetPoint: {fileID: 3218807498175515448}
-  onEnemySpawned: {fileID: 11400000, guid: a9156baa246418641bf43af35a9bf32f, type: 2}
 --- !u!114 &6238435464127128411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,7 +321,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aggroRange: 15
   attackRange: 10
-  gameState: {fileID: 11400000, guid: 852262ab03378454483d24c46119f31a, type: 2}
   aimAtTarget: {fileID: 1565670748}
   onFire:
     m_PersistentCalls:

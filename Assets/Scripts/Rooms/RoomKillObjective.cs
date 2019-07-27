@@ -13,9 +13,9 @@ namespace Roguelike.Rooms
             healthSystem.OnDeath.AddListener(RemoveEnemy);
         }
 
-        public void RemoveEnemy(HealthSystem damageable)
+        public void RemoveEnemy(HealthSystem healthSystem)
         {
-            enemies.Remove(damageable);
+            enemies.Remove(healthSystem);
 
             if (IsComplete()) { onObjectiveCompleted?.Invoke(); }
         }

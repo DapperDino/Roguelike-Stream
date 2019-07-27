@@ -7,7 +7,8 @@ namespace Roguelike.Combat
 {
     public abstract class HealthSystem : MonoBehaviour, IDamageable, IHealable
     {
-        [SerializeField] private UnityEvent<HealthSystem> onDeath = null;
+        [SerializeField] private UnityHealthSystemEvent onSpawn = null;
+        [SerializeField] private UnityHealthSystemEvent onDeath = null;
         [SerializeField] private UnityEvent onTakeDamage = null;
         [SerializeField] private UnityIntEvent onHealthChange = null;
         [SerializeField] private UnityIntEvent onMaxHealthChange = null;
@@ -17,8 +18,8 @@ namespace Roguelike.Combat
         private int currentHealth = 0;
         private StatsContainer statsContainer = null;
 
-        public UnityEvent<HealthSystem> OnDeath => onDeath;
         public Transform TargetPoint => targetPoint;
+        public UnityHealthSystemEvent OnDeath => onDeath;
 
         private int MaxHealth
         {
@@ -38,6 +39,8 @@ namespace Roguelike.Combat
             onHealthChange?.Invoke(currentHealth);
 
             onMaxHealthChange?.Invoke(MaxHealth);
+
+            onSpawn?.Invoke(this);
         }
 
         public virtual void DealDamage(int damageAmount)

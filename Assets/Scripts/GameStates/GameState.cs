@@ -1,21 +1,20 @@
-﻿using Roguelike.Combat;
-using UnityEngine;
+﻿using Roguelike.Characters;
 
 namespace Roguelike.GameStates
 {
-    [CreateAssetMenu(fileName = "New Game State", menuName = "Game State")]
-    public class GameState : ScriptableObject
+    public static class GameState
     {
-        public HealthSystem Player { get; set; }
+        public static Character SelectedCharacter = null;
+        public static float GameStartTime = 0f;
+        public static int TotalKills = 0;
+        public static bool HasAquiredStartingItems = false;
 
-        private float gameStartTime = 0f;
-
-        public float GameDuration => Time.time - gameStartTime;
-
-        public void Reset()
+        public static void Reset()
         {
-            gameStartTime = Time.time;
-            Player = null;
+            SelectedCharacter = null;
+            GameStartTime = 0f;
+            TotalKills = 0;
+            HasAquiredStartingItems = false;
         }
     }
 }

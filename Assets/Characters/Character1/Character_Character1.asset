@@ -17,3 +17,4 @@ MonoBehaviour:
   visuals: {fileID: 3997774630179869968, guid: 8c0d1759a5a6aa749a16b27cc43412a6, type: 3}
   startingItems:
   - {fileID: 11400000, guid: d9db7701c5d573044aeafef4cd7d46eb, type: 2}
+  - {fileID: 11400000, guid: 6aa9650ec81cb3a409703474396f73ea, type: 2}

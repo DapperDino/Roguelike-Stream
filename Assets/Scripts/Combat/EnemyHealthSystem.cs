@@ -1,23 +1,14 @@
-﻿using Roguelike.Events.CustomEvents;
-using Sirenix.OdinInspector;
-using UnityEngine;
+﻿using Roguelike.GameStates;
 
 namespace Roguelike.Combat
 {
     public class EnemyHealthSystem : HealthSystem
     {
-        [Required] [SerializeField] private EnemyDamageableEvent onEnemySpawned = null;
-
-        protected override void Start()
-        {
-            base.Start();
-
-            onEnemySpawned.Raise(this);
-        }
-
         public override void Die()
         {
             base.Die();
+
+            GameState.TotalKills++;
 
             Destroy(gameObject);
         }

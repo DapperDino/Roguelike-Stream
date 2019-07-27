@@ -4,5 +4,5 @@ using UnityEngine.Events;
 
 namespace Roguelike.Events.UnityEvents
 {
-    [Serializable] public class UnityEnemyDamageableEvent : UnityEvent<EnemyHealthSystem> { }
+    [Serializable] public class UnityHealthSystemEvent : UnityEvent<HealthSystem> { }
 }

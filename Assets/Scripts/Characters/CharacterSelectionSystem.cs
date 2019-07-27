@@ -1,4 +1,6 @@
-﻿using Sirenix.OdinInspector;
+﻿using System.Collections;
+using Roguelike.GameStates;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 
@@ -10,6 +12,7 @@ namespace Roguelike.Characters
         [SerializeField] private Character[] characters = new Character[0];
 
         [Header("Spawn Settings")]
+        [SerializeField] private float rotationDuration = 1f;
         [SerializeField] private float spawnRadius = 3f;
         [Required] [SerializeField] private Transform characterHolderTransform = null;
 
@@ -18,6 +21,7 @@ namespace Roguelike.Characters
 
         private int selectedCharacterIndex = 0;
         private Character SelectedCharacter => characters[selectedCharacterIndex];
+        private Coroutine rotationCoroutine = null;
 
         private void Start()
         {
@@ -28,7 +32,9 @@ namespace Roguelike.Characters
 
         public void ChangeSelectedCharacter(bool rightButton)
         {
-            RotateCharacters(rightButton);
+            if (rotationCoroutine != null) { return; }
+
+            rotationCoroutine = StartCoroutine(RotateCharacters(rightButton));
 
             selectedCharacterIndex += rightButton ? 1 : -1;
 
@@ -40,7 +46,8 @@ namespace Roguelike.Characters
 
         public void SelectCharacter()
         {
-            Debug.Log($"Selected {SelectedCharacter.Name}");
+            GameState.SelectedCharacter = SelectedCharacter;
+            GameState.GameStartTime = Time.time;
         }
 
         private void SpawnCharacters()
@@ -58,13 +65,25 @@ namespace Roguelike.Characters
             }
         }
 
-        private void RotateCharacters(bool rightButton)
+        private IEnumerator RotateCharacters(bool rightButton)
         {
             float angle = 360 / characters.Length;
+            float startingY = characterHolderTransform.localEulerAngles.y;
+            float endingY = startingY + angle;
 
             if (!rightButton) { angle = -angle; }
 
-            characterHolderTransform.Rotate(0f, angle, 0f);
+            float startTime = Time.time;
+
+            while (Time.time - startTime < rotationDuration)
+            {
+                characterHolderTransform.Rotate(0f, (angle / rotationDuration) * Time.deltaTime, 0f);
+                yield return null;
+            }
+
+            characterHolderTransform.rotation = Quaternion.Euler(0f, endingY, 0f);
+
+            rotationCoroutine = null;
         }
     }
 }

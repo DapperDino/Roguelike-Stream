@@ -1,4 +1,5 @@
 ﻿using Sirenix.OdinInspector;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ namespace Roguelike.Items
     public class ItemDatabase : ScriptableObject
     {
         [SerializeField] private Item[] items = new Item[0];
+
+        private List<Item> spawnedItems = new List<Item>();
 
         [Button]
         public void GetAndSortItems()
