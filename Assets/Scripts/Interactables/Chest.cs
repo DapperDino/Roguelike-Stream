@@ -24,7 +24,7 @@ namespace Roguelike.Interactables
             item = itemDatabase.GetItemOfQuality(quality);
         }
 
-        public override void Interact(Transform other)
+        public override void Interact(GameObject other)
         {
             GameObject itemPickupInstance = Instantiate(
                 itemPickup,

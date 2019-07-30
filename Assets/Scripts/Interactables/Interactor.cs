@@ -1,49 +1,58 @@
-﻿using Roguelike.Inputs;
+﻿using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Roguelike.Interactables
 {
     public class Interactor : MonoBehaviour
     {
-        [SerializeField] private InputContainer inputContainer = null;
+        [Required] [SerializeField] private GameObject entity = null;
 
-        private Interactable currentInteractable = null;
+        private List<IInteractable> interactables = new List<IInteractable>();
 
-        private void Update()
-        {
-            if (inputContainer.InteractButtonDown)
-            {
-                currentInteractable?.Interact(transform.root);
-            }
-        }
+        private void Update() => CheckForInteraction();
 
         private void OnTriggerEnter(Collider other)
         {
-            Interactable interactable = other.GetComponent<Interactable>();
+            var interactable = other.GetComponent<IInteractable>();
 
             if (interactable == null) { return; }
 
-            if (currentInteractable != null)
-            {
-                currentInteractable.Exit();
-            }
-
-            currentInteractable = interactable;
-
-            currentInteractable.Enter();
+            AddInteractable(interactable);
         }
 
         private void OnTriggerExit(Collider other)
         {
-            Interactable interactable = other.GetComponent<Interactable>();
+            var interactable = other.GetComponent<IInteractable>();
 
             if (interactable == null) { return; }
 
-            if (interactable == currentInteractable)
-            {
-                currentInteractable.Exit();
-                currentInteractable = null;
-            }
+            RemoveInteractable(interactable);
+        }
+
+        private void CheckForInteraction()
+        {
+            if (interactables.Count == 0) { return; }
+
+            if (!Input.GetKeyDown(KeyCode.E)) { return; }
+
+            interactables[0].Interact(entity);
+        }
+
+        private void AddInteractable(IInteractable interactable)
+        {
+            interactables.Add(interactable);
+
+            interactable.Interactor = this;
+        }
+
+        public void RemoveInteractable(IInteractable interactable)
+        {
+            if (!interactables.Contains(interactable)) { return; }
+
+            interactables.Remove(interactable);
+
+            interactable.Interactor = null;
         }
     }
 }

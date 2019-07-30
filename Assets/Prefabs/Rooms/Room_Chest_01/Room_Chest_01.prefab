@@ -48,8 +48,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomType: {fileID: 11400000, guid: 0e1bcee6d34b69a4c8f8188857365434, type: 2}
+  roomObjectives: []
   teleportPoints:
   - {fileID: 3729611154478549307}
+  onRoomStart:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &4595870461279136391
 MonoBehaviour:
   m_ObjectHideFlags: 0

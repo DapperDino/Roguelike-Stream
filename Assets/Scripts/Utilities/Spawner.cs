@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Roguelike.Combat.Enemies;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,6 +9,7 @@ namespace Roguelike.Utilities
     public class Spawner : MonoBehaviour
     {
         [SerializeField] private float radius = 10;
+        [Required] [SerializeField] private GameObject enemySpawnPrefab = null;
         [SerializeField] private List<GameObject> objectsToSpawn = new List<GameObject>();
 
         public void Spawn()
@@ -17,7 +20,8 @@ namespace Roguelike.Utilities
 
                 if (NavMesh.SamplePosition(randomPosition, out NavMeshHit hit, radius, NavMesh.AllAreas))
                 {
-                    Instantiate(objectsToSpawn[i], hit.position, Quaternion.identity);
+                    Instantiate(enemySpawnPrefab, hit.position, Quaternion.identity)
+                        .GetComponent<SpawnDelay>().Initialise(objectsToSpawn[i]);
                 }
             }
         }

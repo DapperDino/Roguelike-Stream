@@ -15,6 +15,7 @@ namespace Roguelike.Combat
         [SerializeField] private int maxHealth = 0;
         [SerializeField] private Transform targetPoint = null;
 
+        private bool isDead = false;
         private int currentHealth = 0;
         private StatsContainer statsContainer = null;
 
@@ -52,7 +53,11 @@ namespace Roguelike.Combat
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
-                Die();
+                if (!isDead)
+                {
+                    Die();
+                    isDead = true;
+                }
             }
 
             onHealthChange?.Invoke(currentHealth);

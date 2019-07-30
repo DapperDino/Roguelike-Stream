@@ -7,7 +7,7 @@ namespace Roguelike.Utilities
     public class Detonator : MonoBehaviour
     {
         [SerializeField] private float lifetime = 1f;
-        [SerializeField] private bool detonateOnDestory = false;
+        [SerializeField] private bool detonateOnDestroy = false;
         [SerializeField] private UnityEvent onDetonation = null;
 
         private void Start()
@@ -17,7 +17,7 @@ namespace Roguelike.Utilities
 
         private void OnDestroy()
         {
-            if (detonateOnDestory)
+            if (detonateOnDestroy)
             {
                 onDetonation?.Invoke();
             }

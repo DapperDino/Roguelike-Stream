@@ -112,6 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 12
+  enemySpawnPrefab: {fileID: 974205470179664062, guid: 723b3996601187442b19af25f27a7082,
+    type: 3}
   objectsToSpawn:
   - {fileID: 3218807498856115458, guid: 8ebce559baaf67347bcd128176f2ac89, type: 3}
 --- !u!114 &227945243863126848

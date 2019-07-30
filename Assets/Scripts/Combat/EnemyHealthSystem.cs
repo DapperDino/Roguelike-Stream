@@ -7,7 +7,7 @@ namespace Roguelike.Combat
         public override void Die()
         {
             base.Die();
-
+            
             GameState.TotalKills++;
 
             Destroy(gameObject);

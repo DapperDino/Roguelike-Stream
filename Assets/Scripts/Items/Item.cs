@@ -10,6 +10,7 @@ namespace Roguelike.Items
         [Header("Basic Data")]
         [SerializeField] private new string name = "New Item Name";
         [SerializeField] private string description = "New Item Description";
+        [SerializeField] private int price = 1;
         [SerializeField] private bool canDrop = true;
         [SerializeField] private Quality quality = null;
         [SerializeField] private Sprite icon = null;
@@ -18,6 +19,7 @@ namespace Roguelike.Items
 
         public string Name => name;
         public string Description => description;
+        public int Price => price;
         public bool CanDrop => canDrop;
         public Quality Quality => quality;
         public Sprite Icon => icon;

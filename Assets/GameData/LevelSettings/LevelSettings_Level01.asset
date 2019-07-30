@@ -35,6 +35,12 @@ MonoBehaviour:
     maxQuantity: 4
     rooms:
     - {fileID: 3460351943952093271, guid: 0ebea1a6e768d4440a5a4c38e3519225, type: 3}
+  - chance: 1
+    minRoomPercentageBeforeSpawn: 0.2
+    minQuantity: 1
+    maxQuantity: 1
+    rooms:
+    - {fileID: 3460351943952093271, guid: 5ab6dcbabb03dbf4fa420f45f6e505df, type: 3}
   qualityHandler:
     qualityChances:
     - quality: {fileID: 11400000, guid: 97a6f4e903aa45044bdc7c7bf7bf08c9, type: 2}

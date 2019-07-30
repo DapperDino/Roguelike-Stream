@@ -60,9 +60,9 @@ namespace Roguelike.Interactables
 
         private void SetRoomTypeColour() => GetComponent<Renderer>().material.color = linkedPoint.Room.RoomType.RoomTypeColour;
 
-        public override void Interact(Transform other)
+        public override void Interact(GameObject other)
         {
-            other.MoveCharacterController(linkedPoint.transform.position + spawnOffset);
+            other.transform.MoveCharacterController(linkedPoint.transform.position + spawnOffset);
             linkedPoint.Room.Enter();
         }
 
