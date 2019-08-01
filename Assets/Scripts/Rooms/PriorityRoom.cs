@@ -1,14 +1,18 @@
-﻿namespace Roguelike.Rooms
+﻿using UnityEngine;
+
+namespace Roguelike.Rooms
 {
     public struct PriorityRoom
     {
-        public Room Room { get; }
+        private Room[] rooms;
         public float MinRoomPercentageBeforeSpawn { get; }
 
-        public PriorityRoom(Room room, float minRoomPercentageBeforeSpawn)
+        public PriorityRoom(Room[] rooms, float minRoomPercentageBeforeSpawn)
         {
-            Room = room;
+            this.rooms = rooms;
             MinRoomPercentageBeforeSpawn = minRoomPercentageBeforeSpawn;
         }
+
+        public Room Room => rooms[Random.Range(0, rooms.Length)];
     }
 }

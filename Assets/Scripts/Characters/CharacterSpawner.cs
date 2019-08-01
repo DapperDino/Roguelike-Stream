@@ -9,7 +9,6 @@ namespace Roguelike.Characters
     public class CharacterSpawner : MonoBehaviour
     {
         [Required] [SerializeField] private Character defaultCharacter = null;
-        [Required] [SerializeField] private Inventory inventory = null;
         [Required] [SerializeField] private CinemachineVirtualCamera playerCamera = null;
 
         private void Start()
@@ -23,6 +22,8 @@ namespace Roguelike.Characters
                 GameState.SelectedCharacter.Prefab,
                 transform.position,
                 Quaternion.identity);
+
+            var inventory = player.GetComponent<Inventory>();
 
             playerCamera.Follow = player.transform;
             playerCamera.LookAt = player.transform;

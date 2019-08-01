@@ -22,6 +22,9 @@ MonoBehaviour:
   - {fileID: 3460351943952093271, guid: 3574606e53593944483d1a86acba670d, type: 3}
   deadEndRooms:
   - {fileID: 3460351943952093271, guid: cbfc56280006ca1439f8889a68821a14, type: 3}
+  - {fileID: 3460351943952093271, guid: 167288aba56c9a54bb3a12cee17fb553, type: 3}
+  - {fileID: 3460351943952093271, guid: 0bdc11abd224d7b47b9a0fea9a8c3f2d, type: 3}
+  - {fileID: 3460351943952093271, guid: 76de716bae2e29745b9a2757e442916e, type: 3}
   priorityRooms:
   - chance: 1
     minRoomPercentageBeforeSpawn: 0.3
@@ -29,18 +32,27 @@ MonoBehaviour:
     maxQuantity: 1
     rooms:
     - {fileID: 3460351943952093271, guid: 28b8ab36618c3324cb0ff12fc543eda2, type: 3}
+    - {fileID: 3460351943952093271, guid: b109262cfd7eea24bb3ffd534143ba7f, type: 3}
+    - {fileID: 3460351943952093271, guid: bdfa9eee09c2671488fa7ae4b2906936, type: 3}
+    - {fileID: 3460351943952093271, guid: cfd25c01c1d01c648aa13c7673d4b052, type: 3}
   - chance: 1
     minRoomPercentageBeforeSpawn: 0
     minQuantity: 3
     maxQuantity: 4
     rooms:
     - {fileID: 3460351943952093271, guid: 0ebea1a6e768d4440a5a4c38e3519225, type: 3}
+    - {fileID: 3460351943952093271, guid: 84f1256cb7b382b4f982a2a73ef789fc, type: 3}
+    - {fileID: 3460351943952093271, guid: c4515bcc76309f84990f83bf0c071e58, type: 3}
+    - {fileID: 3460351943952093271, guid: e92330394a63c634c915b359af80649d, type: 3}
   - chance: 1
     minRoomPercentageBeforeSpawn: 0.2
     minQuantity: 1
     maxQuantity: 1
     rooms:
     - {fileID: 3460351943952093271, guid: 5ab6dcbabb03dbf4fa420f45f6e505df, type: 3}
+    - {fileID: 3460351943952093271, guid: 9dbec9ffcb7c9d34093eb36770760c7e, type: 3}
+    - {fileID: 3460351943952093271, guid: fdcfbf4d8d5a45142b75c471e26aa3c3, type: 3}
+    - {fileID: 3460351943952093271, guid: 4a13a370b8b9a54469a6ba49f11dd385, type: 3}
   qualityHandler:
     qualityChances:
     - quality: {fileID: 11400000, guid: 97a6f4e903aa45044bdc7c7bf7bf08c9, type: 2}

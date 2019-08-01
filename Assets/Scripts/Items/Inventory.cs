@@ -1,28 +1,24 @@
-﻿using Roguelike.Events.CustomEvents;
+﻿using Roguelike.Events.UnityEvents;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Roguelike.Items
 {
-    [CreateAssetMenu(fileName = "New Inventory", menuName = "Items/Inventory")]
-    public class Inventory : ScriptableObject
+    public class Inventory : MonoBehaviour
     {
-        [Required] [SerializeField] private ItemEvent onItemAdded = null;
-        [Required] [SerializeField] private ItemEvent onItemRemoved = null;
+        [Required] [SerializeField] private UnityItemEvent onItemAdded = null;
+        [Required] [SerializeField] private UnityItemEvent onItemRemoved = null;
 
         private List<Item> items = new List<Item>();
 
-        public bool AddItem(Item item)
+        public void AddItem(Item item)
         {
             items.Add(item);
 
-            onItemAdded.Raise(item);
-
-            return true;
+            onItemAdded.Invoke(item);
         }
 
-        [Button]
         public void RemoveItem(Item item)
         {
             if (!item.CanDrop) { return; }
@@ -31,7 +27,7 @@ namespace Roguelike.Items
 
             items.Remove(item);
 
-            onItemRemoved.Raise(item);
+            onItemRemoved.Invoke(item);
         }
     }
 }

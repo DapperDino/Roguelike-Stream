@@ -8,7 +8,6 @@ namespace Roguelike.Interactables
 {
     public class ShopItem : Interactable
     {
-        [Required] [SerializeField] private Inventory inventory = null;
         [Required] [SerializeField] private ItemDatabase itemDatabase = null;
 
         private Item item = null;
@@ -26,6 +25,10 @@ namespace Roguelike.Interactables
 
         public override void Interact(GameObject other)
         {
+            var inventory = other.GetComponent<Inventory>();
+
+            if (inventory == null) { return; }
+
             if (GameState.Money >= item.Price)
             {
                 GameState.Money -= item.Price;

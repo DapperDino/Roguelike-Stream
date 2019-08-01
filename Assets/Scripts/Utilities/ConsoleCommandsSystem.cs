@@ -1,4 +1,5 @@
-﻿using Roguelike.Events.CustomEvents;
+﻿using Roguelike.Combat;
+using Roguelike.Events.CustomEvents;
 using Roguelike.Items;
 using Sirenix.OdinInspector;
 using System.Linq;
@@ -13,7 +14,6 @@ namespace Roguelike.Utilities
 
         [Header("Give")]
         [Required] [SerializeField] private ItemDatabase itemDatabase = null;
-        [Required] [SerializeField] private Inventory inventory = null;
 
         [Header("Regenerate")]
         [Required] [SerializeField] private VoidEvent onRegenerateCommand = null;
@@ -63,7 +63,7 @@ namespace Roguelike.Utilities
 
             if (desiredItem == null) { return; }
 
-            inventory.AddItem(desiredItem);
+            FindObjectOfType<PlayerHealthSystem>().GetComponent<Inventory>().AddItem(desiredItem);
         }
 
         private void RegenerateCommand()

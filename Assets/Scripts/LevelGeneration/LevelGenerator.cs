@@ -3,15 +3,15 @@ using Roguelike.Rooms;
 using Roguelike.Utilities;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Roguelike.LevelGeneration
 {
-    public class LevelGenerator : SerializedMonoBehaviour
+    public class LevelGenerator : MonoBehaviour
     {
         [Required] [SerializeField] private LevelSettings levelSettings = null;
         [SerializeField] private float requiredRoomChance = 0.15f;
-        [SerializeField] private float deadEndPercentage = 0.5f;
 
         private const int RoomOffset = 55;
 
@@ -45,13 +45,15 @@ namespace Roguelike.LevelGeneration
                     return;
                 }
 
-                TeleportPoint teleportPoint = teleportPoints[Random.Range(0, teleportPoints.Count)];
-
-                if (teleportPoint.IsLinked)
+                for (int i = teleportPoints.Count - 1; i >= 0; i--)
                 {
-                    teleportPoints.Remove(teleportPoint);
-                    continue;
+                    if (teleportPoints[i].IsLinked)
+                    {
+                        teleportPoints.RemoveAt(i);
+                    }
                 }
+
+                TeleportPoint teleportPoint = teleportPoints[Random.Range(0, teleportPoints.Count)];
 
                 Vector2Int roomTranslateDirection = GetRoomTranslationDirection(teleportPoint);
 
@@ -69,31 +71,74 @@ namespace Roguelike.LevelGeneration
                 }
 
                 Room roomInstance = null;
+                Directions direction = teleportPoint.ExitDirection;
 
-                if (requiredRooms.Count > 0)
+                if (teleportPoints.Count == 1)
                 {
-                    if (Random.Range(0f, 1f) <= requiredRoomChance || requiredRooms.Count >= desiredRoomCount - roomCount)
-                    {
-                        PriorityRoom requiredRoom = requiredRooms[Random.Range(0, requiredRooms.Count)];
+                    Room room = null;
+                    TeleportPoint tp = null;
 
-                        if (requiredRoom.MinRoomPercentageBeforeSpawn <= (float)roomCount / desiredRoomCount)
+                    while (tp == null)
+                    {
+                        room = levelSettings.RandomMultiLinkRoom;
+                        tp = room.GetOpposingPoint(teleportPoint);
+                    }
+
+                    roomInstance = SpawnRoom(room);
+                }
+
+                if (roomInstance == null)
+                {
+                    if (requiredRooms.Count > 0)
+                    {
+                        if (Random.Range(0f, 1f) <= requiredRoomChance || requiredRooms.Count >= desiredRoomCount - roomCount)
                         {
-                            Room room = requiredRoom.Room;
-                            roomInstance = SpawnRoom(room);
-                            requiredRooms.Remove(requiredRoom);
+                            PriorityRoom requiredRoom = requiredRooms[Random.Range(0, requiredRooms.Count)];
+
+                            if (requiredRoom.MinRoomPercentageBeforeSpawn <= (float)roomCount / desiredRoomCount)
+                            {
+                                Room room = null;
+                                TeleportPoint tp = null;
+
+                                while (tp == null)
+                                {
+                                    room = requiredRoom.Room;
+                                    tp = room.GetOpposingPoint(teleportPoint);
+                                }
+
+                                roomInstance = SpawnRoom(room);
+                                requiredRooms.Remove(requiredRoom);
+                            }
                         }
                     }
                 }
 
                 if (roomInstance == null)
                 {
-                    if (Random.Range(0f, 1f) <= deadEndPercentage)
+                    if (Random.Range(0f, 1f) <= 0.5f)
                     {
-                        roomInstance = SpawnRoom(levelSettings.RandomDeadEndRoom);
+                        Room room = null;
+                        TeleportPoint tp = null;
+
+                        while (tp == null)
+                        {
+                            room = levelSettings.RandomDeadEndRoom;
+                            tp = room.GetOpposingPoint(teleportPoint);
+                        }
+                        roomInstance = SpawnRoom(room);
                     }
                     else
                     {
-                        roomInstance = SpawnRoom(levelSettings.RandomMultiLinkRoom);
+                        Room room = null;
+                        TeleportPoint tp = null;
+
+                        while (tp == null)
+                        {
+                            room = levelSettings.RandomMultiLinkRoom;
+                            tp = room.GetOpposingPoint(teleportPoint);
+                        }
+
+                        roomInstance = SpawnRoom(room);
                     }
                 }
 

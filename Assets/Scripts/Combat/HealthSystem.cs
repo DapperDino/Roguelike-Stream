@@ -60,6 +60,7 @@ namespace Roguelike.Combat
                 }
             }
 
+            onTakeDamage?.Invoke();
             onHealthChange?.Invoke(currentHealth);
         }
 

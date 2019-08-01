@@ -7,7 +7,7 @@ namespace Roguelike.Combat.Enemies
     {
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            if (monoBehaviour.FindTarget())
+            if (monoBehaviour.Target != null)
             {
                 monoBehaviour.EnemyMovementController.MoveTo(monoBehaviour.Target);
             }

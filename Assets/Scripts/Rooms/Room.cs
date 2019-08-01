@@ -1,7 +1,7 @@
 ﻿using Roguelike.Interactables;
 using Roguelike.LevelGeneration;
+using Roguelike.Utilities;
 using Sirenix.OdinInspector;
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -53,6 +53,21 @@ namespace Roguelike.Rooms
             }
 
             ToggleTeleportPoints(true);
+        }
+
+        public TeleportPoint GetOpposingPoint(TeleportPoint teleportPoint)
+        {
+            Directions opposingDirection = teleportPoint.ExitDirection.Opposite();
+
+            for (int i = 0; i < teleportPoints.Length; i++)
+            {
+                if (teleportPoints[i].ExitDirection == opposingDirection)
+                {
+                    return teleportPoints[i];
+                }
+            }
+
+            return null;
         }
 
         public void ToggleTeleportPoints(bool toggle)

@@ -22,7 +22,7 @@ namespace Roguelike.Interactables
             get { return isDisabled; }
             set
             {
-                Destroy(gameObject);
+                gameObject.SetActive(false);
                 isDisabled = value;
             }
         }
@@ -44,9 +44,12 @@ namespace Roguelike.Interactables
             {
                 if (!teleportPoint.IsLinked)
                 {
-                    Link(teleportPoint);
-                    teleportPoint.Link(this);
-                    return;
+                    if (teleportPoint.ExitDirection.Opposite() == exitDirection)
+                    {
+                        Link(teleportPoint);
+                        teleportPoint.Link(this);
+                        return;
+                    }
                 }
             }
         }

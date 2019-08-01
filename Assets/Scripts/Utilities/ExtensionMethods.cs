@@ -15,6 +15,26 @@ namespace Roguelike.Utilities
             characterController.enabled = true;
         }
 
+        public static Directions Opposite(this Directions direction)
+        {
+            switch (direction)
+            {
+                case Directions.Up:
+                    return Directions.Down;
+
+                case Directions.Right:
+                    return Directions.Left;
+
+                case Directions.Down:
+                    return Directions.Up;
+
+                case Directions.Left:
+                    return Directions.Right;
+            }
+
+            return Directions.None;
+        }
+
         public static KeyCode[] NumKeys = new KeyCode[10]
         {
             KeyCode.Alpha1,

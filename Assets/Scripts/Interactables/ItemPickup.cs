@@ -1,13 +1,10 @@
 ﻿using Roguelike.Items;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Roguelike.Interactables
 {
     public class ItemPickup : Interactable
     {
-        [Required] [SerializeField] private Inventory inventory = null;
-
         private Item item = null;
 
         public void Initialise(Item item)
@@ -18,10 +15,13 @@ namespace Roguelike.Interactables
 
         public override void Interact(GameObject other)
         {
-            if (inventory.AddItem(item))
-            {
-                Destroy(gameObject);              
-            }
+            var inventory = other.GetComponent<Inventory>();
+
+            if (inventory == null) { return; }
+
+            inventory.AddItem(item);
+
+            Destroy(gameObject);
         }
     }
 }

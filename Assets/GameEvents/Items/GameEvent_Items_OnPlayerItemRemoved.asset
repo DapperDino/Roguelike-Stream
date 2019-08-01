@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ad37b59f1d07f7449c59bcca8a0176a, type: 3}
-  m_Name: GameEvent_Items_OnItemRemoved
+  m_Name: GameEvent_Items_OnPlayerItemRemoved
   m_EditorClassIdentifier: 

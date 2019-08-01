@@ -7,15 +7,17 @@ namespace Roguelike.Aiming
     {
         private Transform target = null;
 
+        public void ClearTarget() => target = null;
+
         public void SetTarget(Transform target)
         {
             if (target != null)
             {
-                HealthSystem damageable = target.GetComponent<HealthSystem>();
+                var healthSystem = target.GetComponent<HealthSystem>();
 
-                if (damageable != null)
+                if (healthSystem != null)
                 {
-                    this.target = damageable.TargetPoint;
+                    this.target = healthSystem.TargetPoint;
                     return;
                 }
 

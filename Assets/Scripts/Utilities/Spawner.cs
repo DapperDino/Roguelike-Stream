@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Roguelike.Combat.Enemies;
+using Roguelike.Actions;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AI;
@@ -21,7 +21,7 @@ namespace Roguelike.Utilities
                 if (NavMesh.SamplePosition(randomPosition, out NavMeshHit hit, radius, NavMesh.AllAreas))
                 {
                     Instantiate(enemySpawnPrefab, hit.position, Quaternion.identity)
-                        .GetComponent<SpawnDelay>().Initialise(objectsToSpawn[i]);
+                        .GetComponent<SpawnPrefabAction>().Initialise(objectsToSpawn[i]);
                 }
             }
         }
