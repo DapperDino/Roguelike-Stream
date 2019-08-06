@@ -17,7 +17,7 @@ namespace Roguelike.Combat.StatusEffects
 
         public bool ShouldTick(float currentTime) => (1 / tickRate) <= (currentTime - lastTickTime);
 
-        public virtual void Initialise(Transform entity)
+        public virtual void Initialise(GameObject entity)
         {
             remainingTicks = ticks;
         }

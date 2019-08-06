@@ -376,7 +376,7 @@ Transform:
   m_Children:
   - {fileID: 889918544}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &645762444
 MonoBehaviour:
@@ -393,6 +393,7 @@ MonoBehaviour:
   characters:
   - {fileID: 11400000, guid: 92e5d13e2893a5c479a7350ccb4e9e03, type: 2}
   - {fileID: 11400000, guid: b4c3c11251b8fb34c903a9b23dca4d6f, type: 2}
+  - {fileID: 11400000, guid: 9ad4e2276dd36a44184674aadc03ffee, type: 2}
   rotationDuration: 1
   spawnRadius: 4
   characterHolderTransform: {fileID: 1149536947}
@@ -736,7 +737,7 @@ PrefabInstance:
     - target: {fileID: 6006866176027759931, guid: abd9315b699d8cd4a8229395f7d3d2bd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6006866176027759931, guid: abd9315b699d8cd4a8229395f7d3d2bd,
         type: 3}

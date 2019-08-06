@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b9a7c0a77af7e46b507beed2b6aca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spread: 0
+  spread: 4
   projectilesPerShot: 1
   projectile: {fileID: 6247178235621944465, guid: d6adb22d6dfcbe9488d857dc94513345,
     type: 3}

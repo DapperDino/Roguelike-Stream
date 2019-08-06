@@ -5,8 +5,17 @@ namespace Roguelike.Items
 {
     public class PassiveItemHandler : MonoBehaviour
     {
-        private List<PassiveItemInstance> aquiredItems = new List<PassiveItemInstance>();
+        [SerializeField] private List<PassiveItemInstance> acquiredItems = new List<PassiveItemInstance>();
+        
         private List<PassiveItemInstance> currentItems = new List<PassiveItemInstance>();
+
+        private void Start()
+        {
+            for (int i = 0; i < acquiredItems.Count; i++)
+            {
+                AddNewPassiveItem(acquiredItems[i].item);
+            }
+        }
 
         public void CheckForPassiveItemAdd(Item item)
         {
@@ -19,11 +28,11 @@ namespace Roguelike.Items
         {
             PassiveItemInstance itemInstance = null;
 
-            for (int i = 0; i < aquiredItems.Count; i++)
+            for (int i = 0; i < acquiredItems.Count; i++)
             {
-                if (aquiredItems[i].item == item)
+                if (acquiredItems[i].item == item)
                 {
-                    itemInstance = aquiredItems[i];
+                    itemInstance = acquiredItems[i];
                     break;
                 }
             }
@@ -36,7 +45,7 @@ namespace Roguelike.Items
                     passiveLogic = Instantiate(item.PassiveLogic, transform).GetComponent<PassiveItemLogic>()
                 };
 
-                aquiredItems.Add(itemInstance);
+                acquiredItems.Add(itemInstance);
             }
 
             currentItems.Add(itemInstance);

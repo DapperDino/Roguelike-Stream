@@ -8,7 +8,7 @@ namespace Roguelike.Combat.StatusEffects
 
         private HealthSystem damageable = null;
 
-        public override void Initialise(Transform entity)
+        public override void Initialise(GameObject entity)
         {
             base.Initialise(entity);
 

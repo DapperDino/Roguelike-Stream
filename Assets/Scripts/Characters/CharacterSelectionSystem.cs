@@ -68,10 +68,10 @@ namespace Roguelike.Characters
         private IEnumerator RotateCharacters(bool rightButton)
         {
             float angle = 360 / characters.Length;
+            if (!rightButton) { angle = -angle; }
+
             float startingY = characterHolderTransform.localEulerAngles.y;
             float endingY = startingY + angle;
-
-            if (!rightButton) { angle = -angle; }
 
             float startTime = Time.time;
 

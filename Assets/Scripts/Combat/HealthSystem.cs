@@ -1,4 +1,5 @@
-﻿using Roguelike.Combat.Stats;
+﻿using System;
+using Roguelike.Combat.Stats;
 using Roguelike.Events.UnityEvents;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,6 +13,7 @@ namespace Roguelike.Combat
         [SerializeField] private UnityEvent onTakeDamage = null;
         [SerializeField] private UnityIntEvent onHealthChange = null;
         [SerializeField] private UnityIntEvent onMaxHealthChange = null;
+        [SerializeField] private UnityFloatEvent onHealthPercentageChange = null;
         [SerializeField] private int maxHealth = 0;
         [SerializeField] private Transform targetPoint = null;
 
@@ -41,8 +43,10 @@ namespace Roguelike.Combat
 
             onMaxHealthChange?.Invoke(MaxHealth);
 
+            onHealthPercentageChange?.Invoke(CalculateHealthPercentage());
+
             onSpawn?.Invoke(this);
-        }
+        }     
 
         public virtual void DealDamage(int damageAmount)
         {
@@ -62,6 +66,7 @@ namespace Roguelike.Combat
 
             onTakeDamage?.Invoke();
             onHealthChange?.Invoke(currentHealth);
+            onHealthPercentageChange?.Invoke(CalculateHealthPercentage());
         }
 
         public virtual void Heal(int healAmount)
@@ -76,16 +81,20 @@ namespace Roguelike.Combat
             }
 
             onHealthChange?.Invoke(currentHealth);
+            onHealthPercentageChange?.Invoke(CalculateHealthPercentage());
         }
 
         public void UpdateMaxHealth()
         {
             onMaxHealthChange?.Invoke(MaxHealth);
+            onHealthPercentageChange?.Invoke(CalculateHealthPercentage());
         }
 
         public virtual void Die()
         {
             onDeath?.Invoke(this);
         }
+        
+        private float CalculateHealthPercentage() => (float)currentHealth / MaxHealth;
     }
 }

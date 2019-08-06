@@ -29,9 +29,13 @@ namespace Roguelike.Interactables
 
             if (inventory == null) { return; }
 
-            if (GameState.Money >= item.Price)
+            var currency = other.GetComponent<Currency>();
+
+            if (currency == null) { return; }
+
+            if (currency.Money >= item.Price)
             {
-                GameState.Money -= item.Price;
+                currency.Money -= item.Price;
                 inventory.AddItem(item);
                 Destroy(this);
             }

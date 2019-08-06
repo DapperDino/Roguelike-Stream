@@ -11,6 +11,7 @@ namespace Roguelike.Inputs
         [SerializeField] private string fireButtonName = "Fire";
         [SerializeField] private KeyCode interactButtonKeyCode = KeyCode.E;
         [SerializeField] private KeyCode activeItemSwitchKeyCode = KeyCode.Tab;
+        [SerializeField] private KeyCode activeItemUseKeyCode = KeyCode.Space;
 
         public Vector2 MovementInput { get; private set; } = Vector2.zero;
         public float ScrollInput { get; private set; } = 0f;
@@ -19,6 +20,7 @@ namespace Roguelike.Inputs
         public bool FireButtonUp { get; private set; } = false;
         public bool InteractButtonDown { get; private set; } = false;
         public bool ActiveItemSwitch { get; private set; } = false;
+        public bool ActiveItemUse { get; private set; } = false;
 
         public void GetInput()
         {
@@ -34,6 +36,7 @@ namespace Roguelike.Inputs
 
             InteractButtonDown = Input.GetKeyDown(interactButtonKeyCode);
             ActiveItemSwitch = Input.GetKeyDown(activeItemSwitchKeyCode);
+            ActiveItemUse = Input.GetKeyDown(activeItemUseKeyCode);
         }
 
         public void Reset()
@@ -45,6 +48,7 @@ namespace Roguelike.Inputs
             FireButtonUp = false;
             InteractButtonDown = false;
             ActiveItemSwitch = false;
+            ActiveItemUse = false;
         }
     }
 }

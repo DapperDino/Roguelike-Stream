@@ -3,7 +3,7 @@
 namespace Roguelike.Actions
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class HomingMovement : MonoBehaviour
+    public class HomingBase : MonoBehaviour
     {
         [SerializeField] private float targetSpeed = 1f;
         [SerializeField] private float smoothing = 0f;
@@ -11,7 +11,7 @@ namespace Roguelike.Actions
         private float smoothSpeed = 0f;
         private float currentSpeed = 0f;
 
-        private Camera mainCamera = null;
+        protected Camera mainCamera = null;
         private Rigidbody rb = null;
 
         public void SetSpeed(float speed) => targetSpeed = speed;
@@ -23,22 +23,25 @@ namespace Roguelike.Actions
             rb = GetComponent<Rigidbody>();
 
             currentSpeed = targetSpeed;
+
+            rb.velocity = Vector3.Lerp(
+                rb.velocity,
+                transform.forward * currentSpeed,
+                1);
         }
 
-        private void Update()
+        protected void Move(Vector2 myPos, Vector2 targetPos)
         {
-            currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref smoothSpeed, smoothing);
+            if (targetPos == Vector2.zero) { return; }
 
-            Vector2 screenPos = mainCamera.WorldToViewportPoint(transform.position);
-            Vector2 cursorPos = mainCamera.ScreenToViewportPoint(Input.mousePosition);
+            currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref smoothSpeed, smoothing);      
 
-            Vector2 direction = (cursorPos - screenPos).normalized;
+            Vector2 direction = (targetPos - myPos).normalized;
 
             rb.velocity = Vector3.Lerp(
                 rb.velocity,
                 new Vector3(direction.x, 0f, direction.y) * currentSpeed,
                 smoothing);
         }
-
     }
 }

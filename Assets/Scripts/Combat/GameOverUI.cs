@@ -19,7 +19,7 @@ namespace Roguelike.Combat
             TimeSpan t = TimeSpan.FromSeconds(Time.time - GameState.GameStartTime);
             survivalTimeText.text = $"{t.Hours}:{t.Minutes}:{t.Seconds}";
 
-            killCountText.text = GameState.TotalKills.ToString();
+            //killCountText.text = GameState.TotalKills.ToString();
 
             GameState.Reset();
         }

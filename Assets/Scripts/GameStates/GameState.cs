@@ -6,17 +6,11 @@ namespace Roguelike.GameStates
     {
         public static Character SelectedCharacter = null;
         public static float GameStartTime = 0f;
-        public static int TotalKills = 0;
-        public static int Money = 0;
-        public static bool HasAquiredStartingItems = false;
 
         public static void Reset()
         {
             SelectedCharacter = null;
             GameStartTime = 0f;
-            TotalKills = 0;
-            Money = 0;
-            HasAquiredStartingItems = false;
         }
     }
 }

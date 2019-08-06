@@ -42,7 +42,7 @@ namespace Roguelike.Combat.StatusEffects
         private void AddEffect(StatusEffect statusEffect)
         {
             statusEffects.Add(statusEffect);
-            statusEffect.Initialise(transform);
+            statusEffect.Initialise(gameObject);
         }
 
         private void RemoveEffect(StatusEffect statusEffect)

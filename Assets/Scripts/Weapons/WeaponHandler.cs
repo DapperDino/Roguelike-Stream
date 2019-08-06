@@ -13,12 +13,21 @@ namespace Roguelike.Weapons
         [Required] [SerializeField] private InputContainer inputContainer = null;
         [Required] [SerializeField] private WeaponInstanceEvent onWeaponSelected = null;
 
-        private List<WeaponInstance> aquiredWeapons = new List<WeaponInstance>();
+        [SerializeField] private List<WeaponInstance> acquiredWeapons = new List<WeaponInstance>();
+
         private List<WeaponInstance> currentWeapons = new List<WeaponInstance>();
 
         private int currentIndex = 0;
 
         private WeaponInstance CurrentWeapon => currentWeapons[currentIndex];
+
+        private void Start()
+        {
+            for (int i = 0; i < acquiredWeapons.Count; i++)
+            {
+                AddNewWeapon(acquiredWeapons[i].weaponData);
+            }
+        }
 
         public void CheckForWeaponAdd(Item item)
         {
@@ -59,11 +68,11 @@ namespace Roguelike.Weapons
         {
             WeaponInstance weaponInstance = null;
 
-            for (int i = 0; i < aquiredWeapons.Count; i++)
+            for (int i = 0; i < acquiredWeapons.Count; i++)
             {
-                if (aquiredWeapons[i].weaponData == weaponData)
+                if (acquiredWeapons[i].weaponData == weaponData)
                 {
-                    weaponInstance = aquiredWeapons[i];
+                    weaponInstance = acquiredWeapons[i];
                     break;
                 }
             }
@@ -76,11 +85,10 @@ namespace Roguelike.Weapons
                     weaponLogic = Instantiate(weaponData.WeaponLogic, transform).GetComponent<PlayerWeaponLogic>()
                 };
 
-                aquiredWeapons.Add(weaponInstance);
+                acquiredWeapons.Add(weaponInstance);
             }
             else
             {
-                weaponInstance.weaponLogic.gameObject.SetActive(weaponData == CurrentWeapon.weaponData);
                 weaponInstance.weaponLogic.transform.SetAsLastSibling();
             }
 
@@ -88,7 +96,7 @@ namespace Roguelike.Weapons
 
             bool isSelectedWeapon = weaponData == CurrentWeapon.weaponData;
 
-            weaponData.WeaponLogic.gameObject.SetActive(isSelectedWeapon);
+            weaponInstance.weaponLogic.gameObject.SetActive(isSelectedWeapon);
 
             onWeaponSelected.Raise(CurrentWeapon);
         }
