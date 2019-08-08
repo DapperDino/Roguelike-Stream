@@ -7,6 +7,8 @@ namespace Roguelike.Combat
     public class PlayerHealthSystem : HealthSystem
     {
         [Required] [SerializeField] private DamageableEvent onPlayerSpawn = null;
+        [SerializeField] private float invunerabilityDuration = 0.5f;
+        [SerializeField] private float lastInvunerabilityTime = Mathf.NegativeInfinity;
 
         protected override void Start()
         {
@@ -17,7 +19,11 @@ namespace Roguelike.Combat
 
         public override void DealDamage(int damageAmount)
         {
-            base.DealDamage(1);      
+            if (lastInvunerabilityTime + invunerabilityDuration > Time.time) { return; }
+
+            base.DealDamage(1);
+
+            lastInvunerabilityTime = Time.time;
         }
     }
 }

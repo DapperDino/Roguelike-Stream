@@ -12,56 +12,179 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770f83ab662096a409e63db38963d3bc, type: 3}
   m_Name: LevelSettings_Level01
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 1120572511842255058, guid: 4009191f6b603de44ab86add5a53baa8, type: 3}
+    - {fileID: 11400000, guid: 97a6f4e903aa45044bdc7c7bf7bf08c9, type: 2}
+    - {fileID: 11400000, guid: 904590b646e826d4fa7453aa4dd979e0, type: 2}
+    - {fileID: 11400000, guid: 810547607f3d0e84d842c2418ce033c7, type: 2}
+    - {fileID: 11400000, guid: 75098a3f6f384824b98b3663a9d12f27, type: 2}
+    - {fileID: 11400000, guid: 5abb18b7063dfa84883f680800d33861, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: enemyPicker
+      Entry: 7
+      Data: 0|Roguelike.Utilities.ChancePicker`1[[Roguelike.Combat.Enemies.EnemyLogic,
+        Assembly-CSharp]], Assembly-CSharp
+    - Name: chances
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[Roguelike.Utilities.Chances`1[[Roguelike.Combat.Enemies.EnemyLogic,
+        Assembly-CSharp]], Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 2|Roguelike.Utilities.Chances`1[[Roguelike.Combat.Enemies.EnemyLogic,
+        Assembly-CSharp]], Assembly-CSharp
+    - Name: chanceType
+      Entry: 10
+      Data: 0
+    - Name: chance
+      Entry: 4
+      Data: 100
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: qualityHandler
+      Entry: 7
+      Data: 3|Roguelike.Utilities.ChancePicker`1[[Roguelike.Items.Quality, Assembly-CSharp]],
+        Assembly-CSharp
+    - Name: chances
+      Entry: 7
+      Data: 4|System.Collections.Generic.List`1[[Roguelike.Utilities.Chances`1[[Roguelike.Items.Quality,
+        Assembly-CSharp]], Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 5
+    - Name: 
+      Entry: 7
+      Data: 5|Roguelike.Utilities.Chances`1[[Roguelike.Items.Quality, Assembly-CSharp]],
+        Assembly-CSharp
+    - Name: chanceType
+      Entry: 10
+      Data: 1
+    - Name: chance
+      Entry: 4
+      Data: 30
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 6|Roguelike.Utilities.Chances`1[[Roguelike.Items.Quality, Assembly-CSharp]],
+        Assembly-CSharp
+    - Name: chanceType
+      Entry: 10
+      Data: 2
+    - Name: chance
+      Entry: 4
+      Data: 25
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 7|Roguelike.Utilities.Chances`1[[Roguelike.Items.Quality, Assembly-CSharp]],
+        Assembly-CSharp
+    - Name: chanceType
+      Entry: 10
+      Data: 3
+    - Name: chance
+      Entry: 4
+      Data: 20
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 8|Roguelike.Utilities.Chances`1[[Roguelike.Items.Quality, Assembly-CSharp]],
+        Assembly-CSharp
+    - Name: chanceType
+      Entry: 10
+      Data: 4
+    - Name: chance
+      Entry: 4
+      Data: 15
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 9|Roguelike.Utilities.Chances`1[[Roguelike.Items.Quality, Assembly-CSharp]],
+        Assembly-CSharp
+    - Name: chanceType
+      Entry: 10
+      Data: 5
+    - Name: chance
+      Entry: 4
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   minRoomCount: 15
   maxRoomCount: 20
+  minEnemyCount: 2
+  maxEnemyCount: 6
   spawnRooms:
-  - {fileID: 297725561377734763, guid: abf6087f0b320e64890db76faee79fb0, type: 3}
+  - {fileID: 7778981418044408627, guid: a8c1c66fd73e01a4daf6fe1545bd5ebf, type: 3}
   multiLinkRooms:
-  - {fileID: 3460351943952093271, guid: f001eb85e06f0a646b6bcba32ea6f1de, type: 3}
-  - {fileID: 3460351943952093271, guid: 65bdcedadc9f2a5409970564adbe4e11, type: 3}
-  - {fileID: 3460351943952093271, guid: 3574606e53593944483d1a86acba670d, type: 3}
+  - {fileID: 5684249821816035094, guid: ab25ae2c298c1a341a6aa7897f703f52, type: 3}
+  - {fileID: 466416488120016551, guid: 5c9987d8e34919b4fb64b093994cb06e, type: 3}
+  - {fileID: 1870070784192683085, guid: 0a4e90fb2803d24469cc633084b245ec, type: 3}
   deadEndRooms:
-  - {fileID: 3460351943952093271, guid: cbfc56280006ca1439f8889a68821a14, type: 3}
-  - {fileID: 3460351943952093271, guid: 167288aba56c9a54bb3a12cee17fb553, type: 3}
-  - {fileID: 3460351943952093271, guid: 0bdc11abd224d7b47b9a0fea9a8c3f2d, type: 3}
-  - {fileID: 3460351943952093271, guid: 76de716bae2e29745b9a2757e442916e, type: 3}
+  - {fileID: 6861132443097315580, guid: 6bffdb7cd5bb98249972d97cc4697ce1, type: 3}
+  - {fileID: 1882239240328953086, guid: 3fad2db78ce205e4c9d783a8b392a587, type: 3}
+  - {fileID: 1608684019334996296, guid: 9c0b8f1b25254d4409dbb92471453736, type: 3}
+  - {fileID: 8443290260036949678, guid: 63d60d7d3973e1642b95d068e22f5c67, type: 3}
   priorityRooms:
   - chance: 1
     minRoomPercentageBeforeSpawn: 0.3
     minQuantity: 1
     maxQuantity: 1
     rooms:
-    - {fileID: 3460351943952093271, guid: 28b8ab36618c3324cb0ff12fc543eda2, type: 3}
-    - {fileID: 3460351943952093271, guid: b109262cfd7eea24bb3ffd534143ba7f, type: 3}
-    - {fileID: 3460351943952093271, guid: bdfa9eee09c2671488fa7ae4b2906936, type: 3}
-    - {fileID: 3460351943952093271, guid: cfd25c01c1d01c648aa13c7673d4b052, type: 3}
+    - {fileID: 8831039462944739478, guid: 342d2fe0680fbca46ad8bc647bb97475, type: 3}
+    - {fileID: 6799393489072770359, guid: cb486597973d89b4dadeee690307919f, type: 3}
+    - {fileID: 2301906444281740934, guid: fcc3621d84cf5ff43be662f1f0426c1f, type: 3}
+    - {fileID: 3507586708359179979, guid: 62478fada73705e4a925e2fc89195303, type: 3}
   - chance: 1
     minRoomPercentageBeforeSpawn: 0
-    minQuantity: 3
-    maxQuantity: 4
+    minQuantity: 4
+    maxQuantity: 6
     rooms:
-    - {fileID: 3460351943952093271, guid: 0ebea1a6e768d4440a5a4c38e3519225, type: 3}
-    - {fileID: 3460351943952093271, guid: 84f1256cb7b382b4f982a2a73ef789fc, type: 3}
-    - {fileID: 3460351943952093271, guid: c4515bcc76309f84990f83bf0c071e58, type: 3}
-    - {fileID: 3460351943952093271, guid: e92330394a63c634c915b359af80649d, type: 3}
+    - {fileID: 7473201654968958515, guid: ae9242528692e794fb71e4ae03115368, type: 3}
+    - {fileID: 8146441097235114739, guid: e7db7bdb719f9434a854a06e76668b4a, type: 3}
+    - {fileID: 4081433102048326923, guid: d07beb133884b3f478cd794059978ee7, type: 3}
+    - {fileID: 212310195270071324, guid: 6ecede5bc0c3bc34fa3c0405d8828074, type: 3}
   - chance: 1
     minRoomPercentageBeforeSpawn: 0.2
     minQuantity: 1
     maxQuantity: 1
     rooms:
-    - {fileID: 3460351943952093271, guid: 5ab6dcbabb03dbf4fa420f45f6e505df, type: 3}
-    - {fileID: 3460351943952093271, guid: 9dbec9ffcb7c9d34093eb36770760c7e, type: 3}
-    - {fileID: 3460351943952093271, guid: fdcfbf4d8d5a45142b75c471e26aa3c3, type: 3}
-    - {fileID: 3460351943952093271, guid: 4a13a370b8b9a54469a6ba49f11dd385, type: 3}
-  qualityHandler:
-    qualityChances:
-    - quality: {fileID: 11400000, guid: 97a6f4e903aa45044bdc7c7bf7bf08c9, type: 2}
-      chance: 45
-    - quality: {fileID: 11400000, guid: 904590b646e826d4fa7453aa4dd979e0, type: 2}
-      chance: 30
-    - quality: {fileID: 11400000, guid: 810547607f3d0e84d842c2418ce033c7, type: 2}
-      chance: 15
-    - quality: {fileID: 11400000, guid: 75098a3f6f384824b98b3663a9d12f27, type: 2}
-      chance: 10
-    - quality: {fileID: 11400000, guid: 5abb18b7063dfa84883f680800d33861, type: 2}
-      chance: 0
+    - {fileID: 6400194047962572838, guid: c9fb4492ab46fe7479737dd691835d16, type: 3}
+    - {fileID: 927919656317966618, guid: 65883e8b7e102cb4e9e7d55e7457d3b4, type: 3}
+    - {fileID: 3783028185087438522, guid: 39284edded8a2f142890abf9ba7af40b, type: 3}
+    - {fileID: 2165386869337914283, guid: 3d1f34126779fa948b92648c5968fc01, type: 3}

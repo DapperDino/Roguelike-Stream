@@ -12,6 +12,8 @@ namespace Roguelike.Items
 
         private List<Item> spawnedItems = new List<Item>();
 
+        private IEnumerable<Item> AvailableItems => items.Except(spawnedItems);
+
         [Button]
         public void GetAndSortItems()
         {
@@ -21,13 +23,24 @@ namespace Roguelike.Items
 
         public Item GetItemOfQuality(Quality quality)
         {
-            Item[] itemsOfQuality = items.Where((item) => item.Quality == quality).ToArray();
+            Item[] itemsOfQuality = AvailableItems.Where((item) => item.Quality == quality).ToArray();
 
-            return itemsOfQuality[Random.Range(0, itemsOfQuality.Length)];
+            if (itemsOfQuality.Length == 0)
+            {
+                itemsOfQuality = items.Where((item) => item.Quality == quality).ToArray();
+            }
+
+            Item itemOfQuality = itemsOfQuality[Random.Range(0, itemsOfQuality.Length)];
+
+            spawnedItems.Add(itemOfQuality);
+
+            return itemOfQuality;
         }
 
         public Item GetItemByName(string itemName)
         {
+            itemName = itemName.ToLower();
+
             for (int i = 0; i < items.Length; i++)
             {
                 if (items[i].Name.ToLower() == itemName)
@@ -35,6 +48,7 @@ namespace Roguelike.Items
                     return items[i];
                 }
             }
+
             return null;
         }
     }

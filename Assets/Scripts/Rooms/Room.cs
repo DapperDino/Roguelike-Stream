@@ -10,15 +10,21 @@ namespace Roguelike.Rooms
     public class Room : MonoBehaviour
     {
         [Required] [SerializeField] private RoomType roomType = null;
-        [SerializeField] private RoomObjective[] roomObjectives = new RoomObjective[0];
         [SerializeField] private TeleportPoint[] teleportPoints = new TeleportPoint[0];
         [SerializeField] private UnityEvent onRoomStart = null;
 
         private bool hasEntered = false;
+        private RoomObjective[] roomObjectives = new RoomObjective[0];
 
         public RoomType RoomType => roomType;
         public TeleportPoint[] TeleportPoints => teleportPoints;
         public LevelSettings LevelSettings { get; private set; } = null;
+
+
+        [Button]
+        private void GetTeleportPoints() => teleportPoints = GetComponentsInChildren<TeleportPoint>();
+
+        private void Start() => roomObjectives = GetComponents<RoomObjective>();
 
         public void Initialise(LevelSettings levelSettings) => LevelSettings = levelSettings;
 

@@ -1,5 +1,7 @@
-﻿using Roguelike.Items;
+﻿using Roguelike.Combat.Enemies;
+using Roguelike.Items;
 using Roguelike.Rooms;
+using Roguelike.Utilities;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,10 +9,12 @@ using UnityEngine;
 namespace Roguelike.LevelGeneration
 {
     [CreateAssetMenu(fileName = "New Level Settings", menuName = "Level Generation/Level Settings")]
-    public class LevelSettings : ScriptableObject
+    public class LevelSettings : SerializedScriptableObject
     {
         [SerializeField] [MinValue(0)] private int minRoomCount = 15;
         [SerializeField] private int maxRoomCount = 17;
+        [SerializeField] [MinValue(0)] private int minEnemyCount = 2;
+        [SerializeField] private int maxEnemyCount = 6;
 
         [Header("Rooms")]
         [SerializeField] private List<Room> spawnRooms = new List<Room>();
@@ -18,8 +22,11 @@ namespace Roguelike.LevelGeneration
         [SerializeField] private List<Room> deadEndRooms = new List<Room>();
         [SerializeField] private List<PriorityRoomData> priorityRooms = new List<PriorityRoomData>();
 
+        [Header("Enemies")]
+        [SerializeField] private ChancePicker<EnemyLogic> enemyPicker = null;
+
         [Header("Qualities")]
-        [SerializeField] private QualityHandler qualityHandler = null;
+        [SerializeField] private ChancePicker<Quality> qualityHandler = null;
 
         public int MinRoomCount => minRoomCount;
         public int RoomCount
@@ -33,6 +40,19 @@ namespace Roguelike.LevelGeneration
                 }
 
                 return Random.Range(minRoomCount, maxRoomCount + 1);
+            }
+        }
+        public int EnemyCount
+        {
+            get
+            {
+                if (minEnemyCount > maxEnemyCount)
+                {
+                    Debug.LogError("Incorrect Enemy Count In Level Spawn Settings");
+                    return 0;
+                }
+
+                return Random.Range(minEnemyCount, maxEnemyCount + 1);
             }
         }
         public Room RandomSpawnRoom => spawnRooms[Random.Range(0, spawnRooms.Count)];
@@ -52,6 +72,7 @@ namespace Roguelike.LevelGeneration
                 return requiredRooms;
             }
         }
-        public QualityHandler QualityHandler => qualityHandler;
+        public ChancePicker<EnemyLogic> EnemyPicker => enemyPicker;
+        public ChancePicker<Quality> QualityHandler => qualityHandler;
     }
 }

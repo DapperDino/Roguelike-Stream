@@ -17,7 +17,7 @@ namespace Roguelike.Interactables
         {
             Quality quality = GetComponentInParent<Room>().
                 LevelSettings.QualityHandler.
-                GetRandomQuality();
+                GetRandom();
 
             GetComponentInChildren<Renderer>().material.color = quality.Colour;
 

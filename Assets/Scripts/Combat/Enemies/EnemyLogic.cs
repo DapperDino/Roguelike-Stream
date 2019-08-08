@@ -10,11 +10,11 @@ namespace Roguelike.Combat.Enemies
     public class EnemyLogic : MonoBehaviour
     {
         [SerializeField] private float attackRange = 15f;
-        [SerializeField] private UnityEvent onFire = null;
+        [SerializeField] private UnityEvent onAttack = null;
 
         private Animator animator = null;
         private static readonly int hashAggrod = Animator.StringToHash("Aggrod");
-        private static readonly int hashInFiringRange = Animator.StringToHash("InFiringRange");
+        private static readonly int hashInAttackRange = Animator.StringToHash("InAttackRange");
 
         public EnemyMovementController EnemyMovementController { get; private set; } = null;
 
@@ -32,13 +32,14 @@ namespace Roguelike.Combat.Enemies
         {
             animator.SetBool(hashAggrod, Target != null);
 
-            animator.SetBool(hashInFiringRange, IsInRange(attackRange));
+            animator.SetBool(hashInAttackRange, IsInRange(attackRange));
         }
 
         public void SetTarget(Transform target) => Target = target;
+
         public void ClearTarget() => Target = null;
 
-        public void Fire() => onFire?.Invoke();
+        public void Attack() => onAttack?.Invoke();
 
         private bool IsInRange(float range)
         {

@@ -16,7 +16,7 @@ namespace Roguelike.Interactables
         {
             Quality quality = GetComponentInParent<Room>().
                 LevelSettings.QualityHandler.
-                GetRandomQuality();
+                GetRandom();
 
             item = itemDatabase.GetItemOfQuality(quality);
 

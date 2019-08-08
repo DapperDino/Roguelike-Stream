@@ -35,6 +35,26 @@ namespace Roguelike.Weapons
             statsContainer = GetComponentInParent<StatsContainer>();
         }
 
+        public void AddAmmo(int ammoToAdd)
+        {
+            CurrentAmmo += ammoToAdd;
+
+            if (CurrentAmmo > MaxAmmo)
+            {
+                CurrentAmmo = MaxAmmo;
+            }
+
+            int diff = MaxAmmo - CurrentAmmo;
+
+            if (diff < clipSize)
+            {
+                if (clipSize - diff > remainingClipAmmo)
+                {
+                    remainingClipAmmo = clipSize - diff;
+                }
+            }
+        }
+
         public override void Fire()
         {
             float currentTime = Time.time;

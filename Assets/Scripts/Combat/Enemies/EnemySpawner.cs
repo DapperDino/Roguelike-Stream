@@ -1,27 +1,32 @@
-﻿using System.Collections.Generic;
-using Roguelike.Actions;
+﻿using Roguelike.Actions;
+using Roguelike.LevelGeneration;
+using Roguelike.Rooms;
+using Roguelike.Utilities;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Roguelike.Utilities
+namespace Roguelike.Combat.Enemies
 {
-    public class Spawner : MonoBehaviour
+    [RequireComponent(typeof(Room))]
+    public class EnemySpawner : MonoBehaviour
     {
-        [SerializeField] private float radius = 10;
+        [SerializeField] private float radius = 12;
         [Required] [SerializeField] private GameObject enemySpawnPrefab = null;
-        [SerializeField] private List<GameObject> objectsToSpawn = new List<GameObject>();
 
         public void Spawn()
         {
-            for (int i = 0; i < objectsToSpawn.Count; i++)
+            LevelSettings levelSettings = GetComponent<Room>().LevelSettings;
+            int enemyCount = levelSettings.EnemyCount;
+
+            for (int i = 0; i < enemyCount; i++)
             {
                 Vector3 randomPosition = transform.position + (Random.insideUnitSphere * radius);
 
                 if (NavMesh.SamplePosition(randomPosition, out NavMeshHit hit, radius, NavMesh.AllAreas))
                 {
                     Instantiate(enemySpawnPrefab, hit.position, Quaternion.identity)
-                        .GetComponent<SpawnPrefabAction>().Initialise(objectsToSpawn[i]);
+                        .GetComponent<SpawnPrefabAction>().Initialise(levelSettings.EnemyPicker.GetRandom().gameObject);
                 }
             }
         }

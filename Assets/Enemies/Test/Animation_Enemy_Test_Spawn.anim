@@ -40,7 +40,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Enemy_Test_Body
+    path: Pivot_WeaponHolder/WeaponHandler/Weapon_Enemy_Test_Pistol
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -65,7 +65,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Pivot_WeaponHolder/WeaponHandler/Weapon_Enemy_Test_Pistol
+    path: Enemy_Body
   m_FloatCurves: []
   m_PPtrCurves: []
   m_SampleRate: 60
@@ -76,14 +76,14 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 463712750
+      path: 2211445878
       attribute: 3
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2211445878
+      path: 2975990493
       attribute: 3
       script: {fileID: 0}
       typeID: 4
@@ -136,7 +136,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Enemy_Test_Body
+    path: Pivot_WeaponHolder/WeaponHandler/Weapon_Enemy_Test_Pistol
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -164,7 +164,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Enemy_Test_Body
+    path: Pivot_WeaponHolder/WeaponHandler/Weapon_Enemy_Test_Pistol
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -192,7 +192,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Enemy_Test_Body
+    path: Pivot_WeaponHolder/WeaponHandler/Weapon_Enemy_Test_Pistol
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -220,7 +220,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Pivot_WeaponHolder/WeaponHandler/Weapon_Enemy_Test_Pistol
+    path: Enemy_Body
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -248,7 +248,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Pivot_WeaponHolder/WeaponHandler/Weapon_Enemy_Test_Pistol
+    path: Enemy_Body
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -276,7 +276,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Pivot_WeaponHolder/WeaponHandler/Weapon_Enemy_Test_Pistol
+    path: Enemy_Body
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves: []
