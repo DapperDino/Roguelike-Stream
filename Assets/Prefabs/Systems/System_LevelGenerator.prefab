@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2199249389886745141}
   - component: {fileID: 2199249389886745140}
   - component: {fileID: 923474164}
+  - component: {fileID: 181261346}
   m_Layer: 0
   m_Name: System_LevelGenerator
   m_TagString: Untagged
@@ -44,18 +45,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6125c997a6b8866409ce4803a404e8fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  levelSettings: {fileID: 11400000, guid: b2edf32f275d857478df48d024eaae27, type: 2}
-  requiredRoomChance: 0.3
-  deadEndPercentage: 0.5
+  levelSettings:
+  - {fileID: 11400000, guid: b2edf32f275d857478df48d024eaae27, type: 2}
+  - {fileID: 11400000, guid: 424e40200df3a8144bd2e682b10f24ea, type: 2}
+  onGameCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: GoToScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Scene_MainMenu
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &923474164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,7 +81,36 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2199249389886745140}
-        m_MethodName: GenerateLevel
+        m_MethodName: Regenerate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Roguelike.Events.UnityEvents.UnityVoidEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &181261346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2199249389886745290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a109e1f9f3a61143bdb4cbd59b4db13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: fe02b44ba667bb34990932363d78f72e, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2199249389886745140}
+        m_MethodName: GoToNextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

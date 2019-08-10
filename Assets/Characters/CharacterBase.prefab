@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 103530758769196415}
   - component: {fileID: 103530758769196412}
   - component: {fileID: 8355137964032461204}
+  - component: {fileID: 2207225231859519100}
   m_Layer: 8
   m_Name: CharacterBase
   m_TagString: Player
@@ -221,7 +222,6 @@ MonoBehaviour:
   targetPoint: {fileID: 103530758769196411}
   onPlayerSpawn: {fileID: 11400000, guid: 8a50aa0a4eb3f804c8b7919cbc3cfbcc, type: 2}
   invunerabilityDuration: 0.5
-  lastInvunerabilityTime: -Infinity
 --- !u!114 &103530758769196414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,6 +320,35 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: Roguelike.Events.UnityEvents.UnityItemEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &2207225231859519100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103530758769196413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a109e1f9f3a61143bdb4cbd59b4db13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: fe02b44ba667bb34990932363d78f72e, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 103530758769196414}
+        m_MethodName: ResetPos
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Roguelike.Events.UnityEvents.UnityVoidEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &103530759240199283
 GameObject:

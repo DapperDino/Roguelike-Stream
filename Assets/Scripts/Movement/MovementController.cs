@@ -1,5 +1,6 @@
 ﻿using Roguelike.Combat.Stats;
 using Roguelike.Inputs;
+using Roguelike.Utilities;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -31,6 +32,11 @@ namespace Roguelike.Movement
         }
 
         private void Update() => Move();
+
+        public void ResetPos()
+        {
+            transform.MoveCharacterController(new Vector3(0f, 0.5f, 0f));
+        }
 
         private void Move()
         {

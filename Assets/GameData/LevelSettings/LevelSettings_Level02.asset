@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 770f83ab662096a409e63db38963d3bc, type: 3}
-  m_Name: LevelSettings_Level01
+  m_Name: LevelSettings_Level02
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -80,7 +80,7 @@ MonoBehaviour:
       Data: 1
     - Name: chance
       Entry: 4
-      Data: 30
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -93,7 +93,7 @@ MonoBehaviour:
       Data: 2
     - Name: chance
       Entry: 4
-      Data: 25
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -106,7 +106,7 @@ MonoBehaviour:
       Data: 3
     - Name: chance
       Entry: 4
-      Data: 20
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -119,7 +119,7 @@ MonoBehaviour:
       Data: 4
     - Name: chance
       Entry: 4
-      Data: 15
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -132,7 +132,7 @@ MonoBehaviour:
       Data: 5
     - Name: chance
       Entry: 4
-      Data: 10
+      Data: 100
     - Name: 
       Entry: 8
       Data: 
@@ -145,10 +145,10 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  minRoomCount: 15
-  maxRoomCount: 20
-  minEnemyCount: 2
-  maxEnemyCount: 6
+  minRoomCount: 20
+  maxRoomCount: 25
+  minEnemyCount: 3
+  maxEnemyCount: 5
   spawnRooms:
   - {fileID: 7778981418044408627, guid: a8c1c66fd73e01a4daf6fe1545bd5ebf, type: 3}
   multiLinkRooms:
@@ -172,8 +172,8 @@ MonoBehaviour:
     - {fileID: 8831039462944739478, guid: 1fc732a07981c374a8af0acbc7215993, type: 3}
   - chance: 1
     minRoomPercentageBeforeSpawn: 0
-    minQuantity: 4
-    maxQuantity: 6
+    minQuantity: 5
+    maxQuantity: 7
     rooms:
     - {fileID: 7473201654968958515, guid: ae9242528692e794fb71e4ae03115368, type: 3}
     - {fileID: 8146441097235114739, guid: e7db7bdb719f9434a854a06e76668b4a, type: 3}

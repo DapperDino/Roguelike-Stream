@@ -8,7 +8,8 @@ namespace Roguelike.Combat
     {
         [Required] [SerializeField] private DamageableEvent onPlayerSpawn = null;
         [SerializeField] private float invunerabilityDuration = 0.5f;
-        [SerializeField] private float lastInvunerabilityTime = Mathf.NegativeInfinity;
+        
+        private float lastInvunerabilityTime = Mathf.NegativeInfinity;
 
         protected override void Start()
         {

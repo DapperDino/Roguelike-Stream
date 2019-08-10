@@ -29,7 +29,8 @@ namespace Roguelike.Interactables
             GameObject itemPickupInstance = Instantiate(
                 itemPickup,
                 transform.position + transform.TransformDirection(itemSpawnOffset),
-                transform.rotation);
+                transform.rotation,
+                transform);
 
             itemPickupInstance.GetComponent<ItemPickup>().Initialise(item);
 

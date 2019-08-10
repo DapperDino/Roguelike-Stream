@@ -1,26 +1,46 @@
 ﻿using Roguelike.Interactables;
 using Roguelike.Rooms;
 using Roguelike.Utilities;
-using Sirenix.OdinInspector;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Roguelike.LevelGeneration
 {
     public class LevelGenerator : MonoBehaviour
     {
-        [Required] [SerializeField] private LevelSettings levelSettings = null;
-        [SerializeField] private float requiredRoomChance = 0.15f;
+        [SerializeField] private LevelSettings[] levelSettings = new LevelSettings[0];
+        [SerializeField] private UnityEvent onGameCompleted = null;
 
+        private int currentLevelIndex = 0;
+
+        private const float requiredRoomChance = 0.3f;
         private const int RoomOffset = 55;
 
-        private void Start() => GenerateLevel();
+        private LevelSettings CurrentLevelSettings => levelSettings[currentLevelIndex];
 
-        public void GenerateLevel()
+        private void Start() => GenerateLevel(0);
+
+        public void Regenerate() => GenerateLevel(currentLevelIndex);
+
+        public void GoToNextLevel()
+        {
+            currentLevelIndex++;
+
+            if (levelSettings.Length <= currentLevelIndex)
+            {
+                onGameCompleted?.Invoke();
+            }
+            else
+            {
+                GenerateLevel(currentLevelIndex);
+            }
+        }
+
+        public void GenerateLevel(int levelIndex)
         {
             int roomCount = 1;
-            int desiredRoomCount = levelSettings.RoomCount;
+            int desiredRoomCount = CurrentLevelSettings.RoomCount;
             List<TeleportPoint> teleportPoints = new List<TeleportPoint>();
             List<Vector2Int> usedSpaces = new List<Vector2Int>();
 
@@ -29,19 +49,19 @@ namespace Roguelike.LevelGeneration
                 Destroy(child.gameObject);
             }
 
-            Room spawnRoom = SpawnRoom(levelSettings.RandomSpawnRoom);
+            Room spawnRoom = SpawnRoom(CurrentLevelSettings.RandomSpawnRoom);
 
             usedSpaces.Add(new Vector2Int(0, 0));
 
             teleportPoints.AddRange(spawnRoom.TeleportPoints);
 
-            List<PriorityRoom> requiredRooms = levelSettings.RequiredRooms;
+            List<PriorityRoom> requiredRooms = CurrentLevelSettings.RequiredRooms;
 
             while ((teleportPoints.Count > 0 && roomCount < desiredRoomCount) || requiredRooms.Count > 0)
             {
                 if (teleportPoints.Count == 0)
                 {
-                    GenerateLevel();
+                    Regenerate();
                     return;
                 }
 
@@ -80,7 +100,7 @@ namespace Roguelike.LevelGeneration
 
                     while (tp == null)
                     {
-                        room = levelSettings.RandomMultiLinkRoom;
+                        room = CurrentLevelSettings.RandomMultiLinkRoom;
                         tp = room.GetOpposingPoint(teleportPoint);
                     }
 
@@ -122,7 +142,7 @@ namespace Roguelike.LevelGeneration
 
                         while (tp == null)
                         {
-                            room = levelSettings.RandomDeadEndRoom;
+                            room = CurrentLevelSettings.RandomDeadEndRoom;
                             tp = room.GetOpposingPoint(teleportPoint);
                         }
                         roomInstance = SpawnRoom(room);
@@ -134,7 +154,7 @@ namespace Roguelike.LevelGeneration
 
                         while (tp == null)
                         {
-                            room = levelSettings.RandomMultiLinkRoom;
+                            room = CurrentLevelSettings.RandomMultiLinkRoom;
                             tp = room.GetOpposingPoint(teleportPoint);
                         }
 
@@ -203,7 +223,7 @@ namespace Roguelike.LevelGeneration
         {
             Room roomInstance = Instantiate(room, transform);
 
-            roomInstance.Initialise(levelSettings);
+            roomInstance.Initialise(CurrentLevelSettings);
 
             return roomInstance;
         }
