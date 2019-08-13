@@ -48,6 +48,7 @@ namespace Roguelike.Characters
         {
             GameState.SelectedCharacter = SelectedCharacter;
             GameState.GameStartTime = Time.time;
+            GameState.Kills = 0;
         }
 
         private void SpawnCharacters()
